@@ -19,6 +19,9 @@ class Map {
     this.renderer = createRenderer();
     this.loop = new Loop(this.camera, this.scene, this.renderer);
 
+    const controls = createControls(this.camera, this.renderer.domElement);
+    this.loop.updatables.push(controls);
+
     container?.append(this.renderer.domElement);
 
     const cube = createCube();
