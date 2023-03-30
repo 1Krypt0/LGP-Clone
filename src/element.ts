@@ -4,13 +4,17 @@ export class MapElement {
     mesh : THREE.Mesh;
 
     constructor(url : string, xpos : number, ypos: number){
-        const loader = new THREE.TextureLoader();
-
-        const material = new THREE.MeshLambertMaterial({
-            map: loader.load(url)
+        const texture = new THREE.TextureLoader().load(url, (tex) => {
+            tex.needsUpdate = true;
+            this.mesh.scale.set(1.0, tex.image.height / tex.image.width, 1.0);
         });
 
-        const geometry = new THREE.PlaneGeometry(1, 1*.75);
+        const material = new THREE.MeshLambertMaterial({
+            map: texture,            
+            transparent: true
+        });
+        console.log(texture)
+        const geometry = new THREE.PlaneGeometry(1, 1);
 
         this.mesh = new THREE.Mesh(geometry, material);
         this.mesh.position.set(xpos, ypos, 0);

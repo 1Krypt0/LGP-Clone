@@ -1,6 +1,6 @@
 import "./style.css";
-
-import {MapElement} from "./element"
+import * as sceneData from "./scene_description.json";
+import {MapScene} from "./mapscene";
 import * as THREE from "three";
 
 const scene = new THREE.Scene();
@@ -17,15 +17,19 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+window.addEventListener( 'resize', onWindowResize, false );
 
-const someElement = new MapElement("https://s3.amazonaws.com/duhaime/blog/tsne-webgl/assets/cat.jpg", 0,0);
-scene.add(someElement.getMesh());
+function onWindowResize(){
 
-const someotherElement = new MapElement("assets/21577.jpg", 2,2);
-scene.add(someotherElement.getMesh());
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
 
-const otherElement = new MapElement("assets/download.jpeg", -2,-2);
-scene.add(otherElement.getMesh());
+    renderer.setSize( window.innerWidth, window.innerHeight );
+
+}
+
+const mapScene = new MapScene(scene);
+mapScene.parse(sceneData);
 
 camera.position.z = 5;
 
