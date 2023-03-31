@@ -1,6 +1,6 @@
 import { PerspectiveCamera, Scene, WebGLRenderer } from "three";
 import { createCamera } from "./components/camera";
-import { createCube } from "./components/cube";
+import { createPlane } from "./components/plane";
 import { createScene } from "./components/scene";
 import { createControls } from "./systems/controls";
 import { Loop } from "./systems/loop";
@@ -24,9 +24,9 @@ class Map {
 
     container?.append(this.renderer.domElement);
 
-    const cube = createCube();
+    const plane = createPlane();
 
-    this.scene.add(cube);
+    this.scene.add(plane);
 
     const resizer = new Resizer(container, this.camera, this.renderer);
   }
