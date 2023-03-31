@@ -1,0 +1,34 @@
+{
+  "elements" : [
+    {
+      "url" : "assets/3D.png",
+      "x" : 0,
+      "y" : 0
+    },
+    {
+      "url" : "assets/fauna.png",
+      "x" : 0,
+      "y" : 0
+    },
+    {
+      "url" : "assets/flora.png",
+      "x" : 0,
+      "y" : 0
+    },
+    {
+      "url" : "assets/flora2.png",
+      "x" : 0,
+      "y" : 0
+    },
+    {
+      "url" : "assets/labels.png",
+      "x" : 0,
+      "y" : 0
+    },
+    {
+      "url" : "assets/nuvens.png",
+      "x" : 0,
+      "y" : 0
+    }
+  ]
+}
