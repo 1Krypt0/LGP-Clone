@@ -14,7 +14,7 @@ export class MapElement {
             transparent: true
         });
         console.log(texture)
-        const geometry = new THREE.PlaneGeometry(1, 1);
+        const geometry = new THREE.PlaneGeometry(10, 10);
 
         this.mesh = new THREE.Mesh(geometry, material);
         this.mesh.position.set(xpos, ypos, 0);
