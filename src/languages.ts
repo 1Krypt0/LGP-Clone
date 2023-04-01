@@ -1,24 +1,18 @@
-fetch("src/lang/pt.json")
-.then((response)=>{
-    console.log(response)
-    return response.json()
-})
-.then(data=>init(data))
-.catch(e=>console.error(e))
+async function setLanguage(lang:string) {
+    const data = await fetch(`src/lang/${lang}.json`);
+    const json_data = await data.json();
+    setTexts(json_data);
+}
 
-let init = (data:any):void =>{
+const setTexts = (data:any):void =>{
     document.getElementById("app")!.innerHTML=data["button"];
 }
 
-const selector = document.getElementById("selector")! as HTMLSelectElement
+const selector = document.getElementById("selector")! as HTMLSelectElement //get the language selector
 
 selector.onchange = ():void=>{
     const selectedValue = selector.value
-    console.log(`src/lang/${selectedValue}.json`)
-    fetch(`src/lang/${selectedValue}.json`)
-    .then(response=>response.json())
-    .then(data=>init(data))
-    .catch(e=>console.error(e))
+    setLanguage(selectedValue);
 }
 
-export {}
+setLanguage('pt');
