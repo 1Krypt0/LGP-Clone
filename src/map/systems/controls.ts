@@ -4,11 +4,10 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 function createControls(camera: Camera, canvas: HTMLElement) {
   const controls = new OrbitControls(camera, canvas);
 
-  controls.enableDamping = true;
   controls.enableRotate = false;
 
-  controls.minDistance = 5;
-  controls.maxDistance = 15;
+  controls.minDistance = 0.1;
+  controls.maxDistance = 0.88;
 
   controls.mouseButtons = {
     LEFT: MOUSE.PAN,

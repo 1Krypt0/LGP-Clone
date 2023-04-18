@@ -1,34 +1,47 @@
 {
-  "elements" : [
+  "layers" : [
+    {
+      "url" : "assets/bg.jpg",
+      "x" : 0,
+      "y" : 0,
+      "z" : 0
+    },
     {
       "url" : "assets/3D.png",
       "x" : 0,
-      "y" : 0
+      "y" : 0,
+      "z" : 0
     },
     {
       "url" : "assets/fauna.png",
       "x" : 0,
-      "y" : 0
+      "y" : 0,
+      "z" : 0
     },
     {
       "url" : "assets/flora.png",
       "x" : 0,
-      "y" : 0
+      "y" : 0,
+      "z" : 0
     },
     {
       "url" : "assets/flora2.png",
       "x" : 0,
-      "y" : 0
+      "y" : 0,
+      "z" : 0
     },
     {
       "url" : "assets/labels.png",
       "x" : 0,
-      "y" : 0
+      "y" : 0,
+      "z" : 0
     },
     {
       "url" : "assets/nuvens.png",
       "x" : 0,
-      "y" : 0
+      "y" : 0,
+      "z" : 0.4,
+      "scale" : 0.5
     }
   ]
 }

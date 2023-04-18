@@ -1,22 +1,21 @@
-import { MapElement } from "./components/element";
+import { MapLayer } from "./components/layer";
 
 export class MapScene {
-    elementList : Array<MapElement>;
+    layerList : Array<MapLayer>;
     scene : THREE.Scene;
 
     constructor(scene : THREE.Scene){
         this.scene = scene;
-        this.elementList = [];
+        this.layerList = [];
     }
 
     parse(data : any){
-        const elements = data.elements;
+        const layers = data.layers;
 
-        for (const element of elements){
-            const mapElement = new MapElement(element.url, element.x, element.y);
-            this.elementList.push(mapElement);
-            console.log(mapElement)
-            this.scene.add(mapElement.getMesh());
+        for (const layer of layers){
+            const mapLayer = new MapLayer(layer);
+            this.layerList.push(mapLayer);
+            this.scene.add(mapLayer.getMesh());
         }
     }
 }
