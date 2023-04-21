@@ -7,7 +7,8 @@ export class POI extends THREE.Mesh{
     geometry : THREE.CircleGeometry 
     scene : Map
     popup : PopUp | null
-    text : string
+    title : string | null
+    text : string | null
        
     constructor(poi : any, scene : Map){
         super();
@@ -20,12 +21,20 @@ export class POI extends THREE.Mesh{
         this.geometry = new THREE.CircleGeometry(0.003, 32);;
         this.position.set(poi.x, poi.y, 0);
         this.popup = null;
-        this.text = poi.text;
+        this.title = null;
+        if (poi.title){
+            this.title = poi.title;
+        }
+        this.text = null;
+        if (poi.text) {
+            this.text = poi.text;
+        }
         this.layers.enableAll();
     }
     onClick(){
         if(this.popup != null) return;
-        this.popup = new PopUp(this.text);
+        if (this.title == null || this.text == null) return;
+        this.popup = new PopUp(this.title, this.text);
         
         this.popup.position.set( 0.1, 0.1, 0 );
         this.add( this.popup );
