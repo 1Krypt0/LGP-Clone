@@ -13,12 +13,11 @@ export class POI extends THREE.Mesh{
         super();
         this.scene = scene;
         this.material = new THREE.MeshBasicMaterial({
-            color : "red",
             transparent : true,
-            //opacity : 0
+            opacity : 0
         });
 
-        this.geometry = new THREE.CircleGeometry(0.0025, 32);;
+        this.geometry = new THREE.CircleGeometry(0.003, 32);;
         this.position.set(poi.x, poi.y, 0);
         this.popup = null;
         this.text = poi.text;
