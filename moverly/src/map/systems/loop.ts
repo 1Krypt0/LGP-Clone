@@ -1,4 +1,5 @@
 import { Camera, Clock, Mesh, Scene, WebGLRenderer } from "three";
+import { CSS2DRenderer } from "three/examples/jsm/renderers/CSS2DRenderer";
 
 class Loop {
   public updatables: Mesh[];
@@ -7,7 +8,8 @@ class Loop {
   constructor(
     private camera: Camera,
     private scene: Scene,
-    private renderer: WebGLRenderer
+    private renderer: WebGLRenderer,
+    private cssrenderer : CSS2DRenderer
   ) {
     this.updatables = [];
     this.clock = new Clock();
@@ -18,6 +20,7 @@ class Loop {
       this.tick();
 
       this.renderer.render(this.scene, this.camera);
+      this.cssrenderer.render(this.scene, this.camera);
     });
   }
 

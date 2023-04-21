@@ -10,6 +10,7 @@ function createMaterial() {
 function createPlane() {
   const geometry = new PlaneGeometry(20, 10);
   const plane = new Mesh(geometry, createMaterial());
+  plane.position.set(3,3,0);
 
   return plane;
 }
