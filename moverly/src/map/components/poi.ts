@@ -14,8 +14,9 @@ export class POI extends THREE.Mesh{
         super();
         this.scene = scene;
         this.material = new THREE.MeshBasicMaterial({
+            color: 0xff0000,
             transparent : true,
-            opacity : 0
+            opacity : 1
         });
 
         this.geometry = new THREE.CircleGeometry(0.003, 32);;
