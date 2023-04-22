@@ -33,7 +33,6 @@ export class POI extends THREE.Mesh{
         if (poi.text) {
             this.text = poi.text;
         }
-        //const loader = new FontLoader();
 
         const fontUrl = '/assets/fonts/helvetiker_regular.typeface.json';
 
