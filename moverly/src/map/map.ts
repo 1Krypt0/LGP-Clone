@@ -105,6 +105,9 @@ class Map {
   }
 
   openPopUp(poi : POI){
+    if (this.poi != null){
+      this.poi.closePopup();
+    }
     this.poi = poi;
   }
 
