@@ -1,4 +1,5 @@
-import { PerspectiveCamera, Raycaster, Scene, WebGLRenderer, Vector2} from "three";
+import { PerspectiveCamera, Raycaster, Scene, WebGLRenderer, Vector2, Vector3} from "three";
+import gsap from "gsap";
 import { createCamera } from "./components/camera";
 import { createPlane } from "./components/plane";
 import { createScene } from "./components/scene";
@@ -56,6 +57,21 @@ class Map {
 
       if(ev.target == close){
         this.poi?.closePopup();
+        const target = new Vector3(0, 0, 0.75);
+        gsap.to(this.camera.position, {
+          x: target.x,
+          y: target.y,
+          z: target.z,
+          duration: 1,
+          ease: 'power2.inOut',
+        });
+        gsap.to(controls.target, {
+          x: target.x,
+          y: target.y,
+          z: target.z - 0.5,
+          duration: 1,
+          ease: 'power2.inOut',
+        });
       }
 
       this.pointer.set( ( ev.clientX / window.innerWidth ) * 2 - 1, - ( ev.clientY / window.innerHeight ) * 2 + 1 );
@@ -64,6 +80,24 @@ class Map {
       for(const intersect of intersects) {
         if(intersect.object.onClick){
           intersect.object.onClick();
+          const target = intersect.object.position.clone();
+          target.z += 0.5; // or any other small value
+          
+          gsap.to(this.camera.position, {
+            x: target.x,
+            y: target.y,
+            z: target.z,
+            duration: 1,
+            ease: "power2.inOut",
+          });
+          
+          gsap.to(controls.target, {
+            x: target.x,
+            y: target.y,
+            z: target.z - 0.5, // subtract a larger value from the target's z-coordinate
+            duration: 1,
+            ease: "power2.inOut",
+          });
         }
       }
 
@@ -71,6 +105,9 @@ class Map {
   }
 
   openPopUp(poi : POI){
+    if (this.poi != null){
+      this.poi.closePopup();
+    }
     this.poi = poi;
   }
 
