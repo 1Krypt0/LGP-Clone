@@ -45,6 +45,30 @@
     }
   ],
 
+  "animations" : [
+    {
+      "url" : "assets/messi1.mp4",
+      "x" : 0.2,
+      "y" : 0,
+      "z" : 0.01,
+      "scale" : 0.1
+    },
+    {
+      "url" : "assets/messi2.mp4",
+      "x" : -0.3,
+      "y" : 0,
+      "z" : 0.01,
+      "scale" : 0.1
+    },
+    {
+      "url" : "assets/no_background.webm",
+      "x" : 0.3,
+      "y" : 0.25,
+      "z" : 0.01,
+      "scale" : 0.1
+    }
+  ],
+
   "poi" : [
     {
       "x" : 0.08,
