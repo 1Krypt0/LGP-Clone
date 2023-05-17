@@ -23,7 +23,7 @@ export class POI extends THREE.Mesh{
         const loader = new FontLoader();
 
         this.geometry = new THREE.CircleGeometry(0.003, 32);
-        this.position.set(poi.x, poi.y, 0);
+        this.position.set(poi.x, poi.y, 0.01);
         this.popup = null;
         this.title = null;
         if (poi.title){

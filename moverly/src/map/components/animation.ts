@@ -1,9 +1,9 @@
 import * as THREE from 'three';
 
 export class Animation extends THREE.Mesh {
-    material: THREE.Material;
-    geometry: THREE.PlaneGeometry;
-    video: HTMLVideoElement;
+  material: THREE.Material;
+  geometry: THREE.PlaneGeometry;
+  video: HTMLVideoElement;
 
   constructor(element: any) {
     super();
@@ -20,8 +20,10 @@ export class Animation extends THREE.Mesh {
     texture.format = THREE.RGBAFormat;
 
     this.material = new THREE.MeshBasicMaterial({
-        map: texture,
-        transparent: true
+      map: texture,
+      transparent: true,
+      depthTest: false, // Disable depth testing for the animation
+      depthWrite: false, // Disable writing to the depth buffer for the animation
     });
 
     this.geometry = element.scale == null ? new THREE.PlaneGeometry(1, 1) : new THREE.PlaneGeometry(element.scale, element.scale);

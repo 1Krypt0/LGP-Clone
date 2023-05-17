@@ -35,6 +35,7 @@ export class MapScene {
         const animations = data.animations;
         for (const animation of animations){
             const mapAnimation = new Animation(animation);
+            mapAnimation.scale.set(1.0, 1.0, 1.0);
             this.animationList.push(mapAnimation);
             this.scene.add(mapAnimation);
         }
