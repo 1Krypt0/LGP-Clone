@@ -22,8 +22,6 @@ export class Animation extends THREE.Mesh {
     this.material = new THREE.MeshBasicMaterial({
       map: texture,
       transparent: true,
-      depthTest: false, // Disable depth testing for the animation
-      depthWrite: false, // Disable writing to the depth buffer for the animation
     });
 
     this.geometry = element.scale == null ? new THREE.PlaneGeometry(1, 1) : new THREE.PlaneGeometry(element.scale, element.scale);
