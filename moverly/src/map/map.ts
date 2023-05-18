@@ -142,6 +142,7 @@ class Map {
     if (this.poi != null) {
       this.poi.closePopup();
     }
+    this.poi = poi;
   }
 
   render() {
