@@ -1,4 +1,4 @@
-import { PerspectiveCamera, Raycaster, Scene, WebGLRenderer, Vector2, Vector3 } from "three";
+import { PerspectiveCamera, Raycaster, Scene, WebGLRenderer, Vector2, Vector3, AudioListener, Audio, AudioLoader } from "three";
 import gsap from "gsap";
 import { createCamera } from "./components/camera";
 import { createPlane } from "./components/plane";
@@ -44,6 +44,21 @@ class Map {
     const controls = createControls(this.camera, this.cssrenderer.domElement);
     this.loop.updatables.push(controls);
 
+
+    const listener = new AudioListener();
+    this.camera.add(listener);
+
+    // create a global audio source
+    const sound = new Audio(listener);
+
+    // load a sound and set it as the Audio object's buffer
+    const audioLoader = new AudioLoader();
+    audioLoader.load('assets/theme.wav', function(buffer) {
+      sound.setBuffer(buffer);
+      sound.setLoop(true);
+      sound.setVolume(0.5);
+      sound.play();
+    });
     this.mapScene.parse(data);
 
     const plane = createPlane();
