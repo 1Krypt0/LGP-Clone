@@ -115,6 +115,13 @@ class Map {
     this.scene.add(poi.pin);
   }
 
+  showRoute(route : THREE.Line){
+    console.log("estou aqui!");
+    console.log(route);
+    this.scene.add(route);
+  }
+
+
 
   render() {
     this.renderer.render(this.scene, this.camera);
