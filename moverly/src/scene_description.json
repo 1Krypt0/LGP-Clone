@@ -164,5 +164,18 @@
       "title" : "Pico do Areeiro",
       "text" : "Watching the sunset at 1818m of altitude is magical, even if there is a mantle of clouds hiding the depth of the mountains. To Pico Ruivo, the highest peak of the island, is a 4-hour walk, but for this show, we suggest the Ninho da Manta viewpoint, right at the beginning of the trail."
     }
+  ],
+  "routes" : [
+    {
+      "name" : "Zona Oeste",
+      "poi" : [
+        {
+          "name" : "City of Funchal"
+        },
+        {
+          "name" : "Pico do Areeiro"
+        }
+      ] 
+    }
   ]
 }

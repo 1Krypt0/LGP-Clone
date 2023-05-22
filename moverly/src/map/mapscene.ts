@@ -1,9 +1,12 @@
 import { MapLayer } from "./components/layer";
 import { POI } from "./components/poi";
+import { Route } from "./components/route";
 import { Map } from "./map";
+
 export class MapScene {
     layerList : Array<MapLayer>;
     poiList : Array<POI>;
+    routesList : Array<Route>;
     scene : THREE.Scene;
     map : Map;
 
@@ -12,6 +15,7 @@ export class MapScene {
         this.map = map;
         this.layerList = [];
         this.poiList = [];
+        this.routesList = [];
     }
 
     parse(data : any){
@@ -29,5 +33,18 @@ export class MapScene {
             this.poiList.push(mapPoi);
             this.scene.add(mapPoi);
         }
+        const routes = data.routes;
+        for (const route of routes){
+            const mapRoute = new Route();
+            for (const poi of route.poi){
+                for (const mapPoi of this.poiList){
+                    if (mapPoi.title == poi.name){
+                       mapRoute.addPoi(mapPoi);
+                    }
+                }
+            }
+            this.routesList.push(mapRoute);
+        }
+        console.log(this.routesList);
     }
 }
