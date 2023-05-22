@@ -111,6 +111,11 @@ class Map {
     this.poi = poi;
   }
 
+  showPoiPin(poi : POI){
+    this.scene.add(poi.pin);
+  }
+
+
   render() {
     this.renderer.render(this.scene, this.camera);
     this.cssrenderer.render(this.scene, this.camera);

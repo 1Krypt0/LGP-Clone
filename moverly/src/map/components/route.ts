@@ -1,5 +1,6 @@
 import { POI } from './poi';
 
+
 export class Route {
     routeList : Array<POI>;
 
@@ -14,5 +15,4 @@ export class Route {
     getRoute(){
         return this.routeList;
     }
-
 }
