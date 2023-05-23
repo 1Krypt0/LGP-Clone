@@ -173,9 +173,34 @@
           "name" : "City of Funchal"
         },
         {
-          "name" : "Pico do Areeiro"
+          "name" : "Camacha"
+        },
+        {
+          "name" : "Curral das Freiras"
         }
       ] 
+    },
+    {
+      "name" : "Zona Este e Nordeste",
+      "poi" : [
+        {
+          "name" : "Ponta de São Lourenço"
+        },
+        {
+          "name" : "Machico"
+        }
+      ]
+    },
+    {
+      "name" : "Zona Noroeste",
+      "poi" : [
+        {
+          "name" : "Serra de Água"
+        },
+        {
+          "name" : "São Vicente Caves and Volcanism Centre"
+        }
+      ]
     }
   ]
 }

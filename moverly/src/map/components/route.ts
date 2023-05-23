@@ -4,11 +4,13 @@ import { RouteLine } from './routeline';
 
 
 export class Route {
+    name : string;
     routeList : Array<POI>;
     routeLines : Array<RouteLine>;
     scene : Map;
 
-    constructor(scene : Map){
+    constructor(name : string, scene : Map){
+        this.name = name;
         this.scene = scene;
         this.routeList = [];
         this.routeLines = [];
@@ -25,7 +27,15 @@ export class Route {
             const routeLine = new RouteLine(poi1.position, poi2.position);
             this.routeLines.push(routeLine);
         }
-        this.scene.showRoute(this.routeLines[0])
     }
+
+    showRoute(){
+        this.scene.showRoute(this);
+    }
+
+    hideRoute(){
+        this.scene.hideRoute(this);
+    }
+
 
 }

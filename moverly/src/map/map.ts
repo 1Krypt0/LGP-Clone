@@ -4,6 +4,7 @@ import { createCamera } from "./components/camera";
 import { createPlane } from "./components/plane";
 import { createScene } from "./components/scene";
 import { POI } from "./components/poi";
+import { Route } from "./components/route";
 import { MapScene } from "./mapscene";
 import { createControls } from "./systems/controls";
 import { Loop } from "./systems/loop";
@@ -115,10 +116,20 @@ class Map {
     this.scene.add(poi.pin);
   }
 
-  showRoute(route : THREE.Line){
-    console.log("estou aqui!");
-    console.log(route);
-    this.scene.add(route);
+  showRoute(route : Route){
+    for (const routeLine of route.routeLines){
+      this.scene.add(routeLine);
+    }
+  }
+
+  hideRoute(route : Route){
+    for (const routeLine of route.routeLines){
+      this.scene.remove(routeLine);
+    }
+  }
+
+  getMapScene(){
+    return this.mapScene;
   }
 
 
