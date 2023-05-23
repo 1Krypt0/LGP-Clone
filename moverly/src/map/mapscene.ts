@@ -45,7 +45,6 @@ export class MapScene {
             }
             mapRoute.createRoute();
             this.routesList.push(mapRoute);
-        }
-        console.log(this.routesList);
     }
+  }
 }
