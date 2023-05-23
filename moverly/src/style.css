@@ -1,3 +1,10 @@
+:root{
+  --button-secondary-color: #165769;
+  --button-primary-color: #177F9B;
+}
+
+
+
 body {
   margin: 0;
   overflow: hidden;
@@ -40,11 +47,18 @@ body {
 
 /* UI STUFF */
 
+#logo-icon{
+  position: absolute;
+  top:2vw;
+  width: 25vw;
+  left:0;
+}
+
 #ui-overlay{
   position: absolute;
   top:0;
   right: 0vw;
-  background-color: black;
+  background-color: rgba(255, 255, 255, 0.9);
   height: 100vh;
   color:white;
   width: 5vw;
@@ -74,8 +88,8 @@ body {
 }
 
 .ui-menu-button{
-  font-family: kulim-park-light;
-  background-color: rgb(20, 20, 20);
+  font-family: kulim-park-light, Arial, Helvetica, sans-serif;
+  background-color: transparent;
   text-align: right;
   margin-top: 1vw;
   font-size: 1.3vw;
@@ -84,7 +98,7 @@ body {
   align-items: center;
   justify-content: flex-end;
   padding-right: 1vw;
-  color:white;
+  color:#177F9B;
   border:none;
   width: 100%;
   cursor: pointer;
@@ -92,13 +106,14 @@ body {
 }
 
 .ui-menu-button:hover{
-  background-color: rgb(50,50,50);
+  background-color: var(--button-primary-color);
+  color: white;
   transition: background-color 0.2s ease-out;
 }
 
 .ui-menu-button:active{
-  background-color: rgb(240,240,240);
-  color: black;
+  background-color: var(--button-primary-color);
+  color: white;
 }
 
 
@@ -110,6 +125,11 @@ body {
 @font-face {
   font-family: kulim-park-light;
   src: url(./assets/ui/KulimPark-Light.ttf);
+}
+
+@font-face {
+  font-family: mulish;
+  src: url(./assets/ui/Mulish-VariableFont_wght.ttf);
 }
 
 #buttons-div{
@@ -170,7 +190,7 @@ body {
   left: 20vw;
   width: 60vw;
   height: 40vw;
-  background-color: white;
+  background-color: rgba(255,255,255,0.9);
   border-radius: 2.5vw;
   display: none;
 }
@@ -187,7 +207,10 @@ h1{
   margin-top: 0;
   width: 100%;
   text-align: center;
-  font-size: 2.4vw;
+  font-weight: 800;
+  font-size: 3vw;
+  color:var(--button-primary-color);
+  font-family: Mulish,Arial, Helvetica, sans-serif;
 }
 
 #info-text{
@@ -198,6 +221,7 @@ h1{
   text-align: justify;
   padding-left: 3vw;
   padding-right: 3vw;
+  font-family: Mulish, Arial, Helvetica, sans-serif;
 }
 
 #info-close-button{
@@ -206,6 +230,7 @@ h1{
   width: 2vw;
   height: 2vw;
   background-image: url(./assets/ui/close-button.png);
+  background-color: transparent;
   background-size: 100% 100%;
   border:none;
   cursor: pointer;
@@ -218,6 +243,7 @@ h1{
   height: 2vw;
   background-image: url(./assets/ui/back-button.png);
   background-size: 100% 100%;
+  background-color: transparent;
   border:none;
   cursor: pointer;
   position: absolute;
@@ -236,7 +262,8 @@ h1{
 }
 
 .info-navbar-button{
-  background-color: #ddd;
+  background-color: transparent;
+  background-size: 100% 100%;
   border: none;
   width: 4vw;
   height: 4vw;
@@ -245,6 +272,19 @@ h1{
 
 .info-navbar-description{
   font-size: 1vw;
+}
+
+#info-navbar-history-button{
+  background-image: url(./assets/ui/history-icon.png);
+}
+#info-navbar-lifestyle-button{
+  background-image: url(./assets/ui/lifestyle-icon.png);
+}
+#info-navbar-fauna-button{
+  background-image: url(./assets/ui/fauna-icon.png);
+}
+#info-navbar-flora-button{
+  background-image: url(./assets/ui/flora-icon.png);
 }
 
 
@@ -283,4 +323,83 @@ h1{
   margin-left: 1vw;
   height: 17vw;
   overflow-y: scroll;
+}
+
+
+#routes-div{
+  display: none;
+}
+
+.routes-button{
+  font-family: kulim-park-light, Arial, Helvetica, sans-serif;
+  background-color: transparent;
+  text-align: right;
+  font-size: 0.9vw;
+  height: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding:1vw;
+  padding-right: 1vw;
+  color:var(--button-primary-color);
+  border:none;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
+}
+
+.routes-button:hover{
+  background-color: var(--button-secondary-color);
+  color: white;
+  transition: background-color 0.2s ease-out;
+}
+
+.routes-button:active{
+  background-color: var(--button-primary-color);
+  color: white;
+}
+
+
+#project-overlay{
+  position: absolute;
+  top:5vw;
+  left: 20vw;
+  width: 60vw;
+  height: 40vw;
+  background-color: rgba(255,255,255,0.9);
+  border-radius: 2.5vw;
+  display: none;
+}
+
+#project-title{
+  margin-top: 0;
+  width: 100%;
+  text-align: center;
+  font-weight: 800;
+  font-size: 3vw;
+  color:var(--button-primary-color);
+  font-family: Mulish,Arial, Helvetica, sans-serif;
+}
+
+#project-text{
+  margin-top: 0;
+  width: 54vw;
+  line-height: 2.2vw;
+  font-size: 1.7vw;
+  text-align: justify;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  font-family: Mulish, Arial, Helvetica, sans-serif;
+}
+
+#project-close-button{
+  margin-top: 3vw;
+  margin-left: 55vw;
+  width: 2vw;
+  height: 2vw;
+  background-image: url(./assets/ui/close-button.png);
+  background-color: transparent;
+  background-size: 100% 100%;
+  border:none;
+  cursor: pointer;
 }

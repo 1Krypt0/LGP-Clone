@@ -1,5 +1,8 @@
 import { Map } from "./map/map";
 
+import { buttonBlue } from "./scripts/colors";
+import { RouteUI } from "./scripts/uiClasses";
+
 const main = () => {
   const container = document.querySelector("#scene") || new Element();
   const map = new Map(container);
@@ -25,6 +28,7 @@ const toggleMenu = () =>{
         buttonsDiv.style.display = "none";
         buttonsDiv.style.opacity = "0";
         uiOverlay.style.width="5vw";
+        isInfoOpen = false;
     }
   }
 }
@@ -44,32 +48,54 @@ const lifestylePage = document.getElementById("info-lifestyle-page");
 const faunaPage = document.getElementById("info-fauna-page");
 const floraPage = document.getElementById("info-flora-page");
 
+
+let routesOpen = false;
+const routesButton = document.getElementById("routes-button");
+const routesDiv = document.getElementById("routes-div");
+const wRouteButton = document.getElementById("w-route-button");
+const nwRouteButton = document.getElementById("nw-route-button");
+const eNeRouteButton = document.getElementById("e-ne-route-button");
+
+const routesList: RouteUI[] = [];
+routesList.push(new RouteUI(wRouteButton))
+routesList.push(new RouteUI(nwRouteButton))
+routesList.push(new RouteUI(eNeRouteButton))
+
+
+const projectButton = document.getElementById("project-button");
+const projectOverlay = document.getElementById("project-overlay");
+const projectCloseButton = document.getElementById("project-close-button");
+
 let isInfoOpen = false;
 
-infoButton?.addEventListener("click",()=>{
-  if(infoOverlay == null || startPage == null){
+function setInfoPageOpen(setOpen :boolean){
+  if(infoOverlay == null || startPage == null || infoButton == null){
     return
   }
-  if (!isInfoOpen){
+  if(!setOpen){
+    infoOverlay.style.display ="none";
+    infoButton.style.backgroundColor="transparent";
+    infoButton.style.color="#177F9B";
+
+  }else{
     closeAllInfoPages();
     startPage.style.display = "block";
     infoOverlay.style.display ="block";
-    infoButton.style.backgroundColor="white";
-    infoButton.style.color="black";
-  }else{
-    infoOverlay.style.display ="none";
-    infoButton.style.backgroundColor="#141414";
+    infoButton.style.backgroundColor="#177F9B";
     infoButton.style.color="white";
+  }
+}
+
+infoButton?.addEventListener("click",()=>{
+  if (!isInfoOpen){
+    setInfoPageOpen(true);
+  }else{
+    setInfoPageOpen(false);
   }
   isInfoOpen = !isInfoOpen;
 });
 infoCloseButton?.addEventListener("click",()=>{
-  if(infoOverlay == null || infoButton == null){
-    return;
-  }
-  infoOverlay.style.display ="none";
-  infoButton.style.backgroundColor="#141414";
-  infoButton.style.color="white";
+  setInfoPageOpen(false);
   toggleMenu();
 })
 
@@ -134,3 +160,49 @@ const closeAllInfoPages =()=>{
 
 
 menuToggleButton?.addEventListener("click",toggleMenu);
+
+
+function setRoutesDivOpen(setOpen:boolean){
+  if(routesDiv == null|| routesButton == null){
+    return;
+  }
+  routesOpen = setOpen;
+  if(setOpen){
+      routesDiv.style.display ="block";
+      routesButton.style.backgroundColor=buttonBlue;
+      routesButton.style.color="white";
+  }else{
+      routesDiv.style.display ="none";
+      routesButton.style.backgroundColor="transparent";
+      routesButton.style.color=buttonBlue;
+  }
+}
+
+routesButton?.addEventListener("click",()=>{
+  setRoutesDivOpen(!routesOpen);
+})
+
+
+let isProjectOpen = false;
+function setProjectPageOpen(setOpen:boolean){
+  if(projectOverlay == null|| projectButton == null){
+    return;
+  }
+  isProjectOpen = setOpen;
+  if(setOpen){
+      projectOverlay.style.display ="block";
+      projectButton.style.backgroundColor=buttonBlue;
+      projectButton.style.color="white";
+  }else{
+      projectOverlay.style.display ="none";
+      projectButton.style.backgroundColor="transparent";
+      projectButton.style.color=buttonBlue;
+  }
+}
+
+projectButton?.addEventListener("click",()=>{
+  setProjectPageOpen(!isProjectOpen);
+})
+projectCloseButton?.addEventListener("click",()=>{
+  setProjectPageOpen(false);
+})
