@@ -112,22 +112,40 @@ class Map {
     this.poi = poi;
   }
 
-  showPoiPin(poi : POI){
-    this.scene.add(poi.pin);
-  }
-
-  showRoute(route : Route){
-    for (const routeLine of route.routeLines){
+  showRoute(route: Route) {
+    for (const routeLine of route.routeLines) {
       this.scene.add(routeLine);
+      gsap.killTweensOf(routeLine.material);
+      gsap.to(routeLine.material, { opacity: 1, duration: 1.5 });
+    }
+    for (const poi of route.routeList) {
+      this.scene.add(poi.pin);
+      gsap.killTweensOf(poi.pin.material);
+      gsap.to(poi.pin.material, { opacity: 1, duration: 1.5 });
     }
   }
-
-  hideRoute(route : Route){
-    for (const routeLine of route.routeLines){
-      this.scene.remove(routeLine);
+  
+  hideRoute(route: Route) {
+    const { routeLines, routeList } = route;
+  
+    const onComplete = () => {
+      for (const routeLine of routeLines) {
+        this.scene.remove(routeLine);
+      }
+      for (const poi of routeList) {
+        this.scene.remove(poi.pin);
+      }
+    };
+  
+    for (const routeLine of routeLines) {
+      gsap.killTweensOf(routeLine.material);
+      gsap.to(routeLine.material, { opacity: 0, duration: 1.5, onComplete });
+    }
+    for (const poi of routeList) {
+      gsap.killTweensOf(poi.pin.material);
+      gsap.to(poi.pin.material, { opacity: 0, duration: 1.5, onComplete });
     }
   }
-
   getMapScene(){
     return this.mapScene;
   }

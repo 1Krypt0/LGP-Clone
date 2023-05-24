@@ -53,9 +53,7 @@ const uiOverlay = document.getElementById("ui-overlay");
   const eNeRouteButton = document.getElementById("e-ne-route-button");
 
   const routesList: RouteUI[] = [];
-  console.log(map.getMapScene().routesList);
   for (const route of map.getMapScene().routesList){
-    console.log(route.name);
     switch(route.name){
       case "Zona Oeste":
         routesList.push(new RouteUI(wRouteButton, route));

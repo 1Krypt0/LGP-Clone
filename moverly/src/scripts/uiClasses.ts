@@ -21,7 +21,6 @@ class RouteUI{
     }
   
     setRouteOpen(setOpen:boolean){
-      console.log(this.route);
       if (this.routeButton == null){return};
       this.isOpen = setOpen;
       if(setOpen){

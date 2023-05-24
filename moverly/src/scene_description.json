@@ -59,14 +59,14 @@
       "text" : "Before the tunnel, access the viewpoints of Paredão or Eira do Serrado, and surprise yourself with this typical Madeira's village right inside a cauldron! Don't miss the Chestnut Museum, the parish's king of fruits, which is used in soups, cake or chestnut cookies. Delight yourself with the sour cherries, transformed into liquor."
     },
     {
-      "x" : -0.222,
-      "y" : -0.126,
+      "x" : -0.07,
+      "y" : -0.172,
       "title" : "Cabo Girão Viewpoint",
       "text" : "This glass platform located at an altitude of 580m grants an astonishing view over the southern coast. It is located in Europe's highest cape, very popular amongst paragliding and base-jumping lovers. One can usually find catamarans anchored off the Fajās, watching dolphins or diving in this Nature Reserve."
     },
     {
-      "x" : -0.07,
-      "y" : -0.172,
+      "x" : -0.222,
+      "y" : -0.126,
       "title" : "Ponta do Sol Village",
       "text" : "Bathed by a genuine and inviting pebble beach, the picturesque village of Ponta do Sol, with many hours of sunshine throughout the year, hence its name, breathes tranquillity and relaxation. Its hallmark continues to be the beautiful Levada Velha do Moinho waterfall, although its folklore or theatre cultural festivals also have international projection."
     },
@@ -173,10 +173,22 @@
           "name" : "City of Funchal"
         },
         {
-          "name" : "Camacha"
+          "name" : "Curral das Freiras"
         },
         {
-          "name" : "Curral das Freiras"
+          "name" : "City of Câmara de Lobos"
+        },
+        {
+          "name" : "Cabo Girão Viewpoint"
+        },
+        {
+          "name" : "Ponta do Sol Village"
+        },
+        {
+          "name" : "Paul do Mar"
+        },
+        {
+          "name" : "Ponta do Pargo Lighthouse"
         }
       ] 
     },
@@ -188,6 +200,24 @@
         },
         {
           "name" : "Machico"
+        },
+        {
+          "name" : "Camacha"
+        },
+        {
+          "name" : "Ribeiro Frio"
+        },
+        {
+          "name" : "Porto da Cruz Village"
+        },
+        {
+          "name" : "Santana"
+        },
+        {
+          "name" : "Queimadas"
+        },
+        {
+          "name" : "Pico do Areeiro"
         }
       ]
     },
@@ -199,6 +229,15 @@
         },
         {
           "name" : "São Vicente Caves and Volcanism Centre"
+        },
+        {
+          "name" : "Seixal Port Beach and 'Poças das Lesmas' Natural Pools"
+        },
+        {
+          "name" : "Fanal"
+        },
+        {
+          "name" : "Porto Moniz Village and Natural Pools"
         }
       ]
     }
