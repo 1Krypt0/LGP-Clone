@@ -57,6 +57,11 @@ class Map {
     );
 
     const controls = createControls(this.camera, this.cssrenderer.domElement);
+
+    controls.addEventListener("change", () => {
+      this.mapScene.updateAnimations(this.camera.position);
+    });
+
     this.loop.updatables.push(controls);
 
     const listener = new AudioListener();

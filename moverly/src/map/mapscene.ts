@@ -10,9 +10,10 @@ export class MapScene {
   scene: THREE.Scene;
   map: Map;
 
-  constructor(scene: THREE.Scene, map: Map) {
+  constructor(scene: THREE.Scene, map: Map ) {
     this.scene = scene;
     this.map = map;
+
     this.animationList = [];
     this.layerList = [];
     this.poiList = [];
@@ -35,9 +36,15 @@ export class MapScene {
 
     const animations = data.animations;
     for (const animation of animations) {
-      const mapAnimation = new Animation(animation);
+      const mapAnimation = new Animation(animation, 0.35);
       this.animationList.push(mapAnimation);
       this.scene.add(mapAnimation);
+    }
+  }
+
+  updateAnimations(cameraPosition : THREE.Vector3) {
+    for (const animation of this.animationList) {
+      animation.update(cameraPosition);
     }
   }
 }
