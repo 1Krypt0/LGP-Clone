@@ -12,49 +12,65 @@ const main = () => {
 
 main();
 
+const webDiv = document.getElementById("web-version")!;
+const mobileDiv = document.getElementById("mobile-version")!;
+let isMobile = false;
 
-const uiOverlay = document.getElementById("ui-overlay");
-const menuToggleButton = document.getElementById("ui-toggle-button");
-const buttonsDiv = document.getElementById("buttons-div");
+if(window.innerHeight > window.innerWidth){
+  webDiv.style.display = "none";
+  isMobile = true;
+}else{
+  mobileDiv.style.display = "none";
+}
+
+
+
+
+const uiOverlay = document.getElementById("ui-overlay")!;
+const menuToggleButton = document.getElementById("ui-toggle-button")!;
+const buttonsDiv = document.getElementById("buttons-div")!;
+const uiOverlayMobile = document.getElementById("ui-overlay-mobile")!;
+const menuToggleButtonMobile = document.getElementById("ui-toggle-button-mobile")!;
+const buttonsDivMobile = document.getElementById("buttons-div-mobile")!;
 let menuState = false;
 const toggleMenu = () =>{
   menuState = !menuState;
-  if( buttonsDiv != null && menuToggleButton!= null && uiOverlay!= null){
-    if (menuState){ // Open menu
-        buttonsDiv.style.display = "block";
-        buttonsDiv.style.opacity = "1";
-        uiOverlay.style.width="13vw";
-    }else{ //Close menu
-        buttonsDiv.style.display = "none";
-        buttonsDiv.style.opacity = "0";
-        uiOverlay.style.width="5vw";
-        isInfoOpen = false;
-    }
+  if (menuState){ // Open menu
+      buttonsDiv.style.display = "block";
+      buttonsDiv.style.opacity = "1";
+      uiOverlay.style.width="13vw";
+      buttonsDivMobile.style.height = "30vw";
+  }else{ //Close menu
+      buttonsDiv.style.display = "none";
+      buttonsDiv.style.opacity = "0";
+      uiOverlay.style.width="5vw";
+      buttonsDivMobile.style.height = "0vw";
+      isInfoOpen = false;
   }
 }
 
-const infoOverlay = document.getElementById("info-overlay")
-const infoButton = document.getElementById("info-button");
-const infoCloseButton = document.getElementById("info-close-button");
-const infoBackButton = document.getElementById("info-back-button");
+const infoOverlay = document.getElementById("info-overlay")!;
+const infoButton = document.getElementById("info-button")!;
+const infoCloseButton = document.getElementById("info-close-button")!;
+const infoBackButton = document.getElementById("info-back-button")!;
 
-const historyButton = document.getElementById("info-navbar-history-button");
-const lifestyleButton = document.getElementById("info-navbar-lifestyle-button");
-const faunaButton = document.getElementById("info-navbar-fauna-button");
-const floraButton = document.getElementById("info-navbar-flora-button");
-const startPage = document.getElementById("info-start-page");
-const historyPage = document.getElementById("info-history-page");
-const lifestylePage = document.getElementById("info-lifestyle-page");
-const faunaPage = document.getElementById("info-fauna-page");
-const floraPage = document.getElementById("info-flora-page");
+const historyButton = document.getElementById("info-navbar-history-button")!;
+const lifestyleButton = document.getElementById("info-navbar-lifestyle-button")!;
+const faunaButton = document.getElementById("info-navbar-fauna-button")!;
+const floraButton = document.getElementById("info-navbar-flora-button")!;
+const startPage = document.getElementById("info-start-page")!;
+const historyPage = document.getElementById("info-history-page")!;
+const lifestylePage = document.getElementById("info-lifestyle-page")!;
+const faunaPage = document.getElementById("info-fauna-page")!;
+const floraPage = document.getElementById("info-flora-page")!;
 
 
 let routesOpen = false;
-const routesButton = document.getElementById("routes-button");
-const routesDiv = document.getElementById("routes-div");
-const wRouteButton = document.getElementById("w-route-button");
-const nwRouteButton = document.getElementById("nw-route-button");
-const eNeRouteButton = document.getElementById("e-ne-route-button");
+const routesButton = document.getElementById("routes-button")!;
+const routesDiv = document.getElementById("routes-div")!;
+const wRouteButton = document.getElementById("w-route-button")!;
+const nwRouteButton = document.getElementById("nw-route-button")!;
+const eNeRouteButton = document.getElementById("e-ne-route-button")!;
 
 const routesList: RouteUI[] = [];
 routesList.push(new RouteUI(wRouteButton))
@@ -62,16 +78,13 @@ routesList.push(new RouteUI(nwRouteButton))
 routesList.push(new RouteUI(eNeRouteButton))
 
 
-const projectButton = document.getElementById("project-button");
-const projectOverlay = document.getElementById("project-overlay");
-const projectCloseButton = document.getElementById("project-close-button");
+const projectButton = document.getElementById("project-button")!;
+const projectOverlay = document.getElementById("project-overlay")!;
+const projectCloseButton = document.getElementById("project-close-button")!;
 
 let isInfoOpen = false;
 
 function setInfoPageOpen(setOpen :boolean){
-  if(infoOverlay == null || startPage == null || infoButton == null){
-    return
-  }
   if(!setOpen){
     infoOverlay.style.display ="none";
     infoButton.style.backgroundColor="transparent";
@@ -100,54 +113,36 @@ infoCloseButton?.addEventListener("click",()=>{
 })
 
 infoBackButton?.addEventListener("click",()=>{
-  if(startPage == null){
-    return
-  }
   closeAllInfoPages();
   startPage.style.display = "block";
 })
 
 historyButton?.addEventListener("click",()=>{
   closeAllInfoPages();
-  if (historyPage == null || infoBackButton == null){
-    return;
-  }
   historyPage.style.display = "block";
   infoBackButton.style.display = "block";
 })
 
 lifestyleButton?.addEventListener("click",()=>{
   closeAllInfoPages();
-  if (lifestylePage == null || infoBackButton == null){
-    return;
-  }
   lifestylePage.style.display = "block";
   infoBackButton.style.display = "block";
 })
 
 faunaButton?.addEventListener("click",()=>{
   closeAllInfoPages();
-  if (faunaPage == null || infoBackButton == null){
-    return;
-  }
   faunaPage.style.display = "block";
   infoBackButton.style.display = "block";
 })
 
 floraButton?.addEventListener("click",()=>{
   closeAllInfoPages();
-  if (floraPage == null || infoBackButton == null){
-    return;
-  }
   floraPage.style.display = "block";
   infoBackButton.style.display = "block";
 })
 
 
 const closeAllInfoPages =()=>{
-  if(startPage == null || historyPage == null || lifestylePage == null || faunaPage == null || floraPage == null || infoBackButton == null){
-    return
-  }
   startPage.style.display = "none";
   historyPage.style.display = "none";
   lifestylePage.style.display = "none";
@@ -163,9 +158,6 @@ menuToggleButton?.addEventListener("click",toggleMenu);
 
 
 function setRoutesDivOpen(setOpen:boolean){
-  if(routesDiv == null|| routesButton == null){
-    return;
-  }
   routesOpen = setOpen;
   if(setOpen){
       routesDiv.style.display ="block";
@@ -185,9 +177,6 @@ routesButton?.addEventListener("click",()=>{
 
 let isProjectOpen = false;
 function setProjectPageOpen(setOpen:boolean){
-  if(projectOverlay == null|| projectButton == null){
-    return;
-  }
   isProjectOpen = setOpen;
   if(setOpen){
       projectOverlay.style.display ="block";
@@ -206,3 +195,20 @@ projectButton?.addEventListener("click",()=>{
 projectCloseButton?.addEventListener("click",()=>{
   setProjectPageOpen(false);
 })
+
+
+let soundOn = true;
+//Sound button
+const soundButton = document.getElementById("sound-button")!;
+soundButton.addEventListener("click",()=>{
+  soundOn = !soundOn;
+  if (soundOn){
+    
+  }else{
+
+  }
+})
+
+
+
+export {routesList}
