@@ -1,8 +1,8 @@
 import * as THREE from "three";
 import { Map } from "../map";
 import { PopUp } from "./popup";
-import { FontLoader } from 'three/addons/loaders/FontLoader.js';
-import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
+import { FontLoader } from "three/addons/loaders/FontLoader.js";
+import { TextGeometry } from "three/addons/geometries/TextGeometry.js";
 
 export class POI extends THREE.Mesh{
     material : THREE.Material
@@ -64,6 +64,7 @@ export class POI extends THREE.Mesh{
 
         this.layers.enableAll();
     }
+
     onClick(){
         if(this.popup != null) return;
         if (this.title == null || this.text == null) return;
@@ -81,6 +82,7 @@ export class POI extends THREE.Mesh{
         this.popup = null;
         this.visible = true;
         this.scene.openPopUp(null);
+        this.remove(this.popup);
+        this.popup = null;
     }
-
 }

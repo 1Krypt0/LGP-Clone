@@ -44,6 +44,15 @@
       "scale": 0.5
     }
   ],
+  "animations": [
+    {
+      "url": "assets/Miradouro_Anim_trans.webm",
+      "x": -0.055,
+      "y": -0.177,
+      "z": 0.001,
+      "scale": 0.042
+    }
+  ],
   "poi": [
     {
       "x": 0.08,
@@ -54,7 +63,7 @@
       "imageUrl":  "assets/popups/funchal.jpg"
     },
     {
-      "x": -0.0080,
+      "x": -0.008,
       "y": -0.06,
       "title": "Curral das Freiras",
       "street": "Estrada Cônego Camacho, 9030-319 Curral das Freiras",
@@ -149,7 +158,7 @@
     },
     {
       "x": 0.3,
-      "y": -0.070,
+      "y": -0.07,
       "title": "Machico",
       "text": "In addition to the numerous viewpoints with magnificent views, the city of Machico offers several walking trails and other fantastic trails only accessible by jeep or MTB, as well as horse riding adventures and diving experiences with dolphins. Take a stroll through the historic centre, which offers a strong presence of Manueline, Mannerism and Baroque architecture.",
       "street": "Rua da Árvore, 9200-097 Machico",
