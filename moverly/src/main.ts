@@ -3,14 +3,10 @@ import scene_description from "./scene_description.json";
 import { buttonBlue } from "./scripts/colors";
 import { RouteUI } from "./scripts/uiClasses";
 
-const main = () => {
-  const container = document.querySelector("#scene") || new Element();
-  const map = new Map(container);
+const container = document.querySelector("#scene") || new Element();
+const map = new Map(container);
 
-  map.start();
-};
-
-main();
+map.start();
 
 const webDiv = document.getElementById("web-version")!;
 const mobileDiv = document.getElementById("mobile-version")!;
@@ -67,9 +63,6 @@ const lifestylePage = document.getElementById("info-lifestyle-page")!;
 const faunaPage = document.getElementById("info-fauna-page")!;
 const floraPage = document.getElementById("info-flora-page")!;
 
-
-
-
 const projectButton = document.getElementById("project-button")!;
 const projectOverlay = document.getElementById("project-overlay")!;
 const projectCloseButton = document.getElementById("project-close-button")!;
@@ -77,6 +70,9 @@ const projectCloseButton = document.getElementById("project-close-button")!;
 let isInfoOpen = false;
 
 function setInfoPageOpen(setOpen :boolean){
+  if(infoOverlay == null || startPage == null || infoButton == null){
+    return
+  }
   if(!setOpen){
     infoOverlay.style.display ="none";
     infoButton.style.backgroundColor="transparent";
@@ -103,6 +99,8 @@ infoCloseButton?.addEventListener("click",()=>{
   setInfoPageOpen(false);
   toggleMenu();
 })
+
+menuToggleButton?.addEventListener("click",toggleMenu);
 
 infoBackButton?.addEventListener("click",()=>{
   closeAllInfoPages();
@@ -176,20 +174,20 @@ routesButton?.addEventListener("click",()=>{
 })
 
 //Add routes
-const routes = scene_description["routes"];
-for (let i = 0; i < routes.length; i++){
+let i = 0;
+for (const route of map.getMapScene().routesList){
   const button = document.createElement('button');
-  button.textContent = routes[i].name;
+  button.textContent = route.name;
   button.classList.add('routes-button');
   button.id = 'routes-button-'+i;
   routesDiv.appendChild(button);
   const buttonMobile = document.createElement('button');
-  buttonMobile.textContent = routes[i].name;
+  buttonMobile.textContent = route.name;
   buttonMobile.classList.add('routes-button-mobile');
   buttonMobile.id = 'routes-button-mobile-'+i;
   routesDivMobile.appendChild(buttonMobile);
-
-  routesList.push(new RouteUI(button,buttonMobile));
+  routesList.push(new RouteUI(button,buttonMobile,route));
+  i++;
 }
 
 

@@ -1,4 +1,6 @@
 import { buttonBlue, secondaryButtonBlue } from "./colors";
+import { Route } from "../map/components/route";
+
 
 class RouteUI{
 
@@ -6,8 +8,9 @@ class RouteUI{
     routeButton:HTMLElement | null;
     routeButtonMobile:HTMLElement | null;
   
+    route : Route;
   
-    constructor(routeButton:HTMLElement | null, routeButtonMobile:HTMLElement | null){
+    constructor(routeButton:HTMLElement | null, routeButtonMobile:HTMLElement | null, route:Route){
       if(routeButton == null || routeButtonMobile == null){
         this.routeButton = null;
         this.routeButtonMobile = null;
@@ -21,12 +24,14 @@ class RouteUI{
           this.setRouteOpen(!this.isOpen);
         })
       }
+      this.route = route;
     }
   
     setRouteOpen(setOpen:boolean){
       if (this.routeButton == null || this.routeButtonMobile == null){return};
       this.isOpen = setOpen;
       if(setOpen){
+        this.route.showRoute();
         this.routeButton.style.background = secondaryButtonBlue;
         this.routeButton.style.color = "white";
         this.routeButtonMobile.style.background = secondaryButtonBlue;
@@ -35,6 +40,7 @@ class RouteUI{
         //OPEN RoUTE
   
       }else{
+        this.route.hideRoute();
         this.routeButton.style.background = "transparent";
         this.routeButton.style.color = buttonBlue;
         this.routeButtonMobile.style.background = "transparent";

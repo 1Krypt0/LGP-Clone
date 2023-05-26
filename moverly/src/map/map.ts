@@ -4,6 +4,7 @@ import { createCamera } from "./components/camera";
 import { createPlane } from "./components/plane";
 import { createScene } from "./components/scene";
 import { POI } from "./components/poi";
+import { Route } from "./components/route";
 import { MapScene } from "./mapscene";
 import { createControls } from "./systems/controls";
 import { Loop } from "./systems/loop";
@@ -125,14 +126,42 @@ class Map {
     }
   }
 
-  showPoiPin(poi : POI){
-    this.scene.add(poi.pin);
+  showRoute(route: Route) {
+    for (const routeLine of route.routeLines) {
+      this.scene.add(routeLine);
+      gsap.killTweensOf(routeLine.material);
+      gsap.to(routeLine.material, { opacity: 1, duration: 1.5 });
+    }
+    for (const poi of route.routeList) {
+      this.scene.add(poi.pin);
+      gsap.killTweensOf(poi.pin.material);
+      gsap.to(poi.pin.material, { opacity: 1, duration: 1.5 });
+    }
   }
-
-  showRoute(route : THREE.Line){
-    console.log("estou aqui!");
-    console.log(route);
-    this.scene.add(route);
+  
+  hideRoute(route: Route) {
+    const { routeLines, routeList } = route;
+  
+    const onComplete = () => {
+      for (const routeLine of routeLines) {
+        this.scene.remove(routeLine);
+      }
+      for (const poi of routeList) {
+        this.scene.remove(poi.pin);
+      }
+    };
+  
+    for (const routeLine of routeLines) {
+      gsap.killTweensOf(routeLine.material);
+      gsap.to(routeLine.material, { opacity: 0, duration: 1.5, onComplete });
+    }
+    for (const poi of routeList) {
+      gsap.killTweensOf(poi.pin.material);
+      gsap.to(poi.pin.material, { opacity: 0, duration: 1.5, onComplete });
+    }
+  }
+  getMapScene(){
+    return this.mapScene;
   }
 
 

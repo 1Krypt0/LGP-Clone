@@ -76,7 +76,5 @@ export class POI extends THREE.Mesh{
 
         this.remove(this.popup);
         this.popup = null;
-        this.scene.showPoiPin(this);
     }
-
 }   
