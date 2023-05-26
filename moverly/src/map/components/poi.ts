@@ -1,13 +1,15 @@
 import * as THREE from "three";
 import { Map } from "../map";
 import { PopUp } from "./popup";
-import { FontLoader } from "three/addons/loaders/FontLoader.js";
-import { TextGeometry } from "three/addons/geometries/TextGeometry.js";
+import { Pin} from "./pin";
+import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 
 export class POI extends THREE.Mesh{
     material : THREE.Material
     geometry : THREE.CircleGeometry 
     scene : Map
+    pin : Pin
     popup : PopUp | null
     title : string | null
     street : string | null
@@ -26,6 +28,10 @@ export class POI extends THREE.Mesh{
 
         this.geometry = new THREE.CircleGeometry(0.003, 32);
         this.position.set(poi.x, poi.y, 0.01);
+
+        this.pin = new Pin("../src/assets/ui/pin.png"); 
+        this.pin.position.set(this.position.x, this.position.y+0.015, this.position.z);
+
         this.popup = null;
         this.title = null;
         if (poi.title){
@@ -85,4 +91,4 @@ export class POI extends THREE.Mesh{
         this.remove(this.popup);
         this.popup = null;
     }
-}
+}   

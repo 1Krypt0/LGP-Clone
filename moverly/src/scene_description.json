@@ -211,5 +211,82 @@
       "street": "Pico do Areeiro, 9230-212 São Roque do Faial",
       "imageUrl": "assets/popups/pico-do-areeiro.jpg"
     }
+  ],
+  "routes" : [
+    {
+      "name" : "Zona Oeste",
+      "poi" : [
+        {
+          "name" : "City of Funchal"
+        },
+        {
+          "name" : "Curral das Freiras"
+        },
+        {
+          "name" : "City of Câmara de Lobos"
+        },
+        {
+          "name" : "Cabo Girão Viewpoint"
+        },
+        {
+          "name" : "Ponta do Sol Village"
+        },
+        {
+          "name" : "Paul do Mar"
+        },
+        {
+          "name" : "Ponta do Pargo Lighthouse"
+        }
+      ] 
+    },
+    {
+      "name" : "Zona Este e Nordeste",
+      "poi" : [
+        {
+          "name" : "Ponta de São Lourenço"
+        },
+        {
+          "name" : "Machico"
+        },
+        {
+          "name" : "Camacha"
+        },
+        {
+          "name" : "Ribeiro Frio"
+        },
+        {
+          "name" : "Porto da Cruz Village"
+        },
+        {
+          "name" : "Santana"
+        },
+        {
+          "name" : "Queimadas"
+        },
+        {
+          "name" : "Pico do Areeiro"
+        }
+      ]
+    },
+    {
+      "name" : "Zona Noroeste",
+      "poi" : [
+        {
+          "name" : "Serra de Água"
+        },
+        {
+          "name" : "São Vicente Caves and Volcanism Centre"
+        },
+        {
+          "name" : "Seixal Port Beach and 'Poças das Lesmas' Natural Pools"
+        },
+        {
+          "name" : "Fanal"
+        },
+        {
+          "name" : "Porto Moniz Village and Natural Pools"
+        }
+      ]
+    }
   ]
 }
