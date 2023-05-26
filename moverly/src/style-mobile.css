@@ -19,7 +19,6 @@
   right: 0vw;
   background-color: rgba(255, 255, 255, 0.9);
   color:white;
-  transition: width 0.5s;
   overflow-x: hidden;
   width: 100vw;
   height: 12vw;
@@ -130,6 +129,7 @@
   background-image: url(./assets/ui/sound-icon.png);
   cursor: pointer;
   padding: 0;
+  background-repeat: no-repeat;
 }
 
 #sound-button-div-mobile{

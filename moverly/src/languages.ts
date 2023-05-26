@@ -27,11 +27,28 @@ const setTexts = (data:any):void =>{
     document.getElementById("project-text")!.innerHTML=data["project-text"];
     document.getElementById("info-button")!.innerHTML=data["info-button"];
     document.getElementById("routes-button")!.innerHTML=data["routes-button"];
-    document.getElementById("w-route-button")!.innerHTML=data["w-route-button"];
-    document.getElementById("nw-route-button")!.innerHTML=data["nw-route-button"];
-    document.getElementById("e-ne-route-button")!.innerHTML=data["e-ne-route-button"];
     document.getElementById("project-button")!.innerHTML=data["project-button"];
     document.getElementById("accessibility-button")!.innerHTML=data["accessibility-button"];
+    document.getElementById("info-title-mobile")!.innerHTML=data["info-title"];
+    document.getElementById("info-text-mobile")!.innerHTML=data["info-text"];
+    document.getElementById("info-history-title-mobile")!.innerHTML=data["info-history-title"];
+    document.getElementById("info-history-text-mobile")!.innerHTML=data["info-history-text"];
+    document.getElementById("info-lifestyle-title-mobile")!.innerHTML=data["info-lifestyle-title"];
+    document.getElementById("info-lifestyle-text-mobile")!.innerHTML=data["info-lifestyle-text"];
+    document.getElementById("info-fauna-title-mobile")!.innerHTML=data["info-fauna-title"];
+    document.getElementById("info-fauna-text-mobile")!.innerHTML=data["info-fauna-text"];
+    document.getElementById("info-flora-title-mobile")!.innerHTML=data["info-flora-title"];
+    document.getElementById("info-flora-text-mobile")!.innerHTML=data["info-flora-text"];
+    document.getElementById("info-navbar-history-mobile")!.innerHTML=data["info-navbar-history"];
+    document.getElementById("info-navbar-lifestyle-mobile")!.innerHTML=data["info-navbar-lifestyle"];
+    document.getElementById("info-navbar-fauna-mobile")!.innerHTML=data["info-navbar-fauna"];
+    document.getElementById("info-navbar-flora-mobile")!.innerHTML=data["info-navbar-flora"];
+    document.getElementById("project-text-mobile")!.innerHTML=data["project-text"];
+    document.getElementById("project-title-mobile")!.innerHTML=data["project-title"];
+    document.getElementById("info-button-mobile")!.innerHTML=data["info-button"];
+    document.getElementById("routes-button-mobile")!.innerHTML=data["routes-button"];
+    document.getElementById("project-button-mobile")!.innerHTML=data["project-button"];
+    document.getElementById("accessibility-button-mobile")!.innerHTML=data["accessibility-button"];
     
 }
 

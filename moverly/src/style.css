@@ -7,7 +7,7 @@
 
 body {
   margin: 0;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 #scene {
@@ -169,6 +169,7 @@ body {
   border: none;
   background-color: transparent;
   background-image: url(./assets/ui/sound-icon.png);
+  background-repeat: no-repeat;
   cursor: pointer;
 }
 

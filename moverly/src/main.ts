@@ -1,5 +1,5 @@
 import { Map } from "./map/map";
-
+import scene_description from "./scene_description.json";
 import { buttonBlue } from "./scripts/colors";
 import { RouteUI } from "./scripts/uiClasses";
 
@@ -49,6 +49,9 @@ const toggleMenu = () =>{
   }
 }
 
+
+
+//Info overlay
 const infoOverlay = document.getElementById("info-overlay")!;
 const infoButton = document.getElementById("info-button")!;
 const infoCloseButton = document.getElementById("info-close-button")!;
@@ -65,17 +68,6 @@ const faunaPage = document.getElementById("info-fauna-page")!;
 const floraPage = document.getElementById("info-flora-page")!;
 
 
-let routesOpen = false;
-const routesButton = document.getElementById("routes-button")!;
-const routesDiv = document.getElementById("routes-div")!;
-const wRouteButton = document.getElementById("w-route-button")!;
-const nwRouteButton = document.getElementById("nw-route-button")!;
-const eNeRouteButton = document.getElementById("e-ne-route-button")!;
-
-const routesList: RouteUI[] = [];
-routesList.push(new RouteUI(wRouteButton))
-routesList.push(new RouteUI(nwRouteButton))
-routesList.push(new RouteUI(eNeRouteButton))
 
 
 const projectButton = document.getElementById("project-button")!;
@@ -157,6 +149,15 @@ const closeAllInfoPages =()=>{
 menuToggleButton?.addEventListener("click",toggleMenu);
 
 
+
+
+//Routes
+let routesOpen = false;
+const routesButton = document.getElementById("routes-button")!;
+const routesDiv = document.getElementById("routes-div")!;
+const routesDivMobile = document.getElementById("routes-div-mobile")!;
+
+const routesList: RouteUI[] = [];
 function setRoutesDivOpen(setOpen:boolean){
   routesOpen = setOpen;
   if(setOpen){
@@ -174,7 +175,29 @@ routesButton?.addEventListener("click",()=>{
   setRoutesDivOpen(!routesOpen);
 })
 
+//Add routes
+const routes = scene_description["routes"];
+for (let i = 0; i < routes.length; i++){
+  const button = document.createElement('button');
+  button.textContent = routes[i].name;
+  button.classList.add('routes-button');
+  button.id = 'routes-button-'+i;
+  routesDiv.appendChild(button);
+  const buttonMobile = document.createElement('button');
+  buttonMobile.textContent = routes[i].name;
+  buttonMobile.classList.add('routes-button-mobile');
+  buttonMobile.id = 'routes-button-mobile-'+i;
+  routesDivMobile.appendChild(buttonMobile);
 
+  routesList.push(new RouteUI(button,buttonMobile));
+}
+
+
+
+
+
+
+//Project page
 let isProjectOpen = false;
 function setProjectPageOpen(setOpen:boolean){
   isProjectOpen = setOpen;
@@ -197,17 +220,27 @@ projectCloseButton?.addEventListener("click",()=>{
 })
 
 
-let soundOn = true;
 //Sound button
-const soundButton = document.getElementById("sound-button")!;
-soundButton.addEventListener("click",()=>{
+let soundOn = true;
+function toggleSound(){
   soundOn = !soundOn;
   if (soundOn){
-    
+    soundButton.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
+    soundButton.style.backgroundSize ="100% 100%";
+    soundButtonMobile.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
+    soundButtonMobile.style.backgroundSize ="100% 100%";
   }else{
-
+    soundButton.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
+    soundButton.style.backgroundSize ="73% 100%";
+    soundButtonMobile.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
+    soundButtonMobile.style.backgroundSize ="73% 100%";
   }
-})
+}
+const soundButton = document.getElementById("sound-button")!;
+soundButton.addEventListener("click",toggleSound);
+const soundButtonMobile = document.getElementById("sound-button-mobile")!;
+soundButtonMobile.addEventListener("click",toggleSound);
+
 
 
 

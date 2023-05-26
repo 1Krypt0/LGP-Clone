@@ -133,7 +133,7 @@ let isRoutesOpen = false;
 function setRoutesOpen(setOpen:boolean){
     isRoutesOpen = setOpen;
     if (setOpen){
-        routesDivMobile.style.height = "21vw";
+        routesDivMobile.style.height = (7*routesList.length) + "vw";
         routesButtonMobile.style.color = "white";
         routesButtonMobile.style.background = buttonBlue;
     }else{
