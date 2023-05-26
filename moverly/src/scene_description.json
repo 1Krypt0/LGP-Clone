@@ -58,121 +58,158 @@
       "x": 0.08,
       "y": -0.19,
       "title": "City of Funchal",
-      "text": "We invite you to walk downtown streets, which carry 600 years of history. Next to the market, catch a glimpse of Rua Fernão de Ornelas, the busiest street in Funchal. Pass by the Cathedral and the Bazar do Povo centenary building. Look for our terraces in Avenida do Mar and finish at Largo do Socorro."
+      "text": "We invite you to walk downtown streets, which carry 600 years of history. Next to the market, catch a glimpse of Rua Fernão de Ornelas, the busiest street in Funchal. Pass by the Cathedral and the Bazar do Povo centenary building. Look for our terraces in Avenida do Mar and finish at Largo do Socorro.",
+      "street": "Avenida Arriaga, 9000-054 Funchal",
+      "imageUrl":  "assets/popups/funchal.jpg"
     },
     {
       "x": -0.008,
       "y": -0.06,
       "title": "Curral das Freiras",
+      "street": "Estrada Cônego Camacho, 9030-319 Curral das Freiras",
       "text": "Before the tunnel, access the viewpoints of Paredão or Eira do Serrado, and surprise yourself with this typical Madeira's village right inside a cauldron! Don't miss the Chestnut Museum, the parish's king of fruits, which is used in soups, cake or chestnut cookies. Delight yourself with the sour cherries, transformed into liquor."
-    },
-    {
-      "x": -0.222,
-      "y": -0.126,
-      "title": "Cabo Girão Viewpoint",
-      "text": "This glass platform located at an altitude of 580m grants an astonishing view over the southern coast. It is located in Europe's highest cape, very popular amongst paragliding and base-jumping lovers. One can usually find catamarans anchored off the Fajās, watching dolphins or diving in this Nature Reserve."
     },
     {
       "x": -0.07,
       "y": -0.172,
+      "title": "Cabo Girão Viewpoint",
+      "text": "This glass platform located at an altitude of 580m grants an astonishing view over the southern coast. It is located in Europe's highest cape, very popular amongst paragliding and base-jumping lovers. One can usually find catamarans anchored off the Fajās, watching dolphins or diving in this Nature Reserve.",
+      "street": "Estrada do Cabo Girão, 9300-351 Câmara de Lobos",
+      "imageUrl":  "assets/popups/cabo-girão.jpg"
+    },
+    {
+      "x": -0.222,
+      "y": -0.126,
       "title": "Ponta do Sol Village",
+      "street": "Largo do Pelourinho, 9360-219 Ponta do Sol",
       "text": "Bathed by a genuine and inviting pebble beach, the picturesque village of Ponta do Sol, with many hours of sunshine throughout the year, hence its name, breathes tranquillity and relaxation. Its hallmark continues to be the beautiful Levada Velha do Moinho waterfall, although its folklore or theatre cultural festivals also have international projection."
     },
     {
       "x": -0.409,
       "y": 0.015,
       "title": "Paul do Mar",
-      "text": "After zigzagging along the traditional Portuguese stone pathways in Jardim do Mar, let yourself be swept away by the tranquillity of Paul do Mar, also sheltered between the mountain and the sea. The waves attract surfers from all over the world for international championships. There are 2600 steps to Prazeres, through a path of stunning views."
+      "text": "After zigzagging along the traditional Portuguese stone pathways in Jardim do Mar, let yourself be swept away by the tranquillity of Paul do Mar, also sheltered between the mountain and the sea. The waves attract surfers from all over the world for international championships. There are 2600 steps to Prazeres, through a path of stunning views.",
+      "street": "Arruamento do Paul do Mar, 9370-521 Paul do Mar",
+      "imageUrl":  "assets/popups/paul-do-mar.jpg"
     },
     {
       "x": -0.46,
       "y": 0.1225,
       "title": "Ponta do Pargo Lighthouse",
-      "text": "At Madeira's westernmost point, the Ponta do Pargo Lighthouse, which stands on a cliff close to the sea, offers since 2001 a museum centre dedicated to the various lighthouses of the archipelago. It is a privileged spot to watch the sunset. The Garganta Funda viewpoint is also worth the stop, as the Fio viewpoint, where you can enjoy a lovely cup of tea."
+      "text": "At Madeira's westernmost point, the Ponta do Pargo Lighthouse, which stands on a cliff close to the sea, offers since 2001 a museum centre dedicated to the various lighthouses of the archipelago. It is a privileged spot to watch the sunset. The Garganta Funda viewpoint is also worth the stop, as the Fio viewpoint, where you can enjoy a lovely cup of tea.",
+      "street": "Ponta da Vigia, 9385 Ponta do Pargo",
+      "imageUrl":  "assets/popups/ponta-do-pargo.jpg"
     },
     {
       "x": -0.025,
       "y": -0.19,
       "title": "City of Câmara de Lobos",
-      "text": "Fishing tradition is strong in the land of the sea-wolf. There are catfish drying on the bay and urban art covering the downtown area. It is the region's largest grape producer, however, in the evening, residents drink mainly poncha and Nikita (a mixture of ice cream, pineapple with beer or white wine)."
+      "text": "Fishing tradition is strong in the land of the sea-wolf. There are catfish drying on the bay and urban art covering the downtown area. It is the region's largest grape producer, however, in the evening, residents drink mainly poncha and Nikita (a mixture of ice cream, pineapple with beer or white wine).",
+      "street": "Rua da Nossa Senhora da Conceição, 9300-039 Câmara de Lobos",
+      "imageUrl": "assets/popups/câmara-de-lobos.jpg"
     },
     {
       "x": -0.105,
       "y": -0.047,
       "title": "Serra de Água",
-      "text": "Located halfway between Ribeira Brava and São Vicente, the famous poncha requires a stop. From here we can see Encumeada, often covered by a cloud that looks like snow coming down the slope. There are other treasures to be found on these mountainous cliffs, when walking along the levadas and the royal path."
+      "text": "Located halfway between Ribeira Brava and São Vicente, the famous poncha requires a stop. From here we can see Encumeada, often covered by a cloud that looks like snow coming down the slope. There are other treasures to be found on these mountainous cliffs, when walking along the levadas and the royal path.",
+      "street": "Estrada Regional 104, 9350-321 Serra de Água",
+      "imageUrl":  "assets/popups/serra-de-água.jpg"
     },
     {
       "x": -0.123,
       "y": 0.085,
       "title": "São Vicente Caves and Volcanism Centre",
-      "text": "The geology class begins with an underground walk through several 890 thousand-year-old volcanic pipes. In this mystical journey, there are lakes with spring water, stalactite formations and even some ferns that were born in these caves. In the end, an audio-visual show offers visitors a better understanding of the origin of the Madeira archipelago."
+      "text": "The geology class begins with an underground walk through several 890 thousand-year-old volcanic pipes. In this mystical journey, there are lakes with spring water, stalactite formations and even some ferns that were born in these caves. In the end, an audio-visual show offers visitors a better understanding of the origin of the Madeira archipelago.",
+      "street": "Sítio do Pé do Passo, 9240-039 São Vicente",
+      "imageUrl":  "assets/popups/são-vicente.jpg"
     },
     {
       "x": -0.214,
       "y": 0.134,
       "title": "Seixal Port Beach and 'Poças das Lesmas' Natural Pools",
-      "text": "This black sandy beach, protected by the port of Seixal, offers easy access to the sea. Perfect for family swims and water sports. Sharing the spot with 'Poças das Lemas', located to the west, this quiet landscape on the north coast offers clear water that allows to observe fish or seaweed."
+      "text": "This black sandy beach, protected by the port of Seixal, offers easy access to the sea. Perfect for family swims and water sports. Sharing the spot with 'Poças das Lemas', located to the west, this quiet landscape on the north coast offers clear water that allows to observe fish or seaweed.",
+      "street": "Rua João Fernandes Correia, 9270-130 Seixal",
+      "imageUrl":  "assets/popups/seixal.jpg"
     },
     {
       "x": -0.274,
       "y": 0.11,
       "title": "Fanal",
-      "text": "In the heart of the Laurissilva there are magical places worthy of a fairy tale, ideal for a picnic. Just like Chão da Ribeira, Fanal invites you to slow down, walk its trails and observe its centenary trees. In the middle of the fog, a famous lagoon emerges, which only appears when it rains heavily."
+      "text": "In the heart of the Laurissilva there are magical places worthy of a fairy tale, ideal for a picnic. Just like Chão da Ribeira, Fanal invites you to slow down, walk its trails and observe its centenary trees. In the middle of the fog, a famous lagoon emerges, which only appears when it rains heavily.",
+      "street": "Estrada Regional 209 - Fanal, 9270 Ribiera da Janela",
+      "imageUrl":  "assets/popups/fanal.jpg"
     },
     {
       "x": -0.315,
       "y": 0.219,
       "title": "Porto Moniz Village and Natural Pools",
-      "text": "Climb to the Santa viewpoint for a panoramic view of the village, which offers much more than its largest tourist poster, the natural pools. Besides the walking trails, such as the Levada da Ribeira da Janela, it is also possible to explore the stream beds. There are more than 30 canyoning circuits."
+      "text": "Climb to the Santa viewpoint for a panoramic view of the village, which offers much more than its largest tourist poster, the natural pools. Besides the walking trails, such as the Levada da Ribeira da Janela, it is also possible to explore the stream beds. There are more than 30 canyoning circuits.",
+      "street": "Rotunda da Piscina, 9270-156 Porto Moniz",
+      "imageUrl":  "assets/popups/porto-moniz.jpg"
     },
     {
       "x": 0.398,
       "y": -0.022,
       "title": "Ponta de São Lourenço",
-      "text": "There are exclusive fauna and flora species in the eastern peninsula. Start the trail at sunrise and don't forget to climb to Ponta do Furado and dive at Cais do Sardinha before lunch. A boat tour to the Lighthouse is also a worthy experience."
+      "text": "There are exclusive fauna and flora species in the eastern peninsula. Start the trail at sunrise and don't forget to climb to Ponta do Furado and dive at Cais do Sardinha before lunch. A boat tour to the Lighthouse is also a worthy experience.",
+      "street": "Ponta de São Lourenço, Caniçal - Machico",
+      "imageUrl":  "assets/popups/ponta-de-são-lourenço.jpg"
     },
     {
       "x": 0.3,
       "y": -0.07,
       "title": "Machico",
-      "text": "In addition to the numerous viewpoints with magnificent views, the city of Machico offers several walking trails and other fantastic trails only accessible by jeep or MTB, as well as horse riding adventures and diving experiences with dolphins. Take a stroll through the historic centre, which offers a strong presence of Manueline, Mannerism and Baroque architecture."
+      "text": "In addition to the numerous viewpoints with magnificent views, the city of Machico offers several walking trails and other fantastic trails only accessible by jeep or MTB, as well as horse riding adventures and diving experiences with dolphins. Take a stroll through the historic centre, which offers a strong presence of Manueline, Mannerism and Baroque architecture.",
+      "street": "Rua da Árvore, 9200-097 Machico",
+      "imageUrl":  "assets/popups/machico.jpg"
     },
     {
       "x": 0.175,
       "y": -0.127,
       "title": "Camacha",
-      "text": "At Achada, a monument marks the spot where football was played for the first time in Portugal. In this parish with a strong folkloric tradition and dedication to Madeira embroidery and wickerwork, we invite you to visit the emblematic Clock Tower and ride part of the Levada da Serra do Faial by bicycle."
+      "text": "At Achada, a monument marks the spot where football was played for the first time in Portugal. In this parish with a strong folkloric tradition and dedication to Madeira embroidery and wickerwork, we invite you to visit the emblematic Clock Tower and ride part of the Levada da Serra do Faial by bicycle.",
+      "street": "Largo Conselheiro Aires de Ornelas, 9135-053 Camacha",
+      "imageUrl":  "assets/popups/camacha.jpg"
     },
     {
       "x": 0.1152,
       "y": -0.034,
       "title": "Ribeiro Frio",
-      "text": "Arriving at the valley of Ribeiro Frio we find the aquaculture station dedicated to trout farming. Two walking tours start here: Vereda dos Balcões and Levada do Furado. The Balcões is short and accessible for everyone, even for those with reduced mobility, and we also recommend a visit to the Balcões Viewpoint, where the native birds come to eat in your hand."
+      "text": "Arriving at the valley of Ribeiro Frio we find the aquaculture station dedicated to trout farming. Two walking tours start here: Vereda dos Balcões and Levada do Furado. The Balcões is short and accessible for everyone, even for those with reduced mobility, and we also recommend a visit to the Balcões Viewpoint, where the native birds come to eat in your hand.",
+      "street": "Posto Aquícola do Ribeiro Frio, 9230-209 São Roque do Faial",
+      "imageUrl": "assets/popups/ribeiro-frio.jpg"
     },
     {
       "x": 0.2017,
       "y": 0.0325,
       "title": "Porto da Cruz Village",
+      "street": "Rua Doutor João Abel de Freitas, Casas Próximas, 9225-050 Porto da Cruz",
       "text": "This quiet village is located by the sea, in the foothills of Penha d'Águia. Walking up the mountain is a challenge, although the experience is exceptional. There is surfing lessons in Alagoa beach, another activity not to be missed. The local mill, which can be visited all year round, produces sugar cane rum from March to May."
     },
     {
       "x": 0.1173,
       "y": 0.097,
       "title": "Santana",
-      "text": "The reference to the traditional Santana houses is inevitable, which can still be visited in the city square, next to the Levada garden, or in the theme park, a few metres from the centre, remembering how the villains' clothing, still used by folkloric groups, were made by hand."
+      "text": "The reference to the traditional Santana houses is inevitable, which can still be visited in the city square, next to the Levada garden, or in the theme park, a few metres from the centre, remembering how the villains' clothing, still used by folkloric groups, were made by hand.",
+      "street": "Rua do Sacristão, Sitio do Serrado, 9230-116 Santana",
+      "imageUrl": "assets/popups/santana.jpg"
     },
     {
       "x": 0.086,
       "y": 0.056,
       "title": "Queimadas",
-      "text": "Due to the unique biodiversity of its ecosystem, the Queimadas Forest Park is a mandatory stop, also a starting point for the waterfalls of Caldeirão Verde and Inferno, in a unique levada, it is also possible to discover the Pico das Pedras trail and other fascinating treasures for geocaching lovers."
+      "text": "Due to the unique biodiversity of its ecosystem, the Queimadas Forest Park is a mandatory stop, also a starting point for the waterfalls of Caldeirão Verde and Inferno, in a unique levada, it is also possible to discover the Pico das Pedras trail and other fascinating treasures for geocaching lovers.",
+      "street":"Sítio das Queimadas, 9230-112 Santana",
+      "imageUrl": "assets/popups/queimadas.jpg"
     },
     {
       "x": 0.049,
       "y": -0.03,
       "title": "Pico do Areeiro",
-      "text": "Watching the sunset at 1818m of altitude is magical, even if there is a mantle of clouds hiding the depth of the mountains. To Pico Ruivo, the highest peak of the island, is a 4-hour walk, but for this show, we suggest the Ninho da Manta viewpoint, right at the beginning of the trail."
+      "text": "Watching the sunset at 1818m of altitude is magical, even if there is a mantle of clouds hiding the depth of the mountains. To Pico Ruivo, the highest peak of the island, is a 4-hour walk, but for this show, we suggest the Ninho da Manta viewpoint, right at the beginning of the trail.",
+      "street": "Pico do Areeiro, 9230-212 São Roque do Faial",
+      "imageUrl": "assets/popups/pico-do-areeiro.jpg"
     }
   ]
 }
