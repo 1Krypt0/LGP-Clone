@@ -69,8 +69,7 @@ class Map {
 
     document.addEventListener('pointerdown', (ev) => {
       const close = document.querySelector('.close');
-
-      if (ev.target == close) {
+      if (close) {
         this.poi?.closePopup();
         const target = new Vector3(0, 0, 0.75);
         gsap.to(this.camera.position, {
@@ -96,7 +95,7 @@ class Map {
         if (intersect.object.onClick) {
           intersect.object.onClick();
           const target = intersect.object.position.clone();
-          target.z += 0.5; // or any other small value
+          target.z += 0.5; 
 
           gsap.to(this.camera.position, {
             x: target.x,
@@ -109,7 +108,7 @@ class Map {
           gsap.to(controls.target, {
             x: target.x,
             y: target.y,
-            z: target.z - 0.5, // subtract a larger value from the target's z-coordinate
+            z: target.z - 0.5,
             duration: 1,
             ease: "power2.inOut",
           });
@@ -122,7 +121,8 @@ class Map {
   openPopUp(poi: POI) {
     if (this.poi != null) {
       this.poi.closePopup();
-    }
+    } 
+    this.poi = poi;
   }
 
   render() {

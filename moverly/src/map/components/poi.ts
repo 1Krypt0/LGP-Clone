@@ -10,7 +10,9 @@ export class POI extends THREE.Mesh{
     scene : Map
     popup : PopUp | null
     title : string | null
+    street : string | null
     text : string | null
+    imageUrl : string | null
        
     constructor(poi : any, scene : Map){
         super();
@@ -23,24 +25,32 @@ export class POI extends THREE.Mesh{
         const loader = new FontLoader();
 
         this.geometry = new THREE.CircleGeometry(0.003, 32);
-        this.position.set(poi.x, poi.y, 0);
+        this.position.set(poi.x, poi.y, 0.01);
         this.popup = null;
         this.title = null;
         if (poi.title){
             this.title = poi.title;
         }
+        this.street = null;
+        if (poi.street) {
+            this.street = poi.street;
+        }
         this.text = null;
         if (poi.text) {
             this.text = poi.text;
         }
+        this.imageUrl = null;
+        if (poi.imageUrl) {
+            this.imageUrl = poi.imageUrl;
+        }
 
-        const fontUrl = '/assets/fonts/helvetiker_regular.typeface.json';
+        const fontUrl = '/src/assets/ui/helvetiker_regular.typeface.json';
 
         loader.load(fontUrl, (font) => {
             const geometry = new TextGeometry("i", {
                 font: font,
                 size: 0.003,
-                height: 0.001,
+                height: 0.0001,
             });
             const textMaterial = new THREE.MeshBasicMaterial({
             color: 0xffffff,
@@ -57,8 +67,8 @@ export class POI extends THREE.Mesh{
     onClick(){
         if(this.popup != null) return;
         if (this.title == null || this.text == null) return;
-        this.popup = new PopUp(this.title, this.text);
-        
+        this.popup = new PopUp(this.title, this.street, this.text, this.imageUrl);
+        this.visible = false;
         this.popup.position.set( 0, 0, 0 );
         this.add( this.popup );
         this.popup.layers.set( 0 );
@@ -67,9 +77,10 @@ export class POI extends THREE.Mesh{
 
     closePopup(){
         if(this.popup == null) return;
-
         this.remove(this.popup);
         this.popup = null;
+        this.visible = true;
+        this.scene.openPopUp(null);
     }
 
 }
