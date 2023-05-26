@@ -140,6 +140,9 @@ function setRoutesOpen(setOpen:boolean){
         routesDivMobile.style.height = "0vw";
         routesButtonMobile.style.color = buttonBlue;
         routesButtonMobile.style.background = "transparent";
+        for(let i = 0; i < routesList.length; i++){
+          routesList[i].setRouteOpen(false);
+        }
 
     }
     mobileButtonsDiv.style.height = (50 + 7 * routesList.length * (isRoutesOpen?1:0)) + "vw";

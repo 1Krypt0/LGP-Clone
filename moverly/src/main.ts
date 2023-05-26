@@ -166,6 +166,9 @@ function setRoutesDivOpen(setOpen:boolean){
       routesDiv.style.display ="none";
       routesButton.style.backgroundColor="transparent";
       routesButton.style.color=buttonBlue;
+      for(let i = 0; i < routesList.length; i++){
+        routesList[i].setRouteOpen(false);
+      }
   }
 }
 
@@ -242,4 +245,4 @@ soundButtonMobile.addEventListener("click",toggleSound);
 
 
 
-export {routesList}
+export {routesList,isMobile}

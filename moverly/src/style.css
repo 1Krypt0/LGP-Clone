@@ -456,3 +456,31 @@ h1{
   border:none;
   cursor: pointer;
 }
+
+#routes-description-div{
+  position: absolute;
+  bottom: 1vw;
+  left: 1vw;
+  width: 12vw;
+  background-color: white;
+  border-radius: 1vw;
+  padding: 0.5vw;
+  font-family: kulim-park, Arial, Helvetica, sans-serif;
+  display: none;
+}
+
+.routes-description-title{
+  background-color: #D83D3D;
+  text-align: center;
+  padding: 0.5vw;
+  border-radius: 1vw;
+  font-size: 1.1vw;
+  margin-bottom: 1vw;
+}
+
+.routes-description-point{
+  margin-left: 0.4vw;
+  margin-top: 0.5vw;
+  margin-bottom: 1vw;
+  font-size: 1vw;
+}

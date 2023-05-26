@@ -407,3 +407,31 @@ h1{
   height: 100%;
   width: 15vw;
 }
+
+#routes-description-div-mobile{
+  position: absolute;
+  bottom: 5vw;
+  left: 5vw;
+  width: 40vw;
+  background-color: white;
+  border-radius: 3vw;
+  padding: 2vw;
+  font-family: kulim-park, Arial, Helvetica, sans-serif;
+  display: none;
+}
+
+.routes-description-title-mobile{
+  background-color: #D83D3D;
+  text-align: center;
+  padding: 2vw;
+  border-radius: 4vw;
+  font-size: 4vw;
+  margin-bottom: 1vw;
+}
+
+.routes-description-point-mobile{
+  margin-left: 2vw;
+  margin-top: 2vw;
+  margin-bottom: 1vw;
+  font-size: 3.5vw;
+}
