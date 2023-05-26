@@ -12,8 +12,10 @@ export class POI extends THREE.Mesh{
     pin : Pin
     popup : PopUp | null
     title : string | null
+    titulo : string | null
     street : string | null
     text : string | null
+    texto: string | null
     imageUrl : string | null
        
     constructor(poi : any, scene : Map){
@@ -37,6 +39,10 @@ export class POI extends THREE.Mesh{
         if (poi.title){
             this.title = poi.title;
         }
+        this.titulo = null;
+        if (poi.titulo) {
+            this.titulo = poi.titulo;
+        }
         this.street = null;
         if (poi.street) {
             this.street = poi.street;
@@ -44,6 +50,9 @@ export class POI extends THREE.Mesh{
         this.text = null;
         if (poi.text) {
             this.text = poi.text;
+        }
+        if (poi.texto) {
+            this.texto = poi.texto;
         }
         this.imageUrl = null;
         if (poi.imageUrl) {
@@ -74,7 +83,7 @@ export class POI extends THREE.Mesh{
     onClick(){
         if(this.popup != null) return;
         if (this.title == null || this.text == null) return;
-        this.popup = new PopUp(this.title, this.street, this.text, this.imageUrl);
+        this.popup = new PopUp(this.title, this.titulo, this.street, this.text, this.texto, this.imageUrl);
         this.visible = false;
         this.popup.position.set( 0, 0, 0 );
         this.add( this.popup );
