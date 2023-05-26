@@ -1,11 +1,11 @@
-async function setLanguage(lang:string) {
-    const data = await fetch(`src/lang/${lang}.json`);
-    const json_data = await data.json();
-    setTexts(json_data);
+async function setLanguage(lang: string) {
+  const data = await fetch(`src/lang/${lang}.json`);
+  const json_data = await data.json();
+  setTexts(json_data);
 }
 
-const setTexts = (data:any):void =>{
-    /*
+const setTexts = (data: any): void => {
+  /*
     PLACE ANY TEXTS TO CHANGE INSIDE THIS FUNCTION
     Example:
     */
@@ -86,4 +86,4 @@ languagesButtonMobile.addEventListener("click", ()=>{
 
 
 
-setLanguage('pt');
+setLanguage("pt");

@@ -1,4 +1,15 @@
-import { PerspectiveCamera, Raycaster, Scene, WebGLRenderer, Vector2, Vector3, AudioListener, Audio, AudioLoader } from "three";
+import {
+  PerspectiveCamera,
+  Raycaster,
+  Scene,
+  WebGLRenderer,
+  Vector2,
+  Vector3,
+  AudioListener,
+  Audio,
+  AudioLoader,
+} from "three";
+
 import gsap from "gsap";
 import { createCamera } from "./components/camera";
 import { createPlane } from "./components/plane";
@@ -10,7 +21,7 @@ import { createControls } from "./systems/controls";
 import { Loop } from "./systems/loop";
 import { createRenderer } from "./systems/renderer";
 import { Resizer } from "./systems/resizer";
-import { CSS2DRenderer } from 'three/examples/jsm/renderers/CSS2DRenderer';
+import { CSS2DRenderer } from "three/examples/jsm/renderers/CSS2DRenderer";
 import * as data from "../scene_description.json";
 
 class Map {
@@ -36,15 +47,24 @@ class Map {
 
     this.cssrenderer = new CSS2DRenderer();
     this.cssrenderer.setSize(window.innerWidth, window.innerHeight);
-    this.cssrenderer.domElement.style.position = 'absolute';
-    this.cssrenderer.domElement.style.top = '0px';
+    this.cssrenderer.domElement.style.position = "absolute";
+    this.cssrenderer.domElement.style.top = "0px";
     container?.append(this.cssrenderer.domElement);
 
-    this.loop = new Loop(this.camera, this.scene, this.renderer, this.cssrenderer);
+    this.loop = new Loop(
+      this.camera,
+      this.scene,
+      this.renderer,
+      this.cssrenderer
+    );
 
     const controls = createControls(this.camera, this.cssrenderer.domElement);
-    this.loop.updatables.push(controls);
 
+    controls.addEventListener("change", () => {
+      this.mapScene.updateAnimations(this.camera.position);
+    });
+
+    this.loop.updatables.push(controls);
 
     const listener = new AudioListener();
     this.camera.add(listener);
@@ -54,7 +74,7 @@ class Map {
 
     // load a sound and set it as the Audio object's buffer
     const audioLoader = new AudioLoader();
-    audioLoader.load('assets/theme.wav', function(buffer) {
+    audioLoader.load("assets/theme.wav", function (buffer) {
       sound.setBuffer(buffer);
       sound.setLoop(true);
       sound.setVolume(0.5);
@@ -70,8 +90,7 @@ class Map {
 
     document.addEventListener('pointerdown', (ev) => {
       const close = document.querySelector('.close');
-
-      if (ev.target == close) {
+      if (close) {
         this.poi?.closePopup();
         const target = new Vector3(0, 0, 0.75);
         gsap.to(this.camera.position, {
@@ -79,25 +98,31 @@ class Map {
           y: target.y,
           z: target.z,
           duration: 1,
-          ease: 'power2.inOut',
+          ease: "power2.inOut",
         });
         gsap.to(controls.target, {
           x: target.x,
           y: target.y,
           z: target.z - 0.5,
           duration: 1,
-          ease: 'power2.inOut',
+          ease: "power2.inOut",
         });
       }
 
-      this.pointer.set((ev.clientX / window.innerWidth) * 2 - 1, - (ev.clientY / window.innerHeight) * 2 + 1);
+      this.pointer.set(
+        (ev.clientX / window.innerWidth) * 2 - 1,
+        -(ev.clientY / window.innerHeight) * 2 + 1
+      );
       this.raycaster.setFromCamera(this.pointer, this.camera);
-      const intersects = this.raycaster.intersectObjects(this.scene.children, false);
+      const intersects = this.raycaster.intersectObjects(
+        this.scene.children,
+        false
+      );
       for (const intersect of intersects) {
         if (intersect.object.onClick) {
           intersect.object.onClick();
           const target = intersect.object.position.clone();
-          target.z += 0.5; // or any other small value
+          target.z += 0.5; 
 
           gsap.to(this.camera.position, {
             x: target.x,
@@ -110,20 +135,20 @@ class Map {
           gsap.to(controls.target, {
             x: target.x,
             y: target.y,
-            z: target.z - 0.5, // subtract a larger value from the target's z-coordinate
+            z: target.z - 0.5,
             duration: 1,
             ease: "power2.inOut",
           });
         }
       }
-
     });
   }
 
   openPopUp(poi: POI) {
     if (this.poi != null) {
       this.poi.closePopup();
-    }
+    } 
+    this.poi = poi;
   }
 
   showRoute(route: Route) {
