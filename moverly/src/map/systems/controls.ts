@@ -6,7 +6,7 @@ function createControls(camera: Camera, canvas: HTMLElement) {
 
   controls.enableRotate = false;
 
-  controls.minDistance = 0.1;
+  controls.minDistance = 0.115;
   controls.maxDistance = 0.88;
 
   controls.mouseButtons = {

@@ -219,25 +219,25 @@ projectCloseButton?.addEventListener("click",()=>{
 
 
 //Sound button
-let soundOn = true;
-function toggleSound(){
-  soundOn = !soundOn;
-  if (soundOn){
-    soundButton.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
-    soundButton.style.backgroundSize ="100% 100%";
-    soundButtonMobile.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
-    soundButtonMobile.style.backgroundSize ="100% 100%";
-  }else{
-    soundButton.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
-    soundButton.style.backgroundSize ="73% 100%";
-    soundButtonMobile.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
-    soundButtonMobile.style.backgroundSize ="73% 100%";
-  }
-}
-const soundButton = document.getElementById("sound-button")!;
-soundButton.addEventListener("click",toggleSound);
-const soundButtonMobile = document.getElementById("sound-button-mobile")!;
-soundButtonMobile.addEventListener("click",toggleSound);
+// let soundOn = true;
+// function toggleSound(){
+//   soundOn = !soundOn;
+//   if (soundOn){
+//     soundButton.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
+//     soundButton.style.backgroundSize ="100% 100%";
+//     soundButtonMobile.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
+//     soundButtonMobile.style.backgroundSize ="100% 100%";
+//   }else{
+//     soundButton.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
+//     soundButton.style.backgroundSize ="73% 100%";
+//     soundButtonMobile.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
+//     soundButtonMobile.style.backgroundSize ="73% 100%";
+//   }
+// }
+// const soundButton = document.getElementById("sound-button")!;
+// soundButton.addEventListener("click",toggleSound);
+// const soundButtonMobile = document.getElementById("sound-button-mobile")!;
+// soundButtonMobile.addEventListener("click",toggleSound);
 
 
 

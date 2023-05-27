@@ -65,21 +65,22 @@ class Map {
     });
 
     this.loop.updatables.push(controls);
+    console.log(controls)
 
     const listener = new AudioListener();
     this.camera.add(listener);
 
     // create a global audio source
     const sound = new Audio(listener);
-
+  
     // load a sound and set it as the Audio object's buffer
     const audioLoader = new AudioLoader();
     audioLoader.load("assets/theme.wav", function (buffer) {
       sound.setBuffer(buffer);
       sound.setLoop(true);
       sound.setVolume(0.5);
-      sound.play();
     });
+    
     this.mapScene.parse(data);
 
     const plane = createPlane();
@@ -88,22 +89,45 @@ class Map {
 
     const resizer = new Resizer(container, this.camera, this.renderer);
 
+    let soundOn = false;
+    function toggleSound(){
+      soundOn = !soundOn;
+      if (soundOn){
+        soundButton.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
+        soundButton.style.backgroundSize ="100% 100%";
+        soundButtonMobile.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
+        soundButtonMobile.style.backgroundSize ="100% 100%";
+        sound.play();
+
+      }else{
+        soundButton.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
+        soundButton.style.backgroundSize ="73% 100%";
+        soundButtonMobile.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
+        soundButtonMobile.style.backgroundSize ="73% 100%";
+        sound.stop();
+      }
+    }
+
+    const soundButton = document.getElementById("sound-button")!;
+    soundButton.addEventListener("click",toggleSound);
+    const soundButtonMobile = document.getElementById("sound-button-mobile")!;
+    soundButtonMobile.addEventListener("click",toggleSound);
+
     document.addEventListener('pointerdown', (ev) => {
       const close = document.querySelector('.close');
       if (close) {
-        this.poi?.closePopup();
-        const target = new Vector3(0, 0, 0.75);
+        const {from, target} = this.poi?.closePopup();
         gsap.to(this.camera.position, {
-          x: target.x,
-          y: target.y,
-          z: target.z,
+          x: from?.x,
+          y: from?.y,
+          z: from?.z,
           duration: 1,
           ease: "power2.inOut",
         });
         gsap.to(controls.target, {
-          x: target.x,
-          y: target.y,
-          z: target.z - 0.5,
+          x: target?.x,
+          y: target?.y,
+          z: target?.z,
           duration: 1,
           ease: "power2.inOut",
         });
@@ -122,7 +146,8 @@ class Map {
         if (intersect.object.onClick) {
           intersect.object.onClick();
           const target = intersect.object.position.clone();
-          target.z += 0.5; 
+          target.z += 0.3;
+          this.poi?.restorePosition(this.camera.position, controls.target) 
 
           gsap.to(this.camera.position, {
             x: target.x,
@@ -135,7 +160,7 @@ class Map {
           gsap.to(controls.target, {
             x: target.x,
             y: target.y,
-            z: target.z - 0.5,
+            z: target.z - 0.3,
             duration: 1,
             ease: "power2.inOut",
           });
