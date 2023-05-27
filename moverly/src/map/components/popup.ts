@@ -1,13 +1,14 @@
 import { CSS2DObject } from "three/examples/jsm/renderers/CSS2DRenderer";
+import { currentLanguage } from "../../languages";
 
 export class PopUp extends CSS2DObject {
-  constructor(title, street, text, imageUrl) {
-    const element = createPopUp(title, street, text, imageUrl);
+  constructor(title, titulo, street, text, texto, imageUrl) {
+    const element = createPopUp(title, titulo, street, text, texto, imageUrl);
     super(element);
   }
 }
 
-function createPopUp(title, street, text, imageUrl) {
+function createPopUp(title, titulo, street, text, texto, imageUrl) {
   const modalcontent = document.createElement('div');
   modalcontent.className = 'modal-content';
 
@@ -24,12 +25,16 @@ function createPopUp(title, street, text, imageUrl) {
     modalImage.src = imageUrl;
     modalcontent.appendChild(modalImage);
   }
-
+  
   const modalText = document.createElement('div');
   modalText.className = 'modal-text';
 
   const popupTitle = document.createElement('h2');
-  popupTitle.textContent = title;
+  if (currentLanguage === 'en') {
+    popupTitle.textContent = title;
+  } else {
+    popupTitle.textContent = titulo;
+  }
   modalText.appendChild(popupTitle);
 
   const popupStreet = document.createElement('p');
@@ -39,9 +44,12 @@ function createPopUp(title, street, text, imageUrl) {
   modalText.appendChild(popupStreet);
 
   const popupText = document.createElement('p');
-  popupText.textContent = text;
+  if (currentLanguage === 'en') {
+    popupText.textContent = text;
+  } else {
+    popupText.textContent = texto;
+  }
   modalText.appendChild(popupText);
-
   modalcontent.appendChild(modalText);
 
   return modalcontent;
