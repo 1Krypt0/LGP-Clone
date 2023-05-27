@@ -21,6 +21,16 @@ body {
   src: url(./assets/ui/KulimPark-Regular.ttf);
 }
 
+@font-face {
+  font-family: rubik;
+  src: url(./assets/ui/Rubik-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: mullish;
+  src: url(./assets/ui/Mulish-VariableFont_wght.ttf);
+}
+
 
 .modal-content {
   background-color: rgba(254, 254, 254, 0.9);
@@ -483,4 +493,68 @@ h1{
   margin-top: 0.5vw;
   margin-bottom: 1vw;
   font-size: 1vw;
+}
+
+
+
+
+#landing-page{
+  position: absolute;
+  top:0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255,255,255,0.8);
+}
+
+#landing-page-title{
+  margin-left: 20vw;
+  margin-top:12vw;
+  width: 60vw;
+  font-family: Rubik, Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 5.5vw;
+  font-weight: 700;
+}
+
+#landing-page-description{
+  margin-left: 30vw;
+  margin-top:3vw;
+  width: 40vw;
+  font-family: Mullish, Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 1.2vw;
+  line-height: 2vw;
+  font-weight: 300;
+}
+
+#landing-page-tip{
+  margin-left: 30vw;
+  margin-top:1vw;
+  width: 40vw;
+  font-family: mullish, Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 1.2vw;
+  line-height: 2.5vw;
+  font-weight: 700;
+}
+
+#landing-page-button{
+  margin-left: 44vw;
+  margin-top:1vw;
+  width: 12vw;
+  font-family: Mullish, Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 1.2vw;
+  background-color: #A8DCEA;
+  padding: 0.5vw;
+  border: 1px solid #000;
+  border-radius: 0.7vw;
+}
+
+#landing-page-button:hover{
+  background-color: #a2d7e5;
+}
+
+#landing-page-button:active{
+  background-color: #9ad5e5;
 }

@@ -243,6 +243,18 @@ const soundButtonMobile = document.getElementById("sound-button-mobile")!;
 soundButtonMobile.addEventListener("click",toggleSound);
 
 
+//Landing page
+
+const landingPage = document.getElementById("landing-page")!;
+
+landingPage.addEventListener("click",()=>{
+  landingPage.style.display ="none";
+  
+  //ACTIVATE SOUND
+
+})
+
+
 
 
 export {routesList,isMobile}

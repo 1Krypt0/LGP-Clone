@@ -153,3 +153,10 @@ routesButtonMobile.addEventListener("click",()=>{
     setRoutesOpen(!isRoutesOpen);
 })
 
+const landingPageMobile = document.getElementById("landing-page-mobile")!;
+landingPageMobile.addEventListener("click",()=>{
+    landingPageMobile.style.display ="none";
+    
+    //ACTIVATE SOUND
+  
+})
