@@ -1,47 +1,47 @@
 {
   "layers": [
     {
-      "url": "assets/bg.jpg",
+      "url": "assets/layers/bg.jpg",
       "x": 0,
       "y": 0,
       "z": 0
     },
     {
-      "url": "assets/3D.png",
+      "url": "assets/layers/3D.png",
       "x": 0,
       "y": 0,
       "z": 0
     },
     {
-      "url": "assets/fauna.png",
+      "url": "assets/layers/fauna.png",
       "x": 0,
       "y": 0,
       "z": 0
     },
     {
-      "url": "assets/flora.png",
+      "url": "assets/layers/flora.png",
       "x": 0,
       "y": 0,
       "z": 0
     },
     {
-      "url": "assets/flora2.png",
+      "url": "assets/layers/flora2.png",
       "x": 0,
       "y": 0,
       "z": 0
     },
     {
-      "url": "assets/labels.png",
+      "url": "assets/layers/labels.png",
       "x": 0,
       "y": 0,
       "z": 0
     },
     {
-      "url": "assets/nuvens.png",
+      "url": "assets/layers/nuvens-layer.png",
       "x": 0,
       "y": 0,
       "z": 0.4,
-      "scale": 0.5
+      "scale": 0.6
     }
   ],
   "animations": [
@@ -51,6 +51,44 @@
       "y": -0.177,
       "z": 0.001,
       "scale": 0.042
+    }
+  ],
+
+  "sounds": [
+    {
+      "url": "assets/sounds/dolphins.wav",
+      "x": -0.14,
+      "y": -0.19,
+      "z": 0.01,
+      "distance": 0.30
+    },
+    {
+      "url": "assets/sounds/Floresta com rio SC.wav",
+      "x": 0.13,
+      "y": -0.04,
+      "z": 0.01,
+      "distance": 0.30
+    },
+    {
+      "url": "assets/sounds/Floresta sem rio SC.wav",
+      "x": 0.02,
+      "y": -0.01,
+      "z": 0.01,
+      "distance": 0.30
+    },
+    {
+      "url": "assets/sounds/igreja com navio.wav",
+      "x": 0.08,
+      "y": -0.2,
+      "z": 0.01,
+      "distance": 0.30
+    },
+    {
+      "url": "assets/sounds/Oceano sc.wav",
+      "x": -0.1,
+      "y": 0.20,
+      "z": 0.01,
+      "distance": 0.40
     }
   ],
   "poi": [

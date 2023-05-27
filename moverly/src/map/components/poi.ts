@@ -17,6 +17,8 @@ export class POI extends THREE.Mesh{
     text : string | null
     texto: string | null
     imageUrl : string | null
+    fromRestore : THREE.Vector3 | null
+    toRestore : THREE.Vector3 | null
        
     constructor(poi : any, scene : Map){
         super();
@@ -58,6 +60,8 @@ export class POI extends THREE.Mesh{
         if (poi.imageUrl) {
             this.imageUrl = poi.imageUrl;
         }
+        this.fromRestore = null;
+        this.toRestore = null;
 
         const fontUrl = '/src/assets/ui/helvetiker_regular.typeface.json';
 
@@ -91,6 +95,14 @@ export class POI extends THREE.Mesh{
         this.scene.openPopUp(this);
     }
 
+    hover(){
+        this.scale.set(2,2,1);
+    }
+
+    dehover(){
+        this.scale.set(1,1,1);
+    }
+
     closePopup(){
         if(this.popup == null) return;
         this.remove(this.popup);
@@ -99,5 +111,11 @@ export class POI extends THREE.Mesh{
         this.scene.openPopUp(null);
         this.remove(this.popup);
         this.popup = null;
+        return {"from" : this.fromRestore, "target" : this.toRestore};
+    }
+
+    restorePosition(from : THREE.Vector3, to : THREE.Vector3){
+        this.fromRestore = from.clone();
+        this.toRestore = to.clone();
     }
 }   
