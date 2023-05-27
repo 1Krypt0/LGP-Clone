@@ -12,9 +12,13 @@ export class POI extends THREE.Mesh{
     pin : Pin
     popup : PopUp | null
     title : string | null
+    titulo : string | null
     street : string | null
     text : string | null
+    texto: string | null
     imageUrl : string | null
+    fromRestore : THREE.Vector3 | null
+    toRestore : THREE.Vector3 | null
        
     constructor(poi : any, scene : Map){
         super();
@@ -37,6 +41,10 @@ export class POI extends THREE.Mesh{
         if (poi.title){
             this.title = poi.title;
         }
+        this.titulo = null;
+        if (poi.titulo) {
+            this.titulo = poi.titulo;
+        }
         this.street = null;
         if (poi.street) {
             this.street = poi.street;
@@ -45,10 +53,15 @@ export class POI extends THREE.Mesh{
         if (poi.text) {
             this.text = poi.text;
         }
+        if (poi.texto) {
+            this.texto = poi.texto;
+        }
         this.imageUrl = null;
         if (poi.imageUrl) {
             this.imageUrl = poi.imageUrl;
         }
+        this.fromRestore = null;
+        this.toRestore = null;
 
         const fontUrl = '/src/assets/ui/helvetiker_regular.typeface.json';
 
@@ -74,12 +87,20 @@ export class POI extends THREE.Mesh{
     onClick(){
         if(this.popup != null) return;
         if (this.title == null || this.text == null) return;
-        this.popup = new PopUp(this.title, this.street, this.text, this.imageUrl);
+        this.popup = new PopUp(this.title, this.titulo, this.street, this.text, this.texto, this.imageUrl);
         this.visible = false;
         this.popup.position.set( 0, 0, 0 );
         this.add( this.popup );
         this.popup.layers.set( 0 );
         this.scene.openPopUp(this);
+    }
+
+    hover(){
+        this.scale.set(2,2,1);
+    }
+
+    dehover(){
+        this.scale.set(1,1,1);
     }
 
     closePopup(){
@@ -90,5 +111,11 @@ export class POI extends THREE.Mesh{
         this.scene.openPopUp(null);
         this.remove(this.popup);
         this.popup = null;
+        return {"from" : this.fromRestore, "target" : this.toRestore};
+    }
+
+    restorePosition(from : THREE.Vector3, to : THREE.Vector3){
+        this.fromRestore = from.clone();
+        this.toRestore = to.clone();
     }
 }   
