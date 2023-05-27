@@ -34,6 +34,7 @@ class Map {
   private raycaster: Raycaster;
   private pointer: Vector2;
   private poi: POI | null;
+  private listener: AudioListener;
 
   constructor(container: Element) {
     this.camera = createCamera();
@@ -65,20 +66,19 @@ class Map {
     });
 
     this.loop.updatables.push(controls);
-    console.log(controls)
 
-    const listener = new AudioListener();
-    this.camera.add(listener);
+    this.listener = new AudioListener();
+    this.camera.add(this.listener);
 
     // create a global audio source
-    const sound = new Audio(listener);
+    const sound = new Audio(this.listener);
   
     // load a sound and set it as the Audio object's buffer
     const audioLoader = new AudioLoader();
     audioLoader.load("assets/sounds/theme.wav", function (buffer) {
       sound.setBuffer(buffer);
       sound.setLoop(true);
-      sound.setVolume(0.5);
+      sound.setVolume(0.20);
     });
     
     this.mapScene.parse(data);
@@ -90,7 +90,8 @@ class Map {
     const resizer = new Resizer(container, this.camera, this.renderer);
 
     let soundOn = false;
-    function toggleSound(){
+    const soundButton = document.getElementById("sound-button")!;
+    soundButton.addEventListener("click",() =>{
       soundOn = !soundOn;
       if (soundOn){
         soundButton.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
@@ -105,13 +106,28 @@ class Map {
         soundButtonMobile.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
         soundButtonMobile.style.backgroundSize ="73% 100%";
         sound.stop();
+        this.mapScene.muteSounds();
       }
-    }
-
-    const soundButton = document.getElementById("sound-button")!;
-    soundButton.addEventListener("click",toggleSound);
+    });
     const soundButtonMobile = document.getElementById("sound-button-mobile")!;
-    soundButtonMobile.addEventListener("click",toggleSound);
+    soundButtonMobile.addEventListener("click",() => {
+      soundOn = !soundOn;
+      if (soundOn){
+        soundButton.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
+        soundButton.style.backgroundSize ="100% 100%";
+        soundButtonMobile.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
+        soundButtonMobile.style.backgroundSize ="100% 100%";
+        sound.play();
+
+      }else{
+        soundButton.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
+        soundButton.style.backgroundSize ="73% 100%";
+        soundButtonMobile.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
+        soundButtonMobile.style.backgroundSize ="73% 100%";
+        sound.stop();
+        this.mapScene.muteSounds();
+      }
+    });
 
     document.addEventListener('pointerdown', (ev) => {
       const close = document.querySelector('.close');
@@ -214,6 +230,9 @@ class Map {
     return this.mapScene;
   }
 
+  getListener(){
+    return this.listener;
+  }
 
 
   render() {

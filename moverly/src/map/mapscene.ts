@@ -3,12 +3,14 @@ import { POI } from "./components/poi";
 import { Animation } from "./components/animation";
 import { Route } from "./components/route";
 import { Map } from "./map";
+import { Sound } from "./components/sound";
 
 export class MapScene {
   layerList : Array<MapLayer>;
   poiList : Array<POI>;
   animationList: Array<Animation>;
   routesList : Array<Route>;
+  soundsList : Array<Sound>
   scene : THREE.Scene;
   map : Map;
 
@@ -19,6 +21,7 @@ export class MapScene {
       this.poiList = [];
       this.animationList = [];
       this.routesList = [];
+      this.soundsList = []
   }
 
   parse(data : any){
@@ -43,6 +46,11 @@ export class MapScene {
         this.animationList.push(mapAnimation);
         this.scene.add(mapAnimation);
       }
+      const sounds = data.sounds;
+      for (const sound of sounds) {
+        const mapSound = new Sound(this.scene, this.map.getListener(), sound); 
+        this.soundsList.push(mapSound);
+      }
 
       const routes = data.routes;
       for (const route of routes){
@@ -57,11 +65,23 @@ export class MapScene {
           mapRoute.createRoute();
           this.routesList.push(mapRoute);
       }
+       
   }
 
   updateAnimations(cameraPosition : THREE.Vector3) {
     for (const animation of this.animationList) {
       animation.update(cameraPosition);
+    }
+
+    for (const sound of this.soundsList) {
+      sound.update(cameraPosition);
+    }
+  }
+
+
+  muteSounds(){
+    for (const sound of this.soundsList) {
+      sound.muteSound();
     }
   }
 }

@@ -53,6 +53,44 @@
       "scale": 0.042
     }
   ],
+
+  "sounds": [
+    {
+      "url": "assets/sounds/dolphins.wav",
+      "x": -0.14,
+      "y": -0.19,
+      "z": 0.01,
+      "distance": 0.30
+    },
+    {
+      "url": "assets/sounds/Floresta com rio SC.wav",
+      "x": 0.13,
+      "y": -0.04,
+      "z": 0.01,
+      "distance": 0.30
+    },
+    {
+      "url": "assets/sounds/Floresta sem rio SC.wav",
+      "x": 0.02,
+      "y": -0.01,
+      "z": 0.01,
+      "distance": 0.30
+    },
+    {
+      "url": "assets/sounds/igreja com navio.wav",
+      "x": 0.08,
+      "y": -0.2,
+      "z": 0.01,
+      "distance": 0.30
+    },
+    {
+      "url": "assets/sounds/Oceano sc.wav",
+      "x": -0.1,
+      "y": 0.20,
+      "z": 0.01,
+      "distance": 0.40
+    }
+  ],
   "poi": [
     {
       "x": 0.08,
