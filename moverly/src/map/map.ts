@@ -89,46 +89,6 @@ class Map {
 
     const resizer = new Resizer(container, this.camera, this.renderer);
 
-    let soundOn = false;
-    const soundButton = document.getElementById("sound-button")!;
-    soundButton.addEventListener("click",() =>{
-      soundOn = !soundOn;
-      if (soundOn){
-        soundButton.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
-        soundButton.style.backgroundSize ="100% 100%";
-        soundButtonMobile.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
-        soundButtonMobile.style.backgroundSize ="100% 100%";
-        sound.play();
-
-      }else{
-        soundButton.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
-        soundButton.style.backgroundSize ="73% 100%";
-        soundButtonMobile.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
-        soundButtonMobile.style.backgroundSize ="73% 100%";
-        sound.stop();
-        this.mapScene.muteSounds();
-      }
-    });
-    const soundButtonMobile = document.getElementById("sound-button-mobile")!;
-    soundButtonMobile.addEventListener("click",() => {
-      soundOn = !soundOn;
-      if (soundOn){
-        soundButton.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
-        soundButton.style.backgroundSize ="100% 100%";
-        soundButtonMobile.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
-        soundButtonMobile.style.backgroundSize ="100% 100%";
-        sound.play();
-
-      }else{
-        soundButton.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
-        soundButton.style.backgroundSize ="73% 100%";
-        soundButtonMobile.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
-        soundButtonMobile.style.backgroundSize ="73% 100%";
-        sound.stop();
-        this.mapScene.muteSounds();
-      }
-    });
-
 
     document.addEventListener( 'mousemove', (ev) => {
       this.pointer.set(
@@ -256,6 +216,61 @@ class Map {
 
   getListener(){
     return this.listener;
+  }
+
+  playsound(){
+    // create a global audio source
+    const sound = new Audio(this.listener);
+  
+    // load a sound and set it as the Audio object's buffer
+    const audioLoader = new AudioLoader();
+    audioLoader.load("assets/sounds/theme.wav", function (buffer) {
+      sound.setBuffer(buffer);
+      sound.setLoop(true);
+      sound.setVolume(0.20);
+      sound.play();
+    });
+
+    let soundOn = true;
+    const soundButton = document.getElementById("sound-button")!;
+    soundButton.addEventListener("click",() =>{
+      soundOn = !soundOn;
+      if (soundOn){
+        soundButton.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
+        soundButton.style.backgroundSize ="100% 100%";
+        soundButtonMobile.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
+        soundButtonMobile.style.backgroundSize ="100% 100%";
+        sound.play();
+
+      }else{
+        soundButton.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
+        soundButton.style.backgroundSize ="73% 100%";
+        soundButtonMobile.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
+        soundButtonMobile.style.backgroundSize ="73% 100%";
+        sound.stop();
+        this.mapScene.muteSounds();
+      }
+    });
+    
+    const soundButtonMobile = document.getElementById("sound-button-mobile")!;
+    soundButtonMobile.addEventListener("click",() => {
+      soundOn = !soundOn;
+      if (soundOn){
+        soundButton.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
+        soundButton.style.backgroundSize ="100% 100%";
+        soundButtonMobile.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
+        soundButtonMobile.style.backgroundSize ="100% 100%";
+        sound.play();
+
+      }else{
+        soundButton.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
+        soundButton.style.backgroundSize ="73% 100%";
+        soundButtonMobile.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
+        soundButtonMobile.style.backgroundSize ="73% 100%";
+        sound.pause();
+        this.mapScene.muteSounds();
+      }
+    });
   }
 
 

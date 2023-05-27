@@ -251,10 +251,11 @@ landingPage.addEventListener("click",()=>{
   landingPage.style.display ="none";
   
   //ACTIVATE SOUND
+  map.playsound();
 
 })
 
 
 
 
-export {routesList,isMobile}
+export {routesList,isMobile, map}

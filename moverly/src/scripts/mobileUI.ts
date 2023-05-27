@@ -1,5 +1,5 @@
 import { buttonBlue } from "./colors";
-import { routesList } from "../main";
+import { routesList, map } from "../main";
 
 //Buttons menu
 let mobileButtonsOpen = false;
@@ -158,5 +158,5 @@ landingPageMobile.addEventListener("click",()=>{
     landingPageMobile.style.display ="none";
     
     //ACTIVATE SOUND
-  
+    map.playsound();
 })
