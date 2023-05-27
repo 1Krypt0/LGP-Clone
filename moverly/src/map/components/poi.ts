@@ -86,6 +86,14 @@ export class POI extends THREE.Mesh{
         this.scene.openPopUp(this);
     }
 
+    hover(){
+        this.scale.set(2,2,1);
+    }
+
+    dehover(){
+        this.scale.set(1,1,1);
+    }
+
     closePopup(){
         if(this.popup == null) return;
         this.remove(this.popup);

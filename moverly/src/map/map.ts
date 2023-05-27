@@ -129,6 +129,30 @@ class Map {
       }
     });
 
+
+    document.addEventListener( 'mousemove', (ev) => {
+      this.pointer.set(
+        (ev.clientX / window.innerWidth) * 2 - 1,
+        -(ev.clientY / window.innerHeight) * 2 + 1
+      );
+
+      this.raycaster.setFromCamera(this.pointer, this.camera);
+      const intersects = this.raycaster.intersectObjects(
+        this.scene.children,
+        false
+      );
+      const intersectsObj = intersects.map(intersect => intersect.object);
+      for (const children of this.scene.children){
+        if(children.hover){
+          if(intersectsObj.includes(children)){
+            children.hover();
+          }else{
+            children.dehover();
+          }
+        }
+      }
+    })
+
     document.addEventListener('pointerdown', (ev) => {
       const close = document.querySelector('.close');
       if (close) {
