@@ -7,7 +7,7 @@ import {
 } from "three";
 
 function createMaterial() {
-  const texture = new TextureLoader().load("/assets/bg.jpg");
+  const texture = new TextureLoader().load("/assets/layers/bg.jpg");
   const material = new MeshBasicMaterial({ map: texture });
 
   return material;

@@ -1,4 +1,4 @@
-import { Camera, MOUSE } from "three";
+import { Camera, MOUSE, Vector3 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 function createControls(camera: Camera, canvas: HTMLElement) {
@@ -12,8 +12,18 @@ function createControls(camera: Camera, canvas: HTMLElement) {
   controls.mouseButtons = {
     LEFT: MOUSE.PAN,
     MIDDLE: MOUSE.DOLLY,
-    RIGHT: MOUSE.ROTATE,
   };
+
+  const minPan = new Vector3( - 0.25, - 0.25, - 0.25 );
+  const maxPan = new Vector3( 0.25, 0.25, 0.25 );
+  const _v = new Vector3();
+
+  controls.addEventListener("change", function() {
+    _v.copy(controls.target);
+    controls.target.clamp(minPan, maxPan);
+    _v.sub(controls.target);
+    camera.position.sub(_v);
+  })
 
   controls.tick = () => controls.update();
 

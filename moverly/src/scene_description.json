@@ -1,43 +1,43 @@
 {
   "layers": [
     {
-      "url": "assets/bg.jpg",
+      "url": "assets/layers/bg.jpg",
       "x": 0,
       "y": 0,
       "z": 0
     },
     {
-      "url": "assets/3D.png",
+      "url": "assets/layers/3D.png",
       "x": 0,
       "y": 0,
       "z": 0
     },
     {
-      "url": "assets/fauna.png",
+      "url": "assets/layers/fauna.png",
       "x": 0,
       "y": 0,
       "z": 0
     },
     {
-      "url": "assets/flora.png",
+      "url": "assets/layers/flora.png",
       "x": 0,
       "y": 0,
       "z": 0
     },
     {
-      "url": "assets/flora2.png",
+      "url": "assets/layers/flora2.png",
       "x": 0,
       "y": 0,
       "z": 0
     },
     {
-      "url": "assets/labels.png",
+      "url": "assets/layers/labels.png",
       "x": 0,
       "y": 0,
       "z": 0
     },
     {
-      "url": "assets/nuvens-layer.png",
+      "url": "assets/layers/nuvens-layer.png",
       "x": 0,
       "y": 0,
       "z": 0.4,

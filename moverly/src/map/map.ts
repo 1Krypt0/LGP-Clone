@@ -75,7 +75,7 @@ class Map {
   
     // load a sound and set it as the Audio object's buffer
     const audioLoader = new AudioLoader();
-    audioLoader.load("assets/theme.wav", function (buffer) {
+    audioLoader.load("assets/sounds/theme.wav", function (buffer) {
       sound.setBuffer(buffer);
       sound.setLoop(true);
       sound.setVolume(0.5);
