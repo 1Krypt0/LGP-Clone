@@ -54,7 +54,7 @@ export class MapScene {
 
       const routes = data.routes;
       for (const route of routes){
-          const mapRoute = new Route(route.name, this.map);
+          const mapRoute = new Route(route.name, route.color, this.map);
           for (const poi of route.poi){
               for (const mapPoi of this.poiList){
                   if (mapPoi.title == poi.name){
@@ -63,6 +63,7 @@ export class MapScene {
               }
           }
           mapRoute.createRoute();
+          mapRoute.addPins();
           this.routesList.push(mapRoute);
       }
        

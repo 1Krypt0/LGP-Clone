@@ -236,8 +236,7 @@
       "titulo": "Camacha",
       "text": "At Achada, a monument marks the spot where football was played for the first time in Portugal. In this parish with a strong folkloric tradition and dedication to Madeira embroidery and wickerwork, we invite you to visit the emblematic Clock Tower and ride part of the Levada da Serra do Faial by bicycle.",
       "texto": "Na Achada, um monumento assinala que aqui se futebol pela primeira vez em Portugal. Nesta freguesia de vincada tradição folclórica e de dedicação ao bordado Madeira e à obra de vimes, convidamo-lo a visitar a emblemática Torre do Relógio e a percorrer parte da Levada da Serra do Faial de bicicleta.",
-      "street": "Largo Conselheiro Aires de Ornelas, 9135-053 Camacha",
-      "imageUrl":  "assets/popups/camacha.jpg"
+      "street": "Largo Conselheiro Aires de Ornelas, 9135-053 Camacha"
     },
     {
       "x": 0.1152,
@@ -292,6 +291,7 @@
   "routes" : [
     {
       "name" : "Zona Oeste",
+      "color" : "red", 
       "poi" : [
         {
           "name" : "City of Funchal"
@@ -318,6 +318,7 @@
     },
     {
       "name" : "Zona Este e Nordeste",
+      "color" : "blue",
       "poi" : [
         {
           "name" : "Ponta de São Lourenço"
@@ -347,6 +348,7 @@
     },
     {
       "name" : "Zona Noroeste",
+      "color" : "orange",
       "poi" : [
         {
           "name" : "Serra de Água"
