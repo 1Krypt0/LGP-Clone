@@ -1,7 +1,13 @@
+import { currentLanguage } from "./languages";
 import { Map } from "./map/map";
 import scene_description from "./scene_description.json";
 import { buttonBlue } from "./scripts/colors";
 import { RouteUI } from "./scripts/uiClasses";
+import {
+  AudioListener,
+  Audio,
+  AudioLoader,
+} from "three";
 
 const container = document.querySelector("#scene") || new Element();
 const map = new Map(container);
@@ -77,6 +83,7 @@ function setInfoPageOpen(setOpen :boolean){
     infoOverlay.style.display ="none";
     infoButton.style.backgroundColor="transparent";
     infoButton.style.color="#177F9B";
+    setJojoUISound(null);
 
   }else{
     closeAllInfoPages();
@@ -84,6 +91,7 @@ function setInfoPageOpen(setOpen :boolean){
     infoOverlay.style.display ="block";
     infoButton.style.backgroundColor="#177F9B";
     infoButton.style.color="white";
+    setJojoUISound("information");
   }
 }
 
@@ -97,6 +105,7 @@ infoButton?.addEventListener("click",()=>{
 });
 infoCloseButton?.addEventListener("click",()=>{
   setInfoPageOpen(false);
+  setJojoUISound(null);
   toggleMenu();
 })
 
@@ -105,30 +114,35 @@ menuToggleButton?.addEventListener("click",toggleMenu);
 infoBackButton?.addEventListener("click",()=>{
   closeAllInfoPages();
   startPage.style.display = "block";
+  setJojoUISound("information");
 })
 
 historyButton?.addEventListener("click",()=>{
   closeAllInfoPages();
   historyPage.style.display = "block";
   infoBackButton.style.display = "block";
+  setJojoUISound("history");
 })
 
 lifestyleButton?.addEventListener("click",()=>{
   closeAllInfoPages();
   lifestylePage.style.display = "block";
   infoBackButton.style.display = "block";
+  setJojoUISound("lifestyle");
 })
 
 faunaButton?.addEventListener("click",()=>{
   closeAllInfoPages();
   faunaPage.style.display = "block";
   infoBackButton.style.display = "block";
+  setJojoUISound("fauna");
 })
 
 floraButton?.addEventListener("click",()=>{
   closeAllInfoPages();
   floraPage.style.display = "block";
   infoBackButton.style.display = "block";
+  setJojoUISound("flora");
 })
 
 
@@ -162,6 +176,8 @@ function setRoutesDivOpen(setOpen:boolean){
       routesDiv.style.display ="block";
       routesButton.style.backgroundColor=buttonBlue;
       routesButton.style.color="white";
+      setJojoUISound("routes");
+      console.log("opening routes");
   }else{
       routesDiv.style.display ="none";
       routesButton.style.backgroundColor="transparent";
@@ -169,6 +185,8 @@ function setRoutesDivOpen(setOpen:boolean){
       for(let i = 0; i < routesList.length; i++){
         routesList[i].setRouteOpen(false);
       }
+      setJojoUISound(null);
+      console.log("closing routes");
   }
 }
 
@@ -206,10 +224,12 @@ function setProjectPageOpen(setOpen:boolean){
       projectOverlay.style.display ="block";
       projectButton.style.backgroundColor=buttonBlue;
       projectButton.style.color="white";
+      setJojoUISound("project");
   }else{
       projectOverlay.style.display ="none";
       projectButton.style.backgroundColor="transparent";
       projectButton.style.color=buttonBlue;
+      setJojoUISound(null);
   }
 }
 
@@ -273,10 +293,79 @@ const jojoButton = document.getElementById("jojo-button")!;
 const jojoButtonMobile = document.getElementById("jojo-button-mobile")!;
 function setJojoActive(setActive:boolean){
   isJojoOn = setActive;
+  if(isJojoOn){
+    jojoButton.style.backgroundImage = ("url(src/assets/ui/jojo-icon.png)")
+  }else{    
+    jojoButton.style.backgroundImage = ("url(src/assets/ui/jojo-mute-icon.png)")
+  }
 }
-jojoButton.addEventListener("click",()=>{setJojoActive(!isJojoOn)});
-jojoButtonMobile.addEventListener("click",()=>{setJojoActive(!isJojoOn)});
+jojoButton.addEventListener("click",()=>{
+  setJojoActive(!isJojoOn)
+  if(uiSound != null){
+    uiSound.stop();
+    uiSound = null;
+  }
+});
+jojoButtonMobile.addEventListener("click",()=>{
+  setJojoActive(!isJojoOn)
+  if(uiSound != null){
+    uiSound.stop();
+    uiSound = null;
+  }
+});
 
+let uiSound:Audio | null = null;
+function setJojoUISound(soundName:string  | null){
+  if(!isJojoOn){
+    return
+  }
+  if(uiSound != null){
+    uiSound?.stop()
+    uiSound = null;
+  }
+  closeJojo();
+  if(soundName == null){return}
+  openJojo();
+  const sound = new Audio(new AudioListener());
+  const audioLoader = new AudioLoader();
+  let soundUrlPt= "",soundUrlEn = "";
+  if(soundName=="informationj"){
+    soundUrlPt="src/assets/sound/information-pt.mp3"
+    soundUrlEn="src/assets/sound/information-en.mp3"
+  }else if(soundName=="history"){
+    soundUrlPt="src/assets/sound/historia-pt.mp3"
+    soundUrlEn="src/assets/sound/historia-en.mp3"
+  }else if(soundName=="lifestyle"){
+    soundUrlPt="src/assets/sound/estilo-de-vida-pt.mp3"
+    soundUrlEn="src/assets/sound/estilo-de-vida-en.mp3"
+  }else if(soundName=="fauna"){
+    soundUrlPt="src/assets/sound/fauna-pt.mp3"
+    soundUrlEn="src/assets/sound/fauna-en.mp3"
+  }else if(soundName=="flora"){
+    soundUrlPt="src/assets/sound/flora-pt.mp3"
+    soundUrlEn="src/assets/sound/flora-en.mp3"
+  }else if(soundName=="routes"){
+    soundUrlPt="src/assets/sound/roteiros-pt.mp3"
+    soundUrlEn="src/assets/sound/roteiros-en.mp3"
+  }else if(soundName=="project"){
+    soundUrlPt="src/assets/sound/sobre-pt.mp3"
+    soundUrlEn="src/assets/sound/sobre-en.mp3"
+  }else{return};
+  if (currentLanguage == "pt"){
+    audioLoader.load(soundUrlPt, function (buffer) {
+      sound.setBuffer(buffer);
+      sound.setVolume(0.80);
+      sound.play();
+    });
+  }else{
+    audioLoader.load(soundUrlEn, function (buffer) {
+      sound.setBuffer(buffer);
+      sound.setVolume(0.80);
+      sound.play();
+    });
+  }
+  uiSound = sound;
+}
 
 
 
