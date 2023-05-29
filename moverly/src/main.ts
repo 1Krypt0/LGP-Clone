@@ -246,14 +246,14 @@ projectCloseButton?.addEventListener("click",()=>{
 // function toggleSound(){
 //   soundOn = !soundOn;
 //   if (soundOn){
-//     soundButton.style.backgroundImage="url(.//assets/ui/sound-icon.png)";
+//     soundButton.style.backgroundImage="url(/assets/ui/sound-icon.png)";
 //     soundButton.style.backgroundSize ="100% 100%";
-//     soundButtonMobile.style.backgroundImage="url(.//assets/ui/sound-icon.png)";
+//     soundButtonMobile.style.backgroundImage="url(/assets/ui/sound-icon.png)";
 //     soundButtonMobile.style.backgroundSize ="100% 100%";
 //   }else{
-//     soundButton.style.backgroundImage="url(.//assets/ui/mute-icon.png)";
+//     soundButton.style.backgroundImage="url(/assets/ui/mute-icon.png)";
 //     soundButton.style.backgroundSize ="73% 100%";
-//     soundButtonMobile.style.backgroundImage="url(.//assets/ui/mute-icon.png)";
+//     soundButtonMobile.style.backgroundImage="url(/assets/ui/mute-icon.png)";
 //     soundButtonMobile.style.backgroundSize ="73% 100%";
 //   }
 // }
