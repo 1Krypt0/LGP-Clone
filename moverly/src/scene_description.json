@@ -36,6 +36,12 @@
       "y": 0,
       "z": 0.4,
       "scale": 0.6
+    },
+    {
+      "url": "assets/layers/3D_static.png",
+      "x": 0,
+      "y": 0,
+      "z": 0.001
     }
   ],
   "animations": [
