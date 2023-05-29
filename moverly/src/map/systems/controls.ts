@@ -14,8 +14,8 @@ function createControls(camera: Camera, canvas: HTMLElement) {
     MIDDLE: MOUSE.DOLLY,
   };
 
-  const minPan = new Vector3( - 0.25, - 0.25, - 0.25 );
-  const maxPan = new Vector3( 0.25, 0.25, 0.25 );
+  const minPan = new Vector3( - 0.25, - 0.20, - 0.25 );
+  const maxPan = new Vector3( 0.25, 0.20, 0.25 );
   const _v = new Vector3();
 
   controls.addEventListener("change", function() {

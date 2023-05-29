@@ -1,12 +1,6 @@
 {
   "layers": [
     {
-      "url": "assets/layers/bg.jpg",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    {
       "url": "assets/layers/3D.png",
       "x": 0,
       "y": 0,
@@ -22,19 +16,19 @@
       "url": "assets/layers/flora.png",
       "x": 0,
       "y": 0,
-      "z": 0
+      "z": 0.001
     },
     {
       "url": "assets/layers/flora2.png",
       "x": 0,
       "y": 0,
-      "z": 0
+      "z": 0.001
     },
     {
       "url": "assets/layers/labels.png",
       "x": 0,
       "y": 0,
-      "z": 0
+      "z": 0.001
     },
     {
       "url": "assets/layers/nuvens-layer.png",
@@ -46,11 +40,39 @@
   ],
   "animations": [
     {
-      "url": "assets/Miradouro_Anim_trans.webm",
+      "url": "assets/animations/Cabo_Girão.webm",
       "x": -0.055,
       "y": -0.177,
-      "z": 0.001,
+      "z": 0.0001,
       "scale": 0.042
+    },
+    {
+      "url": "assets/animations/Pico_do_Areeiro.webm",
+      "x": 0.05,
+      "y": -0.035,
+      "z": 0.0001,
+      "scale": 0.1
+    },
+    {
+      "url": "assets/animations/Casa_Santana.webm",
+      "x": 0.109,
+      "y": 0.109,
+      "z": 0.0001,
+      "scale": 0.037
+    },
+    {
+      "url": "assets/animations/Vila_Ponta_do_Sol.webm",
+      "x": -0.25,
+      "y": -0.09,
+      "z": 0.0001,
+      "scale": 0.1
+    },
+    {
+      "url": "assets/animations/Levada_dos_Balcoes.webm",
+      "x": 0.105,
+      "y": -0.008,
+      "z": 0.0001,
+      "scale": 0.064
     }
   ],
 
