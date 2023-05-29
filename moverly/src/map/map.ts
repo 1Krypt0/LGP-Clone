@@ -183,32 +183,31 @@ class Map {
       gsap.killTweensOf(routeLine.material);
       gsap.to(routeLine.material, { opacity: 1, duration: 1.5 });
     }
-    for (const poi of route.routeList) {
-      this.scene.add(poi.pin);
-      gsap.killTweensOf(poi.pin.material);
-      gsap.to(poi.pin.material, { opacity: 1, duration: 1.5 });
+    for (const pin of route.pinList) {
+      this.scene.add(pin);
+      gsap.killTweensOf(pin.material);
+      gsap.to(pin.material, { opacity: 1, duration: 1.5 });
     }
   }
   
   hideRoute(route: Route) {
-    const { routeLines, routeList } = route;
   
     const onComplete = () => {
-      for (const routeLine of routeLines) {
+      for (const routeLine of route.routeLines) {
         this.scene.remove(routeLine);
       }
-      for (const poi of routeList) {
-        this.scene.remove(poi.pin);
+      for (const pin of route.pinList) {
+        this.scene.remove(pin);
       }
     };
   
-    for (const routeLine of routeLines) {
+    for (const routeLine of route.routeLines) {
       gsap.killTweensOf(routeLine.material);
       gsap.to(routeLine.material, { opacity: 0, duration: 1.5, onComplete });
     }
-    for (const poi of routeList) {
-      gsap.killTweensOf(poi.pin.material);
-      gsap.to(poi.pin.material, { opacity: 0, duration: 1.5, onComplete });
+    for (const pin of route.pinList) {
+      gsap.killTweensOf(pin.material);
+      gsap.to(pin.material, { opacity: 0, duration: 1.5, onComplete });
     }
   }
   getMapScene(){
