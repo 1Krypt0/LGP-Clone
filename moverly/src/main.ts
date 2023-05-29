@@ -279,8 +279,8 @@ landingPage.addEventListener("click",()=>{
 //Jojo
 
 let isJojoOn = true;
-const jojoAnim = document.getElementById("jojo-video")!;
-const jojoAnimMobile = document.getElementById("jojo-video-mobile")!;
+let jojoAnim:HTMLVideoElement | HTMLImageElement = document.getElementById("jojo-video")! as HTMLVideoElement;
+let jojoAnimMobile:HTMLVideoElement | HTMLImageElement = document.getElementById("jojo-video-mobile")! as HTMLVideoElement;
 function openJojo(){
   jojoAnim.style.marginTop = "-10vw";
   jojoAnimMobile.style.marginTop = "-25vw";
@@ -383,6 +383,30 @@ function setJojoUISound(soundName:string  | null){
     });
   }
 }
+
+function isSafari(): boolean {
+  const userAgent = navigator.userAgent.toLowerCase();
+  return userAgent.includes('safari') && !userAgent.includes('chrome');
+}
+
+const jojoDiv = document.getElementById("jojo-div")!;
+const jojoDivMobile = document.getElementById("jojo-div-mobile")!;
+
+if(true){
+  jojoAnim.remove();
+  jojoAnimMobile.remove();
+  jojoAnim = document.createElement('img') as HTMLImageElement;
+  jojoAnimMobile = document.createElement('img') as HTMLImageElement;
+  jojoAnim.src = "assets/ui/jojo.png"
+  jojoAnimMobile.src = "assets/ui/jojo.png"
+  jojoAnim.id = ("jojo-video");
+  jojoAnimMobile.id = ("jojo-video");
+
+  jojoDiv.appendChild(jojoAnim);
+  jojoDivMobile.appendChild(jojoAnimMobile);
+}
+
+
 
 function closeEveryMenu(){
   setInfoPageOpen(false);
