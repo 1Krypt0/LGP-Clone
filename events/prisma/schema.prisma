@@ -16,7 +16,8 @@ model Event {
   description String
   price       Float
   date        DateTime
-  coordinates String
+  xCoord      Float
+  yCoord      Float
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
