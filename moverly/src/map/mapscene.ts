@@ -15,7 +15,7 @@ interface Event {
 }
 
 async function getEvents(): Promise<POI[]> {
-  const base = "https://https://lgp-moverly-events.vercel.app";
+  const base = "https://lgp-moverly-events.vercel.app";
   const res = await fetch(`${base}/api/events`);
   const data: { events: Event[] } = await res.json();
   const events = data.events;
