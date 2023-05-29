@@ -46,6 +46,7 @@ export class MapScene {
         this.animationList.push(mapAnimation);
         this.scene.add(mapAnimation);
       }
+      
       const sounds = data.sounds;
       for (const sound of sounds) {
         const mapSound = new Sound(this.scene, this.map.getListener(), sound); 
