@@ -46,7 +46,7 @@ function createPopUp(title, titulo, street, text, texto, imageUrl,soundUrlPt,sou
   const close = document.createElement('button');
   close.className = 'close';
   const closeImage = document.createElement('img');
-  closeImage.src = '/src/assets/ui/close-button.png';
+  closeImage.src = '/assets/ui/close-button.png';
   close.appendChild(closeImage);
   modalcontent.appendChild(close);
 

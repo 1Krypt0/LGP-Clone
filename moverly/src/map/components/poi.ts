@@ -70,7 +70,7 @@ export class POI extends THREE.Mesh{
         this.fromRestore = null;
         this.toRestore = null;
 
-        const fontUrl = '/src/assets/ui/helvetiker_regular.typeface.json';
+        const fontUrl = '/assets/ui/helvetiker_regular.typeface.json';
 
         loader.load(fontUrl, (font) => {
             const geometry = new TextGeometry("i", {
