@@ -226,6 +226,7 @@
       "x": -0.315,
       "y": 0.219,
       "title": "Porto Moniz Village and Natural Pools",
+      "titulo": "Vila do Porto Moniz e Piscinas Naturais",
       "text": "Climb to the Santa viewpoint for a panoramic view of the village, which offers much more than its largest tourist poster, the natural pools. Besides the walking trails, such as the Levada da Ribeira da Janela, it is also possible to explore the stream beds. There are more than 30 canyoning circuits.",
       "texto": "Suba ao miradouro da Santa para uma panorâmica sobre a vila, que oferece muito mais que as piscinas naturais, o seu maior cartaz turístico. Além dos trilhos pedestres, como a Levada da Ribeira da Janela, é ainda possível explorar o leito das ribeiras. Existem mais que 30 circuitos preparados para canyoning.",
       "street": "Rotunda da Piscina, 9270-156 Porto Moniz",
@@ -258,8 +259,7 @@
       "titulo": "Camacha",
       "text": "At Achada, a monument marks the spot where football was played for the first time in Portugal. In this parish with a strong folkloric tradition and dedication to Madeira embroidery and wickerwork, we invite you to visit the emblematic Clock Tower and ride part of the Levada da Serra do Faial by bicycle.",
       "texto": "Na Achada, um monumento assinala que aqui se futebol pela primeira vez em Portugal. Nesta freguesia de vincada tradição folclórica e de dedicação ao bordado Madeira e à obra de vimes, convidamo-lo a visitar a emblemática Torre do Relógio e a percorrer parte da Levada da Serra do Faial de bicicleta.",
-      "street": "Largo Conselheiro Aires de Ornelas, 9135-053 Camacha",
-      "imageUrl":  "assets/popups/camacha.jpg"
+      "street": "Largo Conselheiro Aires de Ornelas, 9135-053 Camacha"
     },
     {
       "x": 0.1152,
@@ -314,6 +314,7 @@
   "routes" : [
     {
       "name" : "Zona Oeste",
+      "color" : "red", 
       "poi" : [
         {
           "name" : "City of Funchal"
@@ -340,6 +341,7 @@
     },
     {
       "name" : "Zona Este e Nordeste",
+      "color" : "blue",
       "poi" : [
         {
           "name" : "Ponta de São Lourenço"
@@ -369,6 +371,7 @@
     },
     {
       "name" : "Zona Noroeste",
+      "color" : "orange",
       "poi" : [
         {
           "name" : "Serra de Água"
