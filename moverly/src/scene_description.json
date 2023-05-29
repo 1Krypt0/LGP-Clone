@@ -123,8 +123,8 @@
       "text": "We invite you to walk downtown streets, which carry 600 years of history. Next to the market, catch a glimpse of Rua Fernão de Ornelas, the busiest street in Funchal. Pass by the Cathedral and the Bazar do Povo centenary building. Look for our terraces in Avenida do Mar and finish at Largo do Socorro.",
       "texto": "Convidamo-lo a passear pelas ruas da baixa, que carregam 600 anos de história. Junto ao mercado, vislumbre a Rua Fernão de Ornelas, a rua mais movimentada do Funchal. Passe pela Catedral e pelo edifício centenário do Bazar do Povo. Procure as nossas esplanadas na Avenida do Mar e termine no Largo do Socorro.",
       "imageUrl":  "assets/popups/funchal.jpg",
-      "audioUrlPt":"public/assets/sounds/funchal-pt.mp3",
-      "audioUrlEn":"public/assets/sounds/funchal-en.mp3"
+      "audioUrlPt":"assets/sounds/funchal-pt.mp3",
+      "audioUrlEn":"assets/sounds/funchal-en.mp3"
     },
     {
       "x": -0.008,
@@ -134,8 +134,8 @@
       "street": "Estrada Cônego Camacho, 9030-319 Curral das Freiras",
       "text": "Before the tunnel, access the viewpoints of Paredão or Eira do Serrado, and surprise yourself with this typical Madeira's village right inside a cauldron! Don't miss the Chestnut Museum, the parish's king of fruits, which is used in soups, cake or chestnut cookies. Delight yourself with the sour cherries, transformed into liquor.",
       "texto": "Antes do túnel, suba até aos miradouros do Paredão ou da Eira do Serrado e surpreenda-se com esta 'lapinha' madeirense dentro dum caldeirão! Não perca o museu da Castanha, o fruto-rei da freguesia, que é usado em sopas, bolo ou broas de castanha. Delicie-se ainda com a ginjinha, transformada em licor.",
-      "audioUrlPt":"public/assets/sounds/curral-das-freiras-pt.mp3",
-      "audioUrlEn":"public/assets/sounds/curral-das-freiras-en.mp3"
+      "audioUrlPt":"assets/sounds/curral-das-freiras-pt.mp3",
+      "audioUrlEn":"assets/sounds/curral-das-freiras-en.mp3"
     },
     {
       "x": -0.07,
@@ -146,8 +146,8 @@
       "text": "This glass platform located at an altitude of 580m grants an astonishing view over the southern coast. It is located in Europe's highest cape, very popular amongst paragliding and base-jumping lovers. One can usually find catamarans anchored off the Fajās, watching dolphins or diving in this Nature Reserve.",
       "texto": "Esta plataforma em vidro a 580m de altitude garante uma vista deslumbrante sobre a costa sul. Fica no cabo mais alto da Europa, muito procurado pelos amantes do parapente e do base-jumping. Ao largo das Fajãs, os catamarãs costumam ancorar para observar golfinhos ou permitir um mergulho nesta Reserva Natural.",
       "imageUrl":  "assets/popups/cabo-girão.jpg",
-      "audioUrlPt":"public/assets/sounds/cabo-girao-pt.mp3",
-      "audioUrlEn":"public/assets/sounds/cabo-girao-en.mp3"
+      "audioUrlPt":"assets/sounds/cabo-girao-pt.mp3",
+      "audioUrlEn":"assets/sounds/cabo-girao-en.mp3"
     },
     {
       "x": -0.222,
@@ -157,8 +157,8 @@
       "street": "Largo do Pelourinho, 9360-219 Ponta do Sol",
       "text": "Bathed by a genuine and inviting pebble beach, the picturesque village of Ponta do Sol, with many hours of sunshine throughout the year, hence its name, breathes tranquillity and relaxation. Its hallmark continues to be the beautiful Levada Velha do Moinho waterfall, although its folklore or theatre cultural festivals also have international projection.",
       "texto": "Banhada por uma genuína e convidativa praia de calhaus, a pitoresca vila da Ponta do Sol, com muitas horas de sol durante o ano, daí o seu nome, respira tranquilidade e bem estar. A sua imagem de marca é ainda a bela cascata da Levada Velha do Moinho, embora os festivais culturais de folclore ou de teatro tenham também projeção internacional.",
-      "audioUrlPt":"public/assets/sounds/vila-da-ponta-do-sol-pt.mp3",
-      "audioUrlEn":"public/assets/sounds/vila-da-ponta-do-sol-en.mp3"
+      "audioUrlPt":"assets/sounds/vila-da-ponta-do-sol-pt.mp3",
+      "audioUrlEn":"assets/sounds/vila-da-ponta-do-sol-en.mp3"
     },
     {
       "x": -0.409,
@@ -169,8 +169,8 @@
       "texto": "Depois de ziguezaguear pelas encatadores veredas de calçada portuguesa do Jardim do Mar, deixe-se contagiar pelo sossego do Paul do Mar, também resguardado entre o mar e a montanha. As ondas atraem surfistas de todo o mundo para campeonatos internacionais. São 2600 degraus até aos Prazeres, numa vereda com vista deslumbrante.",
       "street": "Arruamento do Paul do Mar, 9370-521 Paul do Mar",
       "imageUrl":  "assets/popups/paul-do-mar.jpg",
-      "audioUrlPt":"public/assets/sounds/paul-do-mar-pt.mp3",
-      "audioUrlEn":"public/assets/sounds/paul-do-mar-en.mp3"
+      "audioUrlPt":"assets/sounds/paul-do-mar-pt.mp3",
+      "audioUrlEn":"assets/sounds/paul-do-mar-en.mp3"
     },
     {
       "x": -0.46,
@@ -181,8 +181,8 @@
       "texto": "No extremo oeste da Madeira, numa escarpa rente ao mar, o farol da Ponta do Pargo oferece desde 2001 um núcleo museológico dedicado aos diversos faróis do arquipélago. É um local privilegiado para assistir ao pôr-do-sol. Vale ainda a pena parar no miradouro da Garganta Funda e tomar chá no miradouro do Fio.",
       "street": "Ponta da Vigia, 9385 Ponta do Pargo",
       "imageUrl":  "assets/popups/ponta-do-pargo.jpg",
-      "audioUrlPt":"public/assets/sounds/ponta-do-pargo-pt.mp3",
-      "audioUrlEn":"public/assets/sounds/ponta-do-pargo-en.mp3"
+      "audioUrlPt":"assets/sounds/ponta-do-pargo-pt.mp3",
+      "audioUrlEn":"assets/sounds/ponta-do-pargo-en.mp3"
     },
     {
       "x": -0.025,
@@ -193,8 +193,8 @@
       "texto": "Na terra do lobo-marinho é forte a tradição piscatória. Há peixe-gata a secar na baía e arte urbana a cobrir a baixa. É o maior produtor de uva da região, no entanto, na noite Camaralobense bebe-se sobretudo poncha e Nikita (uma mistura de gelado, ananás com cerveja ou vinho branco).",
       "street": "Rua da Nossa Senhora da Conceição, 9300-039 Câmara de Lobos",
       "imageUrl": "assets/popups/câmara-de-lobos.jpg",
-      "audioUrlPt":"public/assets/sounds/camara-de-lobos-pt.mp3",
-      "audioUrlEn":"public/assets/sounds/camara-de-lobos-en.mp3"
+      "audioUrlPt":"assets/sounds/camara-de-lobos-pt.mp3",
+      "audioUrlEn":"assets/sounds/camara-de-lobos-en.mp3"
     },
     {
       "x": -0.105,
@@ -205,8 +205,8 @@
       "texto": "A meio caminho entre a Ribeira Brava e São Vicente, a famosa poncha obriga a uma paragem. Daqui avistamos a Encumeada, frequentemente coberta por uma nuvem que parece neve a descer a encosta. Há outros tesouros para descobrir nestas escarpas montanhosas, percorrendo as suas levadas e um caminho real.",
       "street": "Estrada Regional 104, 9350-321 Serra de Água",
       "imageUrl":  "assets/popups/serra-de-água.jpg",
-      "audioUrlPt":"public/assets/sounds/serra-de-agua-pt.mp3",
-      "audioUrlEn":"public/assets/sounds/serra-de-agua-en.mp3"
+      "audioUrlPt":"assets/sounds/serra-de-agua-pt.mp3",
+      "audioUrlEn":"assets/sounds/serra-de-agua-en.mp3"
     },
     {
       "x": -0.123,
@@ -217,8 +217,8 @@
       "texto": "A aula de geologia começa com uma caminhada subterrânea por vários tubos vulcânicos com 890 mil anos. Nesta viagem mística, há lagos com água de nascente, formações de estalactites e até alguns fetos que nasceram nestas grutas. No final, um espetáculo audiovisual permite compreender melhor o nascimento do arquipélago da Madeira.",
       "street": "Sítio do Pé do Passo, 9240-039 São Vicente",
       "imageUrl":  "assets/popups/são-vicente.jpg",
-      "audioUrlPt":"public/assets/sounds/grutas-e-centro-de-vulcanismo-pt.mp3",
-      "audioUrlEn":"public/assets/sounds/grutas-e-centro-de-vulcanismo-en.mp3"
+      "audioUrlPt":"assets/sounds/grutas-e-centro-de-vulcanismo-pt.mp3",
+      "audioUrlEn":"assets/sounds/grutas-e-centro-de-vulcanismo-en.mp3"
     },
     {
       "x": -0.214,
@@ -229,8 +229,8 @@
       "texto": "Esta praia de areia negra, protegida pelo porto do Seixal, oferece um fácil acesso ao mar. Perfeita para banhos em família e para desportos náuticos. Partilha com as 'Poças das Lesmas', localizadas a oeste, a paisagem tranquila da costa norte e a água límpida que permite observar peixinhos ou algas.",
       "street": "Rua João Fernandes Correia, 9270-130 Seixal",
       "imageUrl":  "assets/popups/seixal.jpg",
-      "audioUrlPt":"public/assets/sounds/praia-do-porto-de-seixal-pt.mp3",
-      "audioUrlEn":"public/assets/sounds/praia-do-porto-de-seixal-en.mp3"
+      "audioUrlPt":"assets/sounds/praia-do-porto-de-seixal-pt.mp3",
+      "audioUrlEn":"assets/sounds/praia-do-porto-de-seixal-en.mp3"
     },
     {
       "x": -0.274,
@@ -241,8 +241,8 @@
       "texto": "No coração da Laurissilva há sítios mágicos dignos de um conto de fadas ideias para um piquenine. Tais como o Chão da Ribeira, o Fanal convida a desacelerar, percorrendo os seus trilhos para observar as suas árvores centenárias. No meio da névoa surge uma famosa lagoa que só aparece quando chove intensamente.",
       "street": "Estrada Regional 209 - Fanal, 9270 Ribiera da Janela",
       "imageUrl":  "assets/popups/fanal.jpg",
-      "audioUrlPt":"public/assets/sounds/fanal-pt.mp3",
-      "audioUrlEn":"public/assets/sounds/fanal-en.mp3"
+      "audioUrlPt":"assets/sounds/fanal-pt.mp3",
+      "audioUrlEn":"assets/sounds/fanal-en.mp3"
     },
     {
       "x": -0.315,
@@ -253,8 +253,8 @@
       "texto": "Suba ao miradouro da Santa para uma panorâmica sobre a vila, que oferece muito mais que as piscinas naturais, o seu maior cartaz turístico. Além dos trilhos pedestres, como a Levada da Ribeira da Janela, é ainda possível explorar o leito das ribeiras. Existem mais que 30 circuitos preparados para canyoning.",
       "street": "Rotunda da Piscina, 9270-156 Porto Moniz",
       "imageUrl":  "assets/popups/porto-moniz.jpg",
-      "audioUrlPt":"public/assets/sounds/porto-moniz-pt.mp3",
-      "audioUrlEn":"public/assets/sounds/porto-moniz-en.mp3"
+      "audioUrlPt":"assets/sounds/porto-moniz-pt.mp3",
+      "audioUrlEn":"assets/sounds/porto-moniz-en.mp3"
     },
     {
       "x": 0.398,
@@ -265,8 +265,8 @@
       "texto": "Na península mais a Este da ilha há espécies de fauna e flora exclusivas. Comece o trilho ao nascer do sol e não esqueça de subir à Ponta do Furado e de mergulhar no Cais do Sardinha, antes de merendar. Também vale a pena um passeio de barco até ao Farol.",
       "street": "Ponta de São Lourenço, Caniçal - Machico",
       "imageUrl":  "assets/popups/ponta-de-são-lourenço.jpg",
-      "audioUrlPt":"public/assets/sounds/sao-lourenco-pt.mp3",
-      "audioUrlEn":"public/assets/sounds/sao-lourenco-en.mp3"
+      "audioUrlPt":"assets/sounds/sao-lourenco-pt.mp3",
+      "audioUrlEn":"assets/sounds/sao-lourenco-en.mp3"
     },
     {
       "x": 0.3,
@@ -277,8 +277,8 @@
       "texto": "Além de inúmeros miradouros com vistas magníficas, a cidade de Machico oferece diversos percursos pedestrese outros fantásticos trilhos apenas acessíveis de jipe ou BTT, assim como aventuras de equitação e experiências de mergulho com golfinhos. Passeie ainda pelo centro histórico, que tem uma forte presença da arquitetura manuelina, maneirista e barroca.",
       "street": "Rua da Árvore, 9200-097 Machico",
       "imageUrl":  "assets/popups/machico.jpg",
-      "audioUrlPt":"public/assets/sounds/machico-pt.mp3",
-      "audioUrlEn":"public/assets/sounds/machico-en.mp3"
+      "audioUrlPt":"assets/sounds/machico-pt.mp3",
+      "audioUrlEn":"assets/sounds/machico-en.mp3"
     },
     {
       "x": 0.175,
@@ -288,8 +288,8 @@
       "text": "At Achada, a monument marks the spot where football was played for the first time in Portugal. In this parish with a strong folkloric tradition and dedication to Madeira embroidery and wickerwork, we invite you to visit the emblematic Clock Tower and ride part of the Levada da Serra do Faial by bicycle.",
       "texto": "Na Achada, um monumento assinala que aqui se futebol pela primeira vez em Portugal. Nesta freguesia de vincada tradição folclórica e de dedicação ao bordado Madeira e à obra de vimes, convidamo-lo a visitar a emblemática Torre do Relógio e a percorrer parte da Levada da Serra do Faial de bicicleta.",
       "street": "Largo Conselheiro Aires de Ornelas, 9135-053 Camacha",
-      "audioUrlPt":"public/assets/sounds/camacha-pt.mp3",
-      "audioUrlEn":"public/assets/sounds/camacha-en.mp3"
+      "audioUrlPt":"assets/sounds/camacha-pt.mp3",
+      "audioUrlEn":"assets/sounds/camacha-en.mp3"
     },
     {
       "x": 0.1152,
@@ -300,8 +300,8 @@
       "texto": "Ao chegarmos ao vale do Ribeiro Frio encontramos o posto de aquicultura dedicado às trutas. Aqui se iniciam duas caminhadas: Vereda dos Balcões e Levada do Furado. Nos Balcões, um percurso de fácil acesso, recomendamos uma visita ao miradouro, local onde os pássaros nativos vêm comer à sua mão.",
       "street": "Posto Aquícola do Ribeiro Frio, 9230-209 São Roque do Faial",
       "imageUrl": "assets/popups/ribeiro-frio.jpg",
-      "audioUrlPt":"public/assets/sounds/ribeiro-frio-pt.mp3",
-      "audioUrlEn":"public/assets/sounds/ribeiro-frio-en.mp3"
+      "audioUrlPt":"assets/sounds/ribeiro-frio-pt.mp3",
+      "audioUrlEn":"assets/sounds/ribeiro-frio-en.mp3"
     },
     {
       "x": 0.2017,
@@ -311,8 +311,8 @@
       "street": "Rua Doutor João Abel de Freitas, Casas Próximas, 9225-050 Porto da Cruz",
       "text": "This quiet village is located by the sea, in the foothills of Penha d'Águia. Walking up the mountain is a challenge, although the experience is exceptional. There is surfing lessons in Alagoa beach, another activity not to be missed. The local mill, which can be visited all year round, produces sugar cane rum from March to May.",
       "texto": "Esta pacata vila está plantada junto ao mar, no sopé da Penha d'Águia. A caminhada montanha acima é um desafio, embora a experiência seja excecional. Na praia da Alagoa ensinam a surfar, outra atividade a não perder. O engenho local, visitável todo o ano, produz aguardente de cana-de-açúcar de março a maio.",
-      "audioUrlPt":"public/assets/sounds/porto-da-cruz-pt.mp3",
-      "audioUrlEn":"public/assets/sounds/porto-da-cruz-en.mp3"
+      "audioUrlPt":"assets/sounds/porto-da-cruz-pt.mp3",
+      "audioUrlEn":"assets/sounds/porto-da-cruz-en.mp3"
     },
     {
       "x": 0.1173,
@@ -323,8 +323,8 @@
       "texto": "É incontornável a referência às casas de Santana, que ainda podem ser visitadas na Praça da cidade, junto ao jardim da Levada ou no parque temático, a poucos metros do centro, onde poderá também recordar como se faziam manualmente as roupas dos vilões, ainda usadas pelos grupos folclóricos.",
       "street": "Rua do Sacristão, Sitio do Serrado, 9230-116 Santana",
       "imageUrl": "assets/popups/santana.jpg",
-      "audioUrlPt":"public/assets/sounds/santana-pt.mp3",
-      "audioUrlEn":"public/assets/sounds/santana-en.mp3"
+      "audioUrlPt":"assets/sounds/santana-pt.mp3",
+      "audioUrlEn":"assets/sounds/santana-en.mp3"
     },
     {
       "x": 0.086,
@@ -335,8 +335,8 @@
       "texto": "Dada a biodiversidade do ecossistema, único aqui existente, o Parque Florestal das Queimadas é paragem obrigatória. Ponto de partida para as cascatas do Caldeirão Verde e do Inferno, numa levada singular, há também para descobrir o trilho para o Pico das Pedras e outros tesouros fascinantes para os aficionados pelo geocaching.",
       "street":"Sítio das Queimadas, 9230-112 Santana",
       "imageUrl": "assets/popups/queimadas.jpg",
-      "audioUrlPt":"public/assets/sounds/queimadas-pt.mp3",
-      "audioUrlEn":"public/assets/sounds/queimadas-en.mp3"
+      "audioUrlPt":"assets/sounds/queimadas-pt.mp3",
+      "audioUrlEn":"assets/sounds/queimadas-en.mp3"
     },
     {
       "x": 0.049,
@@ -347,8 +347,8 @@
       "texto":  "Assistir ao pôr-do-sol a 1818m de altitude é mágico, mesmo que haja um manto de nuvens escondendo a profundidade das montanhas. O Pico Ruivo, o pico mais alto da ilha, fica a 4 horas de caminhada, mas para este espetáculo sugerimos o miradouro do Ninho da Manta, mesmo no início do trilho.",
       "street": "Pico do Areeiro, 9230-212 São Roque do Faial",
       "imageUrl": "assets/popups/pico-do-areeiro.jpg",
-      "audioUrlPt":"public/assets/sounds/pico-do-areeiro-pt.mp3",
-      "audioUrlEn":"public/assets/sounds/pico-do-areeiro-en.mp3"
+      "audioUrlPt":"assets/sounds/pico-do-areeiro-pt.mp3",
+      "audioUrlEn":"assets/sounds/pico-do-areeiro-en.mp3"
     }
   ],
   "routes" : [

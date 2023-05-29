@@ -1,4 +1,5 @@
 import { MapLayer } from "./components/layer";
+import { MeshBasicMaterial } from "three";
 import { POI } from "./components/poi";
 import { Animation } from "./components/animation";
 import { Route } from "./components/route";
@@ -16,7 +17,7 @@ interface Event {
 }
 
 async function getEvents(): Promise<POI[]> {
-  const base = "http://localhost:5174";
+  const base = "https://lgp-moverly-events.vercel.app";
   const res = await fetch(`${base}/api/events`);
   const data: { events: Event[] } = await res.json();
   const events = data.events;
@@ -33,12 +34,28 @@ async function getEvents(): Promise<POI[]> {
 function convertEventToPOI(event: Event): POI {
   const poi = new POI({}, null);
   poi.title = event.name;
+  poi.titulo = event.name;
+  poi.texto = event.name;
   poi.text = event.description;
   poi.street = `${event.price}$`;
+  poi.material = new MeshBasicMaterial({
+    color: 0xffac1c,
+    transparent: true,
+    opacity: 1,
+  });
   poi.imageUrl = "";
   poi.position.set(event.xCoord, event.yCoord, 0.01);
 
   return poi;
+}
+
+interface Event {
+  name: string;
+  description: string;
+  price: number;
+  date: Date;
+  xCoord: number;
+  yCoord: number;
 }
 
 export class MapScene {
@@ -46,20 +63,20 @@ export class MapScene {
   poiList: Array<POI>;
   animationList: Array<Animation>;
   eventsList: POI[];
-  routesList : Array<Route>;
-  soundsList : Array<Sound>
-  scene : THREE.Scene;
-  map : Map;
+  routesList: Array<Route>;
+  soundsList: Array<Sound>;
+  scene: THREE.Scene;
+  map: Map;
 
-  constructor(scene : THREE.Scene, map : Map){
-      this.scene = scene;
-      this.map = map;
-      this.layerList = [];
-      this.poiList = [];
-      this.animationList = [];
-      this.routesList = [];
-      this.soundsList = [];
-      this.eventsList = [];
+  constructor(scene: THREE.Scene, map: Map) {
+    this.scene = scene;
+    this.map = map;
+    this.layerList = [];
+    this.poiList = [];
+    this.animationList = [];
+    this.routesList = [];
+    this.soundsList = [];
+    this.eventsList = [];
   }
 
   parse(data: any) {
@@ -71,13 +88,6 @@ export class MapScene {
       this.scene.add(mapLayer);
     }
 
-    const pois = data.poi;
-    for (const poi of pois) {
-      const mapPoi = new POI(poi, this.map);
-      this.poiList.push(mapPoi);
-      this.scene.add(mapPoi);
-    }
-
     const animations = data.animations;
     for (const animation of animations) {
       const mapAnimation = new Animation(animation, 0.35);
@@ -85,30 +95,42 @@ export class MapScene {
       this.scene.add(mapAnimation);
     }
 
-    for (const event of this.eventsList) {
-      this.scene.add(event);
+    const pois = data.poi;
+    for (const poi of pois) {
+      const mapPoi = new POI(poi, this.map);
+      this.poiList.push(mapPoi);
+      this.scene.add(mapPoi);
+    }
+
+    getEvents().then((data) => {
+      this.eventsList = data;
+
+      for (const event of this.eventsList) {
+        event.scene = this.map;
+        this.scene.add(event);
+      }
+    });
+
+    const sounds = data.sounds;
+    for (const sound of sounds) {
+      const mapSound = new Sound(this.scene, this.map.getListener(), sound);
+      this.soundsList.push(mapSound);
     }
 
     const routes = data.routes;
-      for (const route of routes){
-          const mapRoute = new Route(route.name, route.color, this.map);
-          for (const poi of route.poi){
-              for (const mapPoi of this.poiList){
-                  if (mapPoi.title == poi.name){
-                      mapRoute.addPoi(mapPoi);
-                  }
-              }
+    for (const route of routes) {
+      const mapRoute = new Route(route.name, route.color, this.map);
+      for (const poi of route.poi) {
+        for (const mapPoi of this.poiList) {
+          if (mapPoi.title == poi.name) {
+            mapRoute.addPoi(mapPoi);
           }
-          mapRoute.createRoute();
-          mapRoute.addPins();
-          this.routesList.push(mapRoute);
+        }
       }
-
-    const sounds = data.sounds;
-      for (const sound of sounds) {
-        const mapSound = new Sound(this.scene, this.map.getListener(), sound); 
-        this.soundsList.push(mapSound);
-      }
+      mapRoute.createRoute();
+      mapRoute.addPins();
+      this.routesList.push(mapRoute);
+    }
 
     getEvents().then((data) => {
       this.eventsList = data;
@@ -130,8 +152,7 @@ export class MapScene {
     }
   }
 
-
-  muteSounds(){
+  muteSounds() {
     for (const sound of this.soundsList) {
       sound.muteSound();
     }
