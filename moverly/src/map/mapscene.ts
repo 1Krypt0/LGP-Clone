@@ -84,8 +84,11 @@ export class MapScene {
     const isSafari = this.isSafari();
 
     for (const layer of layers) {
+      if (layer.url == "assets/layers/3D_static.png" && !isSafari){
+        continue;
+      }
       if (layer.url == "assets/layers/3D.png" && isSafari){
-        layer.url = "assets/layers/3D_static.png";
+        continue;
       }
       const mapLayer = new MapLayer(layer);
       this.layerList.push(mapLayer);
