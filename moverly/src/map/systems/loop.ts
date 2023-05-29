@@ -9,7 +9,7 @@ class Loop {
     private camera: Camera,
     private scene: Scene,
     private renderer: WebGLRenderer,
-    private cssrenderer : CSS2DRenderer
+    private cssrenderer: CSS2DRenderer
   ) {
     this.updatables = [];
     this.clock = new Clock();

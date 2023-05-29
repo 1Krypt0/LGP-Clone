@@ -1,26 +1,39 @@
-import { PerspectiveCamera, Raycaster, Scene, WebGLRenderer, Vector2} from "three";
+import {
+  PerspectiveCamera,
+  Raycaster,
+  Scene,
+  WebGLRenderer,
+  Vector2,
+  Vector3,
+  AudioListener,
+  Audio,
+  AudioLoader,
+} from "three";
+
+import gsap from "gsap";
 import { createCamera } from "./components/camera";
 import { createPlane } from "./components/plane";
 import { createScene } from "./components/scene";
 import { POI } from "./components/poi";
+import { Route } from "./components/route";
 import { MapScene } from "./mapscene";
 import { createControls } from "./systems/controls";
 import { Loop } from "./systems/loop";
 import { createRenderer } from "./systems/renderer";
 import { Resizer } from "./systems/resizer";
-import { CSS2DRenderer} from 'three/examples/jsm/renderers/CSS2DRenderer';
+import { CSS2DRenderer } from "three/examples/jsm/renderers/CSS2DRenderer";
 import * as data from "../scene_description.json";
 
 class Map {
   private camera: PerspectiveCamera;
   private scene: Scene;
   private renderer: WebGLRenderer;
-  private cssrenderer : CSS2DRenderer;
+  private cssrenderer: CSS2DRenderer;
   private loop: Loop;
-  private mapScene : MapScene;
-  private raycaster : Raycaster;
-  private pointer : Vector2;
-  private poi : POI | null;
+  private mapScene: MapScene;
+  private raycaster: Raycaster;
+  private pointer: Vector2;
+  private poi: POI | null;
 
   constructor(container: Element) {
     this.camera = createCamera();
@@ -33,16 +46,40 @@ class Map {
     this.poi = null;
 
     this.cssrenderer = new CSS2DRenderer();
-    this.cssrenderer.setSize( window.innerWidth, window.innerHeight );
-    this.cssrenderer.domElement.style.position = 'absolute';
-    this.cssrenderer.domElement.style.top = '0px';
+    this.cssrenderer.setSize(window.innerWidth, window.innerHeight);
+    this.cssrenderer.domElement.style.position = "absolute";
+    this.cssrenderer.domElement.style.top = "0px";
     container?.append(this.cssrenderer.domElement);
 
-    this.loop = new Loop(this.camera, this.scene, this.renderer, this.cssrenderer);
+    this.loop = new Loop(
+      this.camera,
+      this.scene,
+      this.renderer,
+      this.cssrenderer
+    );
 
     const controls = createControls(this.camera, this.cssrenderer.domElement);
+
+    controls.addEventListener("change", () => {
+      this.mapScene.updateAnimations(this.camera.position);
+    });
+
     this.loop.updatables.push(controls);
 
+    const listener = new AudioListener();
+    this.camera.add(listener);
+
+    // create a global audio source
+    const sound = new Audio(listener);
+
+    // load a sound and set it as the Audio object's buffer
+    const audioLoader = new AudioLoader();
+    audioLoader.load("assets/theme.wav", function (buffer) {
+      sound.setBuffer(buffer);
+      sound.setLoop(true);
+      sound.setVolume(0.5);
+      sound.play();
+    });
     this.mapScene.parse(data);
 
     const plane = createPlane();
@@ -51,28 +88,108 @@ class Map {
 
     const resizer = new Resizer(container, this.camera, this.renderer);
 
-    document.addEventListener( 'pointerdown', (ev) =>{
+    document.addEventListener('pointerdown', (ev) => {
       const close = document.querySelector('.close');
-
-      if(ev.target == close){
+      if (close) {
         this.poi?.closePopup();
+        const target = new Vector3(0, 0, 0.75);
+        gsap.to(this.camera.position, {
+          x: target.x,
+          y: target.y,
+          z: target.z,
+          duration: 1,
+          ease: "power2.inOut",
+        });
+        gsap.to(controls.target, {
+          x: target.x,
+          y: target.y,
+          z: target.z - 0.5,
+          duration: 1,
+          ease: "power2.inOut",
+        });
       }
 
-      this.pointer.set( ( ev.clientX / window.innerWidth ) * 2 - 1, - ( ev.clientY / window.innerHeight ) * 2 + 1 );
-		  this.raycaster.setFromCamera( this.pointer, this.camera );
-		  const intersects = this.raycaster.intersectObjects( this.scene.children, false);
-      for(const intersect of intersects) {
-        if(intersect.object.onClick){
+      this.pointer.set(
+        (ev.clientX / window.innerWidth) * 2 - 1,
+        -(ev.clientY / window.innerHeight) * 2 + 1
+      );
+      this.raycaster.setFromCamera(this.pointer, this.camera);
+      const intersects = this.raycaster.intersectObjects(
+        this.scene.children,
+        false
+      );
+      for (const intersect of intersects) {
+        if (intersect.object.onClick) {
           intersect.object.onClick();
+          const target = intersect.object.position.clone();
+          target.z += 0.5; 
+
+          gsap.to(this.camera.position, {
+            x: target.x,
+            y: target.y,
+            z: target.z,
+            duration: 1,
+            ease: "power2.inOut",
+          });
+
+          gsap.to(controls.target, {
+            x: target.x,
+            y: target.y,
+            z: target.z - 0.5,
+            duration: 1,
+            ease: "power2.inOut",
+          });
         }
       }
-
-    } );
+    });
   }
 
-  openPopUp(poi : POI){
+  openPopUp(poi: POI) {
+    if (this.poi != null) {
+      this.poi.closePopup();
+    } 
     this.poi = poi;
   }
+
+  showRoute(route: Route) {
+    for (const routeLine of route.routeLines) {
+      this.scene.add(routeLine);
+      gsap.killTweensOf(routeLine.material);
+      gsap.to(routeLine.material, { opacity: 1, duration: 1.5 });
+    }
+    for (const poi of route.routeList) {
+      this.scene.add(poi.pin);
+      gsap.killTweensOf(poi.pin.material);
+      gsap.to(poi.pin.material, { opacity: 1, duration: 1.5 });
+    }
+  }
+  
+  hideRoute(route: Route) {
+    const { routeLines, routeList } = route;
+  
+    const onComplete = () => {
+      for (const routeLine of routeLines) {
+        this.scene.remove(routeLine);
+      }
+      for (const poi of routeList) {
+        this.scene.remove(poi.pin);
+      }
+    };
+  
+    for (const routeLine of routeLines) {
+      gsap.killTweensOf(routeLine.material);
+      gsap.to(routeLine.material, { opacity: 0, duration: 1.5, onComplete });
+    }
+    for (const poi of routeList) {
+      gsap.killTweensOf(poi.pin.material);
+      gsap.to(poi.pin.material, { opacity: 0, duration: 1.5, onComplete });
+    }
+  }
+  getMapScene(){
+    return this.mapScene;
+  }
+
+
 
   render() {
     this.renderer.render(this.scene, this.camera);
