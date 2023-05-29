@@ -13,7 +13,7 @@ export class RouteLine extends THREE.Line {
 
     const material = new THREE.LineDashedMaterial({
       color: lineColor,
-      linewidth: 5,
+      linewidth: 10,
       dashSize: 0.01,
       gapSize: 0.01,
       opacity: 0,
