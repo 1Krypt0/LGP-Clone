@@ -34,6 +34,7 @@ class Map {
   private raycaster: Raycaster;
   private pointer: Vector2;
   private poi: POI | null;
+  private listener: AudioListener;
 
   constructor(container: Element) {
     this.camera = createCamera();
@@ -66,20 +67,20 @@ class Map {
 
     this.loop.updatables.push(controls);
 
-    const listener = new AudioListener();
-    this.camera.add(listener);
+    this.listener = new AudioListener();
+    this.camera.add(this.listener);
 
     // create a global audio source
-    const sound = new Audio(listener);
-
+    const sound = new Audio(this.listener);
+  
     // load a sound and set it as the Audio object's buffer
     const audioLoader = new AudioLoader();
-    audioLoader.load("assets/theme.wav", function (buffer) {
+    audioLoader.load("assets/sounds/theme.wav", function (buffer) {
       sound.setBuffer(buffer);
       sound.setLoop(true);
-      sound.setVolume(0.5);
-      sound.play();
+      sound.setVolume(0.20);
     });
+    
     this.mapScene.parse(data);
 
     const plane = createPlane();
@@ -88,22 +89,45 @@ class Map {
 
     const resizer = new Resizer(container, this.camera, this.renderer);
 
+
+    document.addEventListener( 'mousemove', (ev) => {
+      this.pointer.set(
+        (ev.clientX / window.innerWidth) * 2 - 1,
+        -(ev.clientY / window.innerHeight) * 2 + 1
+      );
+
+      this.raycaster.setFromCamera(this.pointer, this.camera);
+      const intersects = this.raycaster.intersectObjects(
+        this.scene.children,
+        false
+      );
+      const intersectsObj = intersects.map(intersect => intersect.object);
+      for (const children of this.scene.children){
+        if(children.hover){
+          if(intersectsObj.includes(children)){
+            children.hover();
+          }else{
+            children.dehover();
+          }
+        }
+      }
+    })
+
     document.addEventListener('pointerdown', (ev) => {
       const close = document.querySelector('.close');
       if (close) {
-        this.poi?.closePopup();
-        const target = new Vector3(0, 0, 0.75);
+        const {from, target} = this.poi?.closePopup();
         gsap.to(this.camera.position, {
-          x: target.x,
-          y: target.y,
-          z: target.z,
+          x: from?.x,
+          y: from?.y,
+          z: from?.z,
           duration: 1,
           ease: "power2.inOut",
         });
         gsap.to(controls.target, {
-          x: target.x,
-          y: target.y,
-          z: target.z - 0.5,
+          x: target?.x,
+          y: target?.y,
+          z: target?.z,
           duration: 1,
           ease: "power2.inOut",
         });
@@ -122,7 +146,8 @@ class Map {
         if (intersect.object.onClick) {
           intersect.object.onClick();
           const target = intersect.object.position.clone();
-          target.z += 0.5; 
+          target.z += 0.3;
+          this.poi?.restorePosition(this.camera.position, controls.target) 
 
           gsap.to(this.camera.position, {
             x: target.x,
@@ -135,7 +160,7 @@ class Map {
           gsap.to(controls.target, {
             x: target.x,
             y: target.y,
-            z: target.z - 0.5,
+            z: target.z - 0.3,
             duration: 1,
             ease: "power2.inOut",
           });
@@ -157,38 +182,95 @@ class Map {
       gsap.killTweensOf(routeLine.material);
       gsap.to(routeLine.material, { opacity: 1, duration: 1.5 });
     }
-    for (const poi of route.routeList) {
-      this.scene.add(poi.pin);
-      gsap.killTweensOf(poi.pin.material);
-      gsap.to(poi.pin.material, { opacity: 1, duration: 1.5 });
+    for (const pin of route.pinList) {
+      this.scene.add(pin);
+      gsap.killTweensOf(pin.material);
+      gsap.to(pin.material, { opacity: 1, duration: 1.5 });
     }
   }
   
   hideRoute(route: Route) {
-    const { routeLines, routeList } = route;
   
     const onComplete = () => {
-      for (const routeLine of routeLines) {
+      for (const routeLine of route.routeLines) {
         this.scene.remove(routeLine);
       }
-      for (const poi of routeList) {
-        this.scene.remove(poi.pin);
+      for (const pin of route.pinList) {
+        this.scene.remove(pin);
       }
     };
   
-    for (const routeLine of routeLines) {
+    for (const routeLine of route.routeLines) {
       gsap.killTweensOf(routeLine.material);
       gsap.to(routeLine.material, { opacity: 0, duration: 1.5, onComplete });
     }
-    for (const poi of routeList) {
-      gsap.killTweensOf(poi.pin.material);
-      gsap.to(poi.pin.material, { opacity: 0, duration: 1.5, onComplete });
+    for (const pin of route.pinList) {
+      gsap.killTweensOf(pin.material);
+      gsap.to(pin.material, { opacity: 0, duration: 1.5, onComplete });
     }
   }
   getMapScene(){
     return this.mapScene;
   }
 
+  getListener(){
+    return this.listener;
+  }
+
+  playsound(){
+    // create a global audio source
+    const sound = new Audio(this.listener);
+  
+    // load a sound and set it as the Audio object's buffer
+    const audioLoader = new AudioLoader();
+    audioLoader.load("assets/sounds/theme.wav", function (buffer) {
+      sound.setBuffer(buffer);
+      sound.setLoop(true);
+      sound.setVolume(0.20);
+      sound.play();
+    });
+
+    let soundOn = true;
+    const soundButton = document.getElementById("sound-button")!;
+    soundButton.addEventListener("click",() =>{
+      soundOn = !soundOn;
+      if (soundOn){
+        soundButton.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
+        soundButton.style.backgroundSize ="100% 100%";
+        soundButtonMobile.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
+        soundButtonMobile.style.backgroundSize ="100% 100%";
+        sound.play();
+
+      }else{
+        soundButton.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
+        soundButton.style.backgroundSize ="73% 100%";
+        soundButtonMobile.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
+        soundButtonMobile.style.backgroundSize ="73% 100%";
+        sound.stop();
+        this.mapScene.muteSounds();
+      }
+    });
+    
+    const soundButtonMobile = document.getElementById("sound-button-mobile")!;
+    soundButtonMobile.addEventListener("click",() => {
+      soundOn = !soundOn;
+      if (soundOn){
+        soundButton.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
+        soundButton.style.backgroundSize ="100% 100%";
+        soundButtonMobile.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
+        soundButtonMobile.style.backgroundSize ="100% 100%";
+        sound.play();
+
+      }else{
+        soundButton.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
+        soundButton.style.backgroundSize ="73% 100%";
+        soundButtonMobile.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
+        soundButtonMobile.style.backgroundSize ="73% 100%";
+        sound.pause();
+        this.mapScene.muteSounds();
+      }
+    });
+  }
 
 
   render() {

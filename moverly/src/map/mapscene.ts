@@ -3,6 +3,7 @@ import { POI } from "./components/poi";
 import { Animation } from "./components/animation";
 import { Route } from "./components/route";
 import { Map } from "./map";
+import { Sound } from "./components/sound";
 
 interface Event {
   name: string;
@@ -44,18 +45,20 @@ export class MapScene {
   poiList: Array<POI>;
   animationList: Array<Animation>;
   eventsList: POI[];
-  routesList: Array<Route>;
-  scene: THREE.Scene;
-  map: Map;
+  routesList : Array<Route>;
+  soundsList : Array<Sound>
+  scene : THREE.Scene;
+  map : Map;
 
-  constructor(scene: THREE.Scene, map: Map) {
-    this.scene = scene;
-    this.map = map;
-    this.layerList = [];
-    this.poiList = [];
-    this.animationList = [];
-    this.routesList = [];
-    this.eventsList = [];
+  constructor(scene : THREE.Scene, map : Map){
+      this.scene = scene;
+      this.map = map;
+      this.layerList = [];
+      this.poiList = [];
+      this.animationList = [];
+      this.routesList = [];
+      this.soundsList = [];
+      this.eventsList = [];
   }
 
   parse(data: any) {
@@ -74,15 +77,6 @@ export class MapScene {
       this.scene.add(mapPoi);
     }
 
-    getEvents().then((data) => {
-      this.eventsList = data;
-
-      for (const event of this.eventsList) {
-        event.scene = this.map;
-        this.scene.add(event);
-      }
-    });
-
     const animations = data.animations;
     for (const animation of animations) {
       const mapAnimation = new Animation(animation, 0.35);
@@ -95,23 +89,50 @@ export class MapScene {
     }
 
     const routes = data.routes;
-    for (const route of routes) {
-      const mapRoute = new Route(route.name, this.map);
-      for (const poi of route.poi) {
-        for (const mapPoi of this.poiList) {
-          if (mapPoi.title == poi.name) {
-            mapRoute.addPoi(mapPoi);
+      for (const route of routes){
+          const mapRoute = new Route(route.name, route.color, this.map);
+          for (const poi of route.poi){
+              for (const mapPoi of this.poiList){
+                  if (mapPoi.title == poi.name){
+                      mapRoute.addPoi(mapPoi);
+                  }
+              }
           }
-        }
+          mapRoute.createRoute();
+          mapRoute.addPins();
+          this.routesList.push(mapRoute);
       }
-      mapRoute.createRoute();
-      this.routesList.push(mapRoute);
-    }
+
+    const sounds = data.sounds;
+      for (const sound of sounds) {
+        const mapSound = new Sound(this.scene, this.map.getListener(), sound); 
+        this.soundsList.push(mapSound);
+      }
+
+    getEvents().then((data) => {
+      this.eventsList = data;
+
+      for (const event of this.eventsList) {
+        event.scene = this.map;
+        this.scene.add(event);
+      }
+    });
   }
 
   updateAnimations(cameraPosition: THREE.Vector3) {
     for (const animation of this.animationList) {
       animation.update(cameraPosition);
+    }
+
+    for (const sound of this.soundsList) {
+      sound.update(cameraPosition);
+    }
+  }
+
+
+  muteSounds(){
+    for (const sound of this.soundsList) {
+      sound.muteSound();
     }
   }
 }

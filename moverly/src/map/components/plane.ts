@@ -1,16 +1,16 @@
 import { Mesh, MeshBasicMaterial, PlaneGeometry, TextureLoader } from "three";
 
-function createMaterial() {
-  const texture = new TextureLoader().load("/assets/bg.jpg");
+function createPlane() {
+  const geometry = new PlaneGeometry(2.18, 2.20);
+
+  const texture = new TextureLoader().load("/assets/layers/Tudo.jpg", (tex) => {
+  tex.needsUpdate = true;
+  geometry.scale(1.0, tex.image.height / tex.image.width, 1.0);
+  });
   const material = new MeshBasicMaterial({ map: texture });
 
-  return material;
-}
-
-function createPlane() {
-  const geometry = new PlaneGeometry(20, 10);
-  const plane = new Mesh(geometry, createMaterial());
-  plane.position.set(3, 3, 0);
+  const plane = new Mesh(geometry, material);
+  plane.position.set(0, 0.017, 0);
 
   return plane;
 }

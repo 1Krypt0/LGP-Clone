@@ -407,3 +407,90 @@ h1{
   height: 100%;
   width: 15vw;
 }
+
+#routes-description-div-mobile{
+  position: absolute;
+  bottom: 5vw;
+  left: 5vw;
+  width: 40vw;
+  background-color: white;
+  border-radius: 3vw;
+  padding: 2vw;
+  font-family: kulim-park, Arial, Helvetica, sans-serif;
+  display: none;
+}
+
+.routes-description-title-mobile{
+  background-color: #D83D3D;
+  text-align: center;
+  padding: 2vw;
+  border-radius: 4vw;
+  font-size: 4vw;
+  margin-bottom: 1vw;
+}
+
+.routes-description-point-mobile{
+  margin-left: 2vw;
+  margin-top: 2vw;
+  margin-bottom: 1vw;
+  font-size: 3.5vw;
+}
+
+
+
+#landing-page-mobile{
+  position: absolute;
+  top:0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255,255,255,0.8);
+}
+
+#landing-page-title-mobile{
+  margin-left: 5vw;
+  margin-top:60vw;
+  width: 90vw;
+  font-family: Rubik, Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 9vw;
+  font-weight: 700;
+}
+
+#landing-page-description-mobile{
+  margin-left: 14vw;
+  margin-top:4vw;
+  width: 72vw;
+  font-family: Mullish, Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 3vw;
+  line-height: 3.5vw;
+  font-weight: 300;
+}
+
+#landing-page-tip-mobile{
+  margin-left: 5vw;
+  margin-top:4vw;
+  width: 90vw;
+  font-family: mullish, Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 3vw;
+  line-height: 2.5vw;
+  font-weight: 700;
+}
+
+#landing-page-button-mobile{
+  margin-left: 32.5vw;
+  margin-top:12vw;
+  width: 35vw;
+  font-family: Mullish, Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 5vw;
+  background-color: #A8DCEA;
+  padding: 1vw;
+  border: 1px solid #000;
+  border-radius: 3vw;
+}
+
+#landing-page-button-mobile:active{
+  background-color: #9ad5e5;
+}

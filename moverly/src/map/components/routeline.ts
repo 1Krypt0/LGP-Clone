@@ -1,10 +1,9 @@
 import * as THREE from 'three';
 
 export class RouteLine extends THREE.Line {
-  constructor(start: THREE.Vector3, end: THREE.Vector3) {
-    const offset = 0.001;
+  constructor(start: THREE.Vector3, end: THREE.Vector3, lineColor: number) {
     const curve = new THREE.CatmullRomCurve3(
-      [start.clone().setZ(offset), end.clone().setZ(offset)],
+      [start, end],
       false,
       'catmullrom',
       0.5
@@ -13,8 +12,8 @@ export class RouteLine extends THREE.Line {
     const geometry = new THREE.BufferGeometry().setFromPoints(points);
 
     const material = new THREE.LineDashedMaterial({
-      color: 0xff0000,
-      linewidth: 5,
+      color: lineColor,
+      linewidth: 10,
       dashSize: 0.01,
       gapSize: 0.01,
       opacity: 0,

@@ -87,3 +87,5 @@ languagesButtonMobile.addEventListener("click", ()=>{
 
 
 setLanguage("pt");
+
+export{currentLanguage}

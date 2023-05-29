@@ -1,5 +1,5 @@
 import { buttonBlue } from "./colors";
-import { routesList } from "../main";
+import { routesList, map } from "../main";
 
 //Buttons menu
 let mobileButtonsOpen = false;
@@ -140,6 +140,9 @@ function setRoutesOpen(setOpen:boolean){
         routesDivMobile.style.height = "0vw";
         routesButtonMobile.style.color = buttonBlue;
         routesButtonMobile.style.background = "transparent";
+        for(let i = 0; i < routesList.length; i++){
+          routesList[i].setRouteOpen(false);
+        }
 
     }
     mobileButtonsDiv.style.height = (50 + 7 * routesList.length * (isRoutesOpen?1:0)) + "vw";
@@ -150,3 +153,10 @@ routesButtonMobile.addEventListener("click",()=>{
     setRoutesOpen(!isRoutesOpen);
 })
 
+const landingPageMobile = document.getElementById("landing-page-mobile")!;
+landingPageMobile.addEventListener("click",()=>{
+    landingPageMobile.style.display ="none";
+    
+    //ACTIVATE SOUND
+    map.playsound();
+})
