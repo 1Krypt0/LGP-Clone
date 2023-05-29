@@ -81,8 +81,12 @@ export class MapScene {
 
   parse(data: any) {
     const layers = data.layers;
+    const isSafari = this.isSafari();
 
     for (const layer of layers) {
+      if (layer.url == "assets/layers/3D.png" && isSafari){
+        layer.url = "assets/layers/3D_static.png";
+      }
       const mapLayer = new MapLayer(layer);
       this.layerList.push(mapLayer);
       this.scene.add(mapLayer);
@@ -150,6 +154,13 @@ export class MapScene {
     for (const sound of this.soundsList) {
       sound.update(cameraPosition);
     }
+  }
+
+  isSafari() {
+    return (
+      navigator.userAgent.indexOf("Safari") != -1 &&
+      navigator.userAgent.indexOf("Chrome") == -1
+    );
   }
 
   muteSounds() {
