@@ -166,6 +166,9 @@ function setRoutesDivOpen(setOpen:boolean){
       routesDiv.style.display ="none";
       routesButton.style.backgroundColor="transparent";
       routesButton.style.color=buttonBlue;
+      for(let i = 0; i < routesList.length; i++){
+        routesList[i].setRouteOpen(false);
+      }
   }
 }
 
@@ -240,6 +243,19 @@ projectCloseButton?.addEventListener("click",()=>{
 // soundButtonMobile.addEventListener("click",toggleSound);
 
 
+//Landing page
+
+const landingPage = document.getElementById("landing-page")!;
+
+landingPage.addEventListener("click",()=>{
+  landingPage.style.display ="none";
+  
+  //ACTIVATE SOUND
+  map.playsound();
+
+})
 
 
-export {routesList}
+
+
+export {routesList,isMobile, map}
