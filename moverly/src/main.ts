@@ -338,26 +338,26 @@ function setJojoUISound(soundName:string  | null){
   const audioLoader = new AudioLoader();
   let soundUrlPt= "",soundUrlEn = "";
   if(soundName=="information"){
-    soundUrlPt="/public/assets/sounds/informacao-pt.mp3"
-    soundUrlEn="/public/assets/sounds/informacao-en.mp3"
+    soundUrlPt="/assets/sounds/informacao-pt.mp3"
+    soundUrlEn="/assets/sounds/informacao-en.mp3"
   }else if(soundName=="history"){
-    soundUrlPt="/public/assets/sounds/historia-pt.mp3"
-    soundUrlEn="/public/assets/sounds/historia-en.mp3"
+    soundUrlPt="/assets/sounds/historia-pt.mp3"
+    soundUrlEn="/assets/sounds/historia-en.mp3"
   }else if(soundName=="lifestyle"){
-    soundUrlPt="/public/assets/sounds/estilo-de-vida-pt.mp3"
-    soundUrlEn="/public/assets/sounds/estilo-de-vida-en.mp3"
+    soundUrlPt="/assets/sounds/estilo-de-vida-pt.mp3"
+    soundUrlEn="/assets/sounds/estilo-de-vida-en.mp3"
   }else if(soundName=="fauna"){
-    soundUrlPt="/public/assets/sounds/fauna-pt.mp3"
-    soundUrlEn="/public/assets/sounds/fauna-en.mp3"
+    soundUrlPt="/assets/sounds/fauna-pt.mp3"
+    soundUrlEn="/assets/sounds/fauna-en.mp3"
   }else if(soundName=="flora"){
-    soundUrlPt="/public/assets/sounds/flora-pt.mp3"
-    soundUrlEn="/public/assets/sounds/flora-en.mp3"
+    soundUrlPt="/assets/sounds/flora-pt.mp3"
+    soundUrlEn="/assets/sounds/flora-en.mp3"
   }else if(soundName=="routes"){
-    soundUrlPt="/public/assets/sounds/roteiros-pt.mp3"
-    soundUrlEn="/public/assets/sounds/roteiros-en.mp3"
+    soundUrlPt="/assets/sounds/roteiros-pt.mp3"
+    soundUrlEn="/assets/sounds/roteiros-en.mp3"
   }else if(soundName=="project"){
-    soundUrlPt="/public/assets/sounds/sobre-pt.mp3"
-    soundUrlEn="/public/assets/sounds/sobre-en.mp3"
+    soundUrlPt="/assets/sounds/sobre-pt.mp3"
+    soundUrlEn="/assets/sounds/sobre-en.mp3"
   }else{return};
   if (currentLanguage == "pt"){
     audioLoader.load(soundUrlPt, function (buffer) {

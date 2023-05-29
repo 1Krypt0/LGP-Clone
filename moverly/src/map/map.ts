@@ -236,16 +236,16 @@ class Map {
     soundButton.addEventListener("click",() =>{
       this.soundOn = !this.soundOn;
       if (this.soundOn){
-        soundButton.style.backgroundImage="url(public/assets/ui/sound-icon.png)";
+        soundButton.style.backgroundImage="url(assets/ui/sound-icon.png)";
         soundButton.style.backgroundSize ="100% 100%";
-        soundButtonMobile.style.backgroundImage="url(public/assets/ui/sound-icon.png)";
+        soundButtonMobile.style.backgroundImage="url(assets/ui/sound-icon.png)";
         soundButtonMobile.style.backgroundSize ="100% 100%";
         sound.play();
 
       }else{
-        soundButton.style.backgroundImage="url(public/assets/ui/mute-icon.png)";
+        soundButton.style.backgroundImage="url(assets/ui/mute-icon.png)";
         soundButton.style.backgroundSize ="73% 100%";
-        soundButtonMobile.style.backgroundImage="url(public/assets/ui/mute-icon.png)";
+        soundButtonMobile.style.backgroundImage="url(assets/ui/mute-icon.png)";
         soundButtonMobile.style.backgroundSize ="73% 100%";
         sound.stop();
         this.mapScene.muteSounds();
@@ -256,16 +256,16 @@ class Map {
     soundButtonMobile.addEventListener("click",() => {
       this.soundOn = !this.soundOn;
       if (this.soundOn){
-        soundButton.style.backgroundImage="url(public/assets/ui/sound-icon.png)";
+        soundButton.style.backgroundImage="url(assets/ui/sound-icon.png)";
         soundButton.style.backgroundSize ="100% 100%";
-        soundButtonMobile.style.backgroundImage="url(public/assets/ui/sound-icon.png)";
+        soundButtonMobile.style.backgroundImage="url(assets/ui/sound-icon.png)";
         soundButtonMobile.style.backgroundSize ="100% 100%";
         sound.play();
 
       }else{
-        soundButton.style.backgroundImage="url(public/assets/ui/mute-icon.png)";
+        soundButton.style.backgroundImage="url(assets/ui/mute-icon.png)";
         soundButton.style.backgroundSize ="73% 100%";
-        soundButtonMobile.style.backgroundImage="url(public/assets/ui/mute-icon.png)";
+        soundButtonMobile.style.backgroundImage="url(assets/ui/mute-icon.png)";
         soundButtonMobile.style.backgroundSize ="73% 100%";
         sound.pause();
         this.mapScene.muteSounds();
