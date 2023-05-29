@@ -35,6 +35,7 @@ class Map {
   private pointer: Vector2;
   private poi: POI | null;
   private listener: AudioListener;
+  public soundOn: boolean = true;
 
   constructor(container: Element) {
     this.camera = createCamera();
@@ -230,21 +231,21 @@ class Map {
       sound.play();
     });
 
-    let soundOn = true;
+    this.soundOn = true;
     const soundButton = document.getElementById("sound-button")!;
     soundButton.addEventListener("click",() =>{
-      soundOn = !soundOn;
-      if (soundOn){
-        soundButton.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
+      this.soundOn = !this.soundOn;
+      if (this.soundOn){
+        soundButton.style.backgroundImage="url(public/assets/ui/sound-icon.png)";
         soundButton.style.backgroundSize ="100% 100%";
-        soundButtonMobile.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
+        soundButtonMobile.style.backgroundImage="url(public/assets/ui/sound-icon.png)";
         soundButtonMobile.style.backgroundSize ="100% 100%";
         sound.play();
 
       }else{
-        soundButton.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
+        soundButton.style.backgroundImage="url(public/assets/ui/mute-icon.png)";
         soundButton.style.backgroundSize ="73% 100%";
-        soundButtonMobile.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
+        soundButtonMobile.style.backgroundImage="url(public/assets/ui/mute-icon.png)";
         soundButtonMobile.style.backgroundSize ="73% 100%";
         sound.stop();
         this.mapScene.muteSounds();
@@ -253,18 +254,18 @@ class Map {
     
     const soundButtonMobile = document.getElementById("sound-button-mobile")!;
     soundButtonMobile.addEventListener("click",() => {
-      soundOn = !soundOn;
-      if (soundOn){
-        soundButton.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
+      this.soundOn = !this.soundOn;
+      if (this.soundOn){
+        soundButton.style.backgroundImage="url(public/assets/ui/sound-icon.png)";
         soundButton.style.backgroundSize ="100% 100%";
-        soundButtonMobile.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
+        soundButtonMobile.style.backgroundImage="url(public/assets/ui/sound-icon.png)";
         soundButtonMobile.style.backgroundSize ="100% 100%";
         sound.play();
 
       }else{
-        soundButton.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
+        soundButton.style.backgroundImage="url(public/assets/ui/mute-icon.png)";
         soundButton.style.backgroundSize ="73% 100%";
-        soundButtonMobile.style.backgroundImage="url(./src/assets/ui/mute-icon.png)";
+        soundButtonMobile.style.backgroundImage="url(public/assets/ui/mute-icon.png)";
         soundButtonMobile.style.backgroundSize ="73% 100%";
         sound.pause();
         this.mapScene.muteSounds();

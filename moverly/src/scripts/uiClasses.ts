@@ -1,6 +1,6 @@
 import { buttonBlue, secondaryButtonBlue } from "./colors";
 import { Route } from "../map/components/route";
-import { isMobile, routesList } from "../main";
+import { isJojoOn, isMobile, routesList } from "../main";
 
 
 class RouteUI{
@@ -35,11 +35,12 @@ class RouteUI{
   
     setRouteOpen(setOpen:boolean){
       if (this.routeButton == null || this.routeButtonMobile == null){return};
-      this.isOpen = setOpen;
       if(setOpen){
         for(let i = 0; i < routesList.length; i++){
           routesList[i].setRouteOpen(false);
         }
+        
+        console.log("Opening route ")
         this.route.showRoute();
 
         this.routeButton.style.background = secondaryButtonBlue;
@@ -48,6 +49,13 @@ class RouteUI{
         this.routeButtonMobile.style.color = "white";
 
         RouteUI.routeDescriptionDiv.style.display ="block";
+        if(isJojoOn){
+          RouteUI.routeDescriptionDiv.style.bottom = "12vw";
+          RouteUI.routeDescriptionDivMobile.style.bottom = "30vw";
+        }else{
+          RouteUI.routeDescriptionDiv.style.bottom = "1vw";
+          RouteUI.routeDescriptionDivMobile.style.bottom = "5vw";
+        }
         RouteUI.routeDescriptionTitle.innerHTML = this.route.name;
         RouteUI.routeDescriptionDivMobile.style.display ="block";
         RouteUI.routeDescriptionTitleMobile.innerHTML = this.route.name;
@@ -82,6 +90,7 @@ class RouteUI{
         this.route.hideRoute();
         this.routeButton.style.background = "transparent";
         this.routeButton.style.color = buttonBlue;
+        console.log("Closing route from " + this.routeButtonMobile);
         this.routeButtonMobile.style.background = "transparent";
         this.routeButtonMobile.style.color = buttonBlue;
         RouteUI.routeDescriptionDiv.style.display ="none";
@@ -90,6 +99,8 @@ class RouteUI{
         //CLOSE ROUTE
   
       }
+      
+      this.isOpen = setOpen;
     }
   }
 

@@ -38,7 +38,6 @@ export class Sound {
     }
 
     update(cameraPosition: Vector3) {
-        console.log("HERE");
         const distance = this.position.distanceTo(cameraPosition);
         if (distance <= this.playDistance) {
             if(!this.sound.isPlaying && !this.mute){

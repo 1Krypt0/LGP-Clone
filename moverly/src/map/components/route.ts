@@ -23,19 +23,19 @@ export class Route {
         switch (color){
             case "red":
                 this.color = 0x8b0000;
-                this.pinUrl = "../src/assets/ui/pin_red.png";
+                this.pinUrl = "/assets/ui/pin_red.png";
                 break;
             case "orange":
                 this.color = 0xff7800;
-                this.pinUrl = "../src/assets/ui/pin_orange.png";
+                this.pinUrl = "/assets/ui/pin_orange.png";
                 break;
             case "blue":
                 this.color = 0x00008b;
-                this.pinUrl = "../src/assets/ui/pin_blue.png";
+                this.pinUrl = "/assets/ui/pin_blue.png";
                 break;
             default:
                 this.color = 0x8b0000;
-                this.pinUrl = "../src/assets/ui/pin_red.png";
+                this.pinUrl = "/assets/ui/pin_red.png";
                 break;
         }   
 
