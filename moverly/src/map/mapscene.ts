@@ -5,6 +5,7 @@ import { Animation } from "./components/animation";
 import { Route } from "./components/route";
 import { Map } from "./map";
 import { Sound } from "./components/sound";
+import { closeJojo } from "../main";
 
 interface Event {
   name: string;
@@ -155,5 +156,6 @@ export class MapScene {
     for (const sound of this.soundsList) {
       sound.muteSound();
     }
+    closeJojo();
   }
 }
