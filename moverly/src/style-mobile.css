@@ -498,7 +498,7 @@ h1{
 #jojo-div-mobile{
   width: 50vw;
   height: 30vw;
-  position: absolute;
+  position: fixed;
   bottom:0;
   z-index: 10;
   overflow: hidden;

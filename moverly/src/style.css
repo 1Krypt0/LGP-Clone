@@ -560,17 +560,16 @@ h1{
 }
 
 #jojo-div{
-  width: 40vw;
-  height: 23vw;
-  position: absolute;
+  width: 20vw;
+  height: 12vw;
+  position: fixed;
   bottom:0;
   z-index: 10;
   overflow-y: hidden;
 }
 
 #jojo-video{
-  background-size: 100% 100%;
-  width: 100%;
+  width: 200%;
   margin-top: 20vw;
   transition: margin-top 0.5s ease;
 }
