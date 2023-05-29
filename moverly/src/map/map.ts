@@ -35,6 +35,7 @@ class Map {
   private pointer: Vector2;
   private poi: POI | null;
   private listener: AudioListener;
+  public soundOn: boolean = true;
 
   constructor(container: Element) {
     this.camera = createCamera();
@@ -231,11 +232,11 @@ class Map {
       sound.play();
     });
 
-    let soundOn = true;
+    this.soundOn = true;
     const soundButton = document.getElementById("sound-button")!;
     soundButton.addEventListener("click",() =>{
-      soundOn = !soundOn;
-      if (soundOn){
+      this.soundOn = !this.soundOn;
+      if (this.soundOn){
         soundButton.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
         soundButton.style.backgroundSize ="100% 100%";
         soundButtonMobile.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
@@ -254,8 +255,8 @@ class Map {
     
     const soundButtonMobile = document.getElementById("sound-button-mobile")!;
     soundButtonMobile.addEventListener("click",() => {
-      soundOn = !soundOn;
-      if (soundOn){
+      this.soundOn = !this.soundOn;
+      if (this.soundOn){
         soundButton.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";
         soundButton.style.backgroundSize ="100% 100%";
         soundButtonMobile.style.backgroundImage="url(./src/assets/ui/sound-icon.png)";

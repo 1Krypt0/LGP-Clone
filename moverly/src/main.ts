@@ -256,6 +256,28 @@ landingPage.addEventListener("click",()=>{
 })
 
 
+//Jojo
+
+let isJojoOn = true;
+const jojoAnim = document.getElementById("jojo-video")!;
+const jojoAnimMobile = document.getElementById("jojo-video-mobile")!;
+function openJojo(){
+  jojoAnim.style.marginTop = "0vw";
+  jojoAnimMobile.style.marginTop = "-25vw";
+}
+function closeJojo(){
+  jojoAnim.style.marginTop = "20vw";
+  jojoAnimMobile.style.marginTop = "10vw";
+}
+const jojoButton = document.getElementById("jojo-button")!;
+const jojoButtonMobile = document.getElementById("jojo-button-mobile")!;
+function setJojoActive(setActive:boolean){
+  isJojoOn = setActive;
+}
+jojoButton.addEventListener("click",()=>{setJojoActive(!isJojoOn)});
+jojoButtonMobile.addEventListener("click",()=>{setJojoActive(!isJojoOn)});
 
 
-export {routesList,isMobile, map}
+
+
+export {routesList,isMobile, map, isJojoOn,openJojo,closeJojo}

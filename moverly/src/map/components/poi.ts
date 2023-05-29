@@ -4,6 +4,7 @@ import { PopUp } from "./popup";
 import { Pin} from "./pin";
 import { FontLoader } from 'three/addons/loaders/FontLoader.js';
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
+import { closeJojo } from "../../main";
 
 export class POI extends THREE.Mesh{
     material : THREE.Material
@@ -17,6 +18,8 @@ export class POI extends THREE.Mesh{
     text : string | null
     texto: string | null
     imageUrl : string | null
+    soundUrlPt : string | null
+    soundUrlEn : string | null
     fromRestore : THREE.Vector3 | null
     toRestore : THREE.Vector3 | null
        
@@ -60,6 +63,14 @@ export class POI extends THREE.Mesh{
         if (poi.imageUrl) {
             this.imageUrl = poi.imageUrl;
         }
+        this.soundUrlPt = null;
+        if (poi.audioUrlPt) {
+            this.soundUrlPt = poi.audioUrlPt;
+        }
+        this.soundUrlEn = null;
+        if (poi.audioUrlEn) {
+            this.soundUrlEn = poi.audioUrlEn;
+        }
         this.fromRestore = null;
         this.toRestore = null;
 
@@ -87,7 +98,8 @@ export class POI extends THREE.Mesh{
     onClick(){
         if(this.popup != null) return;
         if (this.title == null || this.text == null) return;
-        this.popup = new PopUp(this.title, this.titulo, this.street, this.text, this.texto, this.imageUrl);
+        console.log("creating popup with soundurlpt " + this.soundUrlPt);
+        this.popup = new PopUp(this.title, this.titulo, this.street, this.text, this.texto, this.imageUrl,this.soundUrlPt,this.soundUrlEn);
         this.visible = false;
         this.popup.position.set( 0, 0, 0 );
         this.add( this.popup );
@@ -105,6 +117,8 @@ export class POI extends THREE.Mesh{
 
     closePopup(){
         if(this.popup == null) return;
+        this.popup.sound?.stop();
+        closeJojo();
         this.remove(this.popup);
         this.popup = null;
         this.visible = true;

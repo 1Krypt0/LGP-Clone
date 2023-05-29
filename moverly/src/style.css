@@ -558,3 +558,19 @@ h1{
 #landing-page-button:active{
   background-color: #9ad5e5;
 }
+
+#jojo-div{
+  width: 40vw;
+  height: 23vw;
+  position: absolute;
+  bottom:0;
+  z-index: 10;
+  overflow-y: hidden;
+}
+
+#jojo-video{
+  background-size: 100% 100%;
+  width: 100%;
+  margin-top: 20vw;
+  transition: margin-top 0.5s ease;
+}

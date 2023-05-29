@@ -246,8 +246,8 @@ h1{
   cursor: pointer;
 }
 
-.info-navbar-description{
-  font-size: 1vw;
+.info-navbar-description-mobile{
+  font-size: 4vw;
   color: var(--button-primary-color);
   cursor: pointer;
 }
@@ -493,4 +493,19 @@ h1{
 
 #landing-page-button-mobile:active{
   background-color: #9ad5e5;
+}
+
+#jojo-div-mobile{
+  width: 50vw;
+  height: 30vw;
+  position: absolute;
+  bottom:0;
+  z-index: 10;
+  overflow: hidden;
+}
+
+#jojo-video-mobile{
+  width: 200%;
+  margin-top: 10vw;
+  transition: margin-top 0.5s ease;
 }
