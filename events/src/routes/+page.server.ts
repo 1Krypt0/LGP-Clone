@@ -2,6 +2,13 @@ import { fail } from '@sveltejs/kit';
 import type { Actions } from './$types';
 import prisma from '$lib/prisma';
 
+function translateCoords(latitude: number, longitude: number): [number, number] {
+	const baseLatitude = 32.760199,
+		baseLongitue = -16.962468;
+	const step = 0.45343;
+	return [(latitude - baseLatitude) / step, (longitude - baseLongitue) / step];
+}
+
 export const actions = {
 	default: async (event) => {
 		const data = await event.request.formData();
@@ -10,10 +17,13 @@ export const actions = {
 		const description = data.get('description') as string;
 		const price = Number(data.get('price') as string);
 		let date: string | Date = data.get('date') as string;
-		const coords = data.get('coordinates') as string;
+		const latitude = Number.parseFloat(data.get('latitude') as string);
+		const longitude = Number.parseFloat(data.get('longitude') as string);
 
-		if (!name || !description || !coords || !date) {
-			return fail(400, { name, description, coords, date, price, missing: true });
+		const [yCoord, xCoord] = translateCoords(latitude, longitude);
+
+		if (!name || !description || !latitude || !longitude || !date) {
+			return fail(400, { name, description, latitude, longitude, date, price, missing: true });
 		}
 
 		if (isNaN(price) || price < 0) {
@@ -32,7 +42,8 @@ export const actions = {
 				description,
 				price,
 				date,
-				coordinates: coords
+				xCoord,
+				yCoord
 			}
 		});
 

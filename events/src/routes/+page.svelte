@@ -75,15 +75,30 @@
 			<p>The chosen date must be after today</p>
 		{/if}
 
-		<label for="coordinates" class="label text-lg">Event Coordinates</label>
-		<input
-			type="text"
-			class="input input-bordered"
-			value={form?.coords ?? ''}
-			name="coordinates"
-			id="coordinates"
-			placeholder="Enter the Coordinates here"
-		/>
+		<div class="flex gap-3">
+			<div>
+				<label for="latitude" class="label text-lg">Event Latitude</label>
+				<input
+					type="text"
+					class="input input-bordered"
+					value={form?.coords ?? ''}
+					name="latitude"
+					id="latitude"
+					placeholder="Enter the Latitude here"
+				/>
+			</div>
+			<div class="">
+				<label for="longitude" class="label text-lg">Event Longitude</label>
+				<input
+					type="text"
+					class="input input-bordered"
+					value={form?.coords ?? ''}
+					name="longitude"
+					id="longitude"
+					placeholder="Enter the Longitude here"
+				/>
+			</div>
+		</div>
 
 		{#if form?.missing && !form.coords}
 			<p>The coordinates are required</p>
