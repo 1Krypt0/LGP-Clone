@@ -12,7 +12,7 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
-    <script type="module" src="/src/scripts/mobileUI.ts"></script>
+    <script type="module" src="/src/mobileUI.ts"></script>
     <script type="module" src="src/languages.ts"></script>
     <div id="scene"></div>
 
@@ -20,7 +20,7 @@
     <!--WEB VERSION-->
     <div id="web-version">
       <!--"ILHA DA MADEIRA" text-->
-      <img id="logo-icon" src="./src/assets/ui/ilha-da-madeira-logo.png">
+      <img id="logo-icon" src="./src/assets/ui/ilha-da-madeira-logo.png" class="no-highlight">
       
 
       <!--menus that appear when you click information-->
@@ -130,6 +130,11 @@
       <!--Routes description-->
       <div id="routes-description-div">
         <div class="routes-description-title" id="routes-description-title">Zona Este</div>
+      </div>
+
+      <!--Jojo-->
+      <div id="jojo-div">
+        <video src="./src/assets/ui/jojo.webm" autoplay id="jojo-video"></video>
       </div>
 
       <!--Landing page-->
@@ -260,6 +265,13 @@
         <button id="project-button-mobile" class="ui-menu-button-mobile">Project</button>
         <button id="accessibility-button-mobile" class="ui-menu-button-mobile">Accessibility</button>
       </div>
+
+
+      <!--Jojo-->
+      <div id="jojo-div-mobile">
+        <video src="./src/assets/ui/jojo.webm" autoplay id="jojo-video-mobile"></video>
+      </div>
+
       <!--Landing page-->
       <div id="landing-page-mobile">
         <div id="landing-page-title-mobile">Mapa Interativo da Ilha da Madeira</div>

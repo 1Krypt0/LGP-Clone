@@ -558,3 +558,26 @@ h1{
 #landing-page-button:active{
   background-color: #9ad5e5;
 }
+
+#jojo-div{
+  width: 20vw;
+  height: 12vw;
+  position: fixed;
+  bottom:0;
+  z-index: 10;
+  overflow-y: hidden;
+}
+
+#jojo-video{
+  width: 200%;
+  margin-top: 20vw;
+  transition: margin-top 0.5s ease;
+}
+
+.no-highlight{
+  -webkit-user-select: none; /* Disable text selection for webkit browsers */
+  -moz-user-select: none; /* Disable text selection for Mozilla browsers */
+  -ms-user-select: none; /* Disable text selection for Internet Explorer */
+  user-select: none; /* Disable text selection for all browsers */
+  pointer-events: none;
+}

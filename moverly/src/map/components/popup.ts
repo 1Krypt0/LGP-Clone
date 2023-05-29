@@ -1,14 +1,45 @@
 import { CSS2DObject } from "three/examples/jsm/renderers/CSS2DRenderer";
 import { currentLanguage } from "../../languages";
+import { isJojoOn, openJojo } from "../../main";
+
+import {
+  AudioListener,
+  Audio,
+  AudioLoader,
+} from "three";
 
 export class PopUp extends CSS2DObject {
-  constructor(title, titulo, street, text, texto, imageUrl) {
-    const element = createPopUp(title, titulo, street, text, texto, imageUrl);
+  public sound : Audio | null = null;
+  constructor(title, titulo, street, text, texto, imageUrl,soundUrlPt,soundUrlEn) {
+    const element = createPopUp(title, titulo, street, text, texto, imageUrl,soundUrlPt,soundUrlEn);
     super(element);
+    console.log("Jojo is " + isJojoOn);
+    if(isJojoOn){
+      const sound = new Audio(new AudioListener());
+      const audioLoader = new AudioLoader();
+      if (currentLanguage == "pt"){
+        audioLoader.load(soundUrlPt, function (buffer) {
+          sound.setBuffer(buffer);
+          sound.setVolume(0.80);
+          sound.play();
+        });
+      }else{
+        audioLoader.load(soundUrlEn, function (buffer) {
+          sound.setBuffer(buffer);
+          sound.setVolume(0.80);
+          sound.play();
+        });
+      }
+      this.sound = sound;
+      if (sound == null){
+        console.error("The sound for" + soundUrlPt + "wasn't found! Perhaps the name is miss spelled...");
+      }
+      openJojo();
+    }
   }
 }
 
-function createPopUp(title, titulo, street, text, texto, imageUrl) {
+function createPopUp(title, titulo, street, text, texto, imageUrl,soundUrlPt,soundUrlEn) {
   const modalcontent = document.createElement('div');
   modalcontent.className = 'modal-content';
 
