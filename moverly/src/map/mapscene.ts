@@ -92,44 +92,53 @@ export class MapScene {
       const mapAnimation = new Animation(animation, 0.35);
       this.animationList.push(mapAnimation);
       this.scene.add(mapAnimation);
+    }
 
-      const pois = data.poi;
-      for (const poi of pois) {
-        const mapPoi = new POI(poi, this.map);
-        this.poiList.push(mapPoi);
-        this.scene.add(mapPoi);
+    const pois = data.poi;
+    for (const poi of pois) {
+      const mapPoi = new POI(poi, this.map);
+      this.poiList.push(mapPoi);
+      this.scene.add(mapPoi);
+    }
+
+    getEvents().then((data) => {
+      this.eventsList = data;
+
+      for (const event of this.eventsList) {
+        event.scene = this.map;
+        this.scene.add(event);
       }
+    });
 
-      getEvents().then((data) => {
-        this.eventsList = data;
+    const sounds = data.sounds;
+    for (const sound of sounds) {
+      const mapSound = new Sound(this.scene, this.map.getListener(), sound);
+      this.soundsList.push(mapSound);
+    }
 
-        for (const event of this.eventsList) {
-          event.scene = this.map;
-          this.scene.add(event);
-        }
-      });
-
-      const sounds = data.sounds;
-      for (const sound of sounds) {
-        const mapSound = new Sound(this.scene, this.map.getListener(), sound);
-        this.soundsList.push(mapSound);
-      }
-
-      const routes = data.routes;
-      for (const route of routes) {
-        const mapRoute = new Route(route.name, route.color, this.map);
-        for (const poi of route.poi) {
-          for (const mapPoi of this.poiList) {
-            if (mapPoi.title == poi.name) {
-              mapRoute.addPoi(mapPoi);
-            }
+    const routes = data.routes;
+    for (const route of routes) {
+      const mapRoute = new Route(route.name, route.color, this.map);
+      for (const poi of route.poi) {
+        for (const mapPoi of this.poiList) {
+          if (mapPoi.title == poi.name) {
+            mapRoute.addPoi(mapPoi);
           }
         }
-        mapRoute.createRoute();
-        mapRoute.addPins();
-        this.routesList.push(mapRoute);
       }
+      mapRoute.createRoute();
+      mapRoute.addPins();
+      this.routesList.push(mapRoute);
     }
+
+    getEvents().then((data) => {
+      this.eventsList = data;
+
+      for (const event of this.eventsList) {
+        event.scene = this.map;
+        this.scene.add(event);
+      }
+    });
   }
 
   updateAnimations(cameraPosition: THREE.Vector3) {
