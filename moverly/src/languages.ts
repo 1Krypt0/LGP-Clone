@@ -1,5 +1,5 @@
 async function setLanguage(lang: string) {
-  const data = await fetch(`src/lang/${lang}.json`);
+  const data = await fetch(`/lang/${lang}.json`);
   const json_data = await data.json();
   setTexts(json_data);
 }
